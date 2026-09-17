@@ -22,12 +22,13 @@ Describe your audience and what they should learn. The engine finds current, rea
 ## See it
 
 <div align="center">
-<a href="docs/journey-assets/walkthrough-v8.mp4"><img src="docs/journey-assets/walkthrough-poster.jpg" alt="Watch the walkthrough: four stages, one workspace" width="720"></a>
 
-*Click to play the 3-minute walkthrough (opens the video in GitHub's viewer).*
+<video src="https://github.com/user-attachments/assets/e2adb25c-ceec-498e-b344-d7961cd9da24" poster="docs/journey-assets/walkthrough-poster.jpg" controls muted playsinline width="720"></video>
+
+*Jordan's Journey — the whole product in eight minutes. [Full-quality file](docs/journey-assets/walkthrough-v8.mp4) · [captions](docs/journey-assets/walkthrough-v8.vtt)*
 </div>
 
-What it covers, in order: four stages in one workspace · describe the result you want · make it yours · add presenters when you want them · create your private preview · choose the visual for each story · see your finished preview.
+Sixteen stages, in order: four stages in one workspace · describe the result you want · make it yours · add presenters when you want them · create your private preview · choose the visual for each story · see your finished preview · see the finished video variants · choose your destinations · review and publish deliberately · track delivery and audience results · follow up with your audience · see usage and cost limits · every local model with its editorial status · improve the next edition · book your demo.
 
 ## Quick start
 
