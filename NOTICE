@@ -1,11 +1,11 @@
 NOTICE
 
-AI Content Engine — original harness source is licensed under the MIT License (see LICENSE).
+News Journey — original harness source is licensed under the MIT License (see LICENSE).
 
-The MyOwnAI name, the MyOwnAI logo (docs/journey-assets/myownai-logo.png) and the MyOwnAI Labs name are
-trademarks of MyOwnAI Labs. They are NOT licensed under the MIT License and no trademark rights are granted
+The News Journey name, the MyOwnAI name, the MyOwnAI logo (docs/journey-assets/myownai-logo.png) and the
+MyOwnAI Labs name are trademarks of MyOwnAI Labs. They are NOT licensed under the MIT License and no trademark rights are granted
 by it. You may use, modify and redistribute the code under MIT, but a fork, redistribution or derived product
-must use its own name and its own mark; do not present it as MyOwnAI, and do not use the logo to suggest
-endorsement by MyOwnAI Labs. Referring to this project by name to describe the origin of the code is fine.
+must use its own name and its own mark; do not present it as News Journey or MyOwnAI, and do not use the
+logo to suggest endorsement by MyOwnAI Labs. Referring to this project by name to describe the origin of the code is fine.
 
 Third-party dependencies keep their own licenses; see THIRD_PARTY_NOTICES.md.

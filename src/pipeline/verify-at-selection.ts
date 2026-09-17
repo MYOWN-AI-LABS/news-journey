@@ -101,8 +101,8 @@ export function isUncapturableHost(url: string, hosts: string[] = []): boolean {
 function userAgent(contact?: string): string {
   const trimmed = contact?.trim();
   return trimmed
-    ? `AI Content Engine source verification (${trimmed})`
-    : "AI Content Engine source verification";
+    ? `News Journey source verification (${trimmed})`
+    : "News Journey source verification";
 }
 
 /**

@@ -89,7 +89,7 @@ export async function captureNewsletterEvidence(source: EvidenceSource, limits: 
   if (!Number.isSafeInteger(limits.timeoutMs) || limits.timeoutMs < 1 || limits.timeoutMs > 30_000 || !Number.isSafeInteger(limits.maxBytes) || limits.maxBytes < 1 || limits.maxBytes > 1_000_000) throw new Error('Evidence capture requires a 1–30000 ms timeout and a 1–1000000 byte limit');
   const observedAt = new Date().toISOString();
   try {
-    const response = await request(url, { 'User-Agent': 'AI Content Engine (newsletter evidence)', Accept: 'text/html, text/plain;q=0.9' }, limits.timeoutMs, limits.maxBytes);
+    const response = await request(url, { 'User-Agent': 'News Journey (newsletter evidence)', Accept: 'text/html, text/plain;q=0.9' }, limits.timeoutMs, limits.maxBytes);
     const bytes = Buffer.from(await response.arrayBuffer());
     if (bytes.length > limits.maxBytes) throw new Error('Evidence response exceeds its reserved byte allowance');
     const html = bytes.toString('utf8'), sha256 = textHash(bytes), text = readableWebText(html);

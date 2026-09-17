@@ -13,5 +13,5 @@ export function notify(title: string, message: string): void {
 }
 
 export function notifyDraftReady(id: string, headline: string): void {
-  notify("AI Content Engine", `Draft ready: ${headline} — npm run preview ${id}`);
+  notify("News Journey", `Draft ready: ${headline} — npm run preview ${id}`);
 }

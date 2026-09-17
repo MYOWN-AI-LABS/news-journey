@@ -18,7 +18,7 @@ These are the Free package's existing checks. Dependency installation uses packa
 
 ## Report a reproducible problem
 
-Open an issue at https://github.com/MYOWN-AI-LABS/ai-content-engine/issues. Include the release/commit, operating system, Node version, exact model and client/runtime when relevant, requested output settings, minimal steps, expected behavior and a redacted error. Distinguish a failing test, model response, generated draft and inspected final artifact. Use fictional or public source data for reproductions.
+Open an issue at https://github.com/MYOWN-AI-LABS/news-journey/issues. Include the release/commit, operating system, Node version, exact model and client/runtime when relevant, requested output settings, minimal steps, expected behavior and a redacted error. Distinguish a failing test, model response, generated draft and inspected final artifact. Use fictional or public source data for reproductions.
 
 Never include credentials, session cookies, private prompts, personal source documents, voice samples, browser state or unredacted logs in a public bug report. Report vulnerabilities through the private route in [SECURITY.md](SECURITY.md), not a public issue. No response-time guarantee is implied.
 

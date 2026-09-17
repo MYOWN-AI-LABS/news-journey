@@ -24,7 +24,7 @@ export function productTour(): void {
   const presenter = avatar.mode === "cards" ? "none (animated cards)" : `${avatar.avatarProvider ?? "heygen"} (${avatar.mode})`;
 
   console.log(`
-AI Content Engine v${pkg.version} - product tour
+News Journey v${pkg.version} - product tour
 
 CURRENT CONFIGURATION
   Platform: ${process.platform}/${process.arch}

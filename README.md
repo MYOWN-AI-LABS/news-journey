@@ -2,9 +2,11 @@
 
 <a href="https://myownailabs.com"><img src="docs/journey-assets/myownai-logo.png" alt="MyOwnAI Labs" width="340"></a>
 
-# AI Content Engine
+# News Journey
 
 ### Your sources. Your voice. A sourced newsletter and a narrated video, from one brief.
+
+*by MyOwnAI Labs*
 
 [![MIT license](https://img.shields.io/badge/license-MIT-2ea44f)](LICENSE)
 [![Node 22.13+](https://img.shields.io/badge/node-%3E%3D22.13-339933)](https://nodejs.org)
@@ -17,7 +19,7 @@
 
 ---
 
-Describe your audience and what they should learn. The engine finds current, readable sources on the topic, picks the stories, writes a fact-checked script, formats it into a newsletter, attaches each story's own photograph or a diagram, narrates it, renders a short video, and stops at a private preview for you to review. Publishing is a separate, deliberate step. Every claim in the script is pinned to the source it came from before a word is written, and the script is judged against those claims before anything is narrated or rendered.
+Describe your audience and what they should learn. News Journey finds current, readable sources on the topic, picks the stories, writes a fact-checked script, formats it into a newsletter, attaches each story's own photograph or a diagram, narrates it, renders a short video, and stops at a private preview for you to review. Publishing is a separate, deliberate step. Every claim in the script is pinned to the source it came from before a word is written, and the script is judged against those claims before anything is narrated or rendered.
 
 ## See it
 
@@ -96,7 +98,7 @@ No checkout, billing or premium pack ships in this package. Browsing the Pro opt
 
 ## After you publish
 
-Publishing is the last stage of the Journey. The engine records delivery status for each channel. Collecting reactions and comments on the published post, drafting replies for your approval, and audience analytics are built into the engine and are offered in Pro; in Free you publish and review your own delivery receipts. See [audience engagement](docs/engagement.md) for how the follow-up loop works when it is enabled.
+Publishing is the last stage of the Journey. News Journey records delivery status for each channel. Collecting reactions and comments on the published post, drafting replies for your approval, and audience analytics are built into the engine and are offered in Pro; in Free you publish and review your own delivery receipts. See [audience engagement](docs/engagement.md) for how the follow-up loop works when it is enabled.
 
 ## Verify
 
@@ -115,7 +117,7 @@ Everything stays under `workspaces/<workspace>/`: the brief, a private `.env`, r
 
 ## License and trademarks
 
-The original harness source is [MIT](LICENSE): use it, modify it, redistribute it. The MyOwnAI name and logo are trademarks of MyOwnAI Labs and are not covered by the MIT license; a fork must use its own name and mark. See [NOTICE](NOTICE). Dependencies keep their own licenses, including Remotion and the bundled fonts; see [third-party notices](THIRD_PARTY_NOTICES.md).
+The original harness source is [MIT](LICENSE): use it, modify it, redistribute it. The News Journey name, the MyOwnAI name and the MyOwnAI logo are trademarks of MyOwnAI Labs and are not covered by the MIT license; a fork must use its own name and mark. See [NOTICE](NOTICE). Dependencies keep their own licenses, including Remotion and the bundled fonts; see [third-party notices](THIRD_PARTY_NOTICES.md).
 
 To report a reproducible issue or propose a scoped patch, read [Testing and contributing](CONTRIBUTING.md).
 

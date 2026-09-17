@@ -1,5 +1,5 @@
 {
-  "name": "ai-content-engine",
+  "name": "news-journey",
   "version": "0.3.0-beta.6",
   "private": true,
   "type": "module",
@@ -104,13 +104,13 @@
   "author": "MyOwnAI Labs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MYOWN-AI-LABS/ai-content-engine.git"
+    "url": "git+https://github.com/MYOWN-AI-LABS/news-journey.git"
   },
   "engines": {
     "node": ">=22.13.0"
   },
-  "homepage": "https://github.com/MYOWN-AI-LABS/ai-content-engine#readme",
+  "homepage": "https://github.com/MYOWN-AI-LABS/news-journey#readme",
   "bugs": {
-    "url": "https://github.com/MYOWN-AI-LABS/ai-content-engine/issues"
+    "url": "https://github.com/MYOWN-AI-LABS/news-journey/issues"
   }
 }

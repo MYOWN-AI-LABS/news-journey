@@ -6,7 +6,7 @@
     "name": "MyOwnAI Labs",
     "url": "https://myownailabs.com"
   },
-  "homepage": "https://github.com/MYOWN-AI-LABS/ai-content-engine",
+  "homepage": "https://github.com/MYOWN-AI-LABS/news-journey",
   "keywords": [
     "newsletter",
     "video",
@@ -14,5 +14,5 @@
     "review-first",
     "mcp"
   ],
-  "repository": "https://github.com/MYOWN-AI-LABS/ai-content-engine"
+  "repository": "https://github.com/MYOWN-AI-LABS/news-journey"
 }

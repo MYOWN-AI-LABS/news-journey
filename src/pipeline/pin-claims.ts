@@ -49,7 +49,7 @@ export interface ClaimCandidate {
 export type ClaimJudge = (prompt: string) => Promise<PinnedClaims>;
 
 const CAPTURE_CHARS = 12_000;
-const USER_AGENT = "AI Content Engine (source verification)";
+const USER_AGENT = "News Journey (source verification)";
 
 /** Fetch and extract one page. Never throws — an unreachable page is an empty capture. */
 export async function captureForClaims(url: string, role: ClaimCapture["role"], request: typeof publicResponse = publicResponse): Promise<ClaimCapture> {
