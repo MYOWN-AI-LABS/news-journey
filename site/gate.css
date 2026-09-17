@@ -1,0 +1,23 @@
+/* Subscriber gate + subscribe form — injected into issue pages and the index. */
+.ds-gate{max-width:680px;margin:10px auto 0;padding:36px 28px;border:1px solid var(--hair,#2C2A42);border-radius:16px;
+  background:linear-gradient(180deg, rgba(var(--accentRgb,124,92,255),.12), rgba(19,18,30,.55));text-align:center;
+  box-shadow:0 -40px 70px -24px rgba(11,11,20,.95);}
+.ds-gate .ds-lock{font-size:30px;margin-bottom:6px}
+.ds-gate h3{font-family:"Fraunces",serif;font-weight:700;font-size:27px;color:#F4F2FB;margin:0 0 8px}
+.ds-gate p{color:#ABA6C4;font-size:14.5px;line-height:1.6;margin:0 auto 18px;max-width:520px}
+form.ds-sub{display:flex;gap:8px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+form.ds-sub input{flex:1;min-width:230px;padding:13px 15px;border-radius:10px;border:1px solid var(--hair,#2C2A42);
+  background:#0B0B14;color:#F4F2FB;font-size:15px;font-family:inherit}
+form.ds-sub input:focus{outline:none;border-color:var(--accent,#7C5CFF);box-shadow:0 0 0 3px rgba(var(--accentRgb,124,92,255),.25)}
+form.ds-sub button{padding:13px 24px;border-radius:10px;border:0;cursor:pointer;font-weight:700;font-size:15px;
+  background:linear-gradient(120deg,var(--accent,#7C5CFF),#5a3ff0);color:#fff;font-family:inherit}
+form.ds-sub button:hover{filter:brightness(1.09)}
+.ds-li{display:inline-block;margin-top:14px;color:#00E5FF;font-size:13.5px;text-decoration:none}
+.ds-li:hover{text-decoration:underline}
+.ds-thanks{max-width:680px;margin:10px auto 0;padding:30px;border:1px solid #2f7a4d;border-radius:16px;
+  background:rgba(34,107,58,.15);color:#8ee6ac;text-align:center;font-weight:600;font-size:16px}
+/* index subscribe band */
+.ds-band{max-width:1080px;margin:46px auto 0;padding:40px 28px;border:1px solid var(--hair,#2C2A42);border-radius:18px;
+  background:linear-gradient(180deg, rgba(var(--accentRgb,124,92,255),.14), rgba(19,18,30,.45));text-align:center}
+.ds-band h2{font-family:"Fraunces",serif;font-weight:700;font-size:32px;margin:0 0 8px;color:#F4F2FB}
+.ds-band p{color:#ABA6C4;margin:0 auto 20px;max-width:560px;font-size:15.5px;line-height:1.6}

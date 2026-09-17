@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LinkedIn writing · Free harness</title>
+<style>
+@font-face{font-family:Plex;src:url('/journey-assets/ibm-plex-sans.woff2')}@font-face{font-family:Fraunces;src:url('/journey-assets/fraunces.woff2')}
+*{box-sizing:border-box}body{margin:0;background:#0b0b14;color:#f4f2fb;font:18px/1.6 Plex,system-ui,sans-serif}main{max-width:1040px;margin:auto;padding:32px 24px 80px}h1,h2{font-family:Fraunces,Georgia,serif;line-height:1.15}h1{font-size:clamp(32px,5vw,52px)}h2{font-size:28px}a{color:#00c2ff}p,small{color:#aba6c4}section,details{background:#13121e;border:1px solid #514b66;border-radius:12px;padding:24px;margin:24px 0}label{display:block;margin:18px 0 8px}input,textarea,select,button{font:inherit}input,textarea,select{display:block;width:100%;color:inherit;background:#0b0b14;border:1px solid #766b92;border-radius:6px;padding:12px}textarea{min-height:140px;resize:vertical}button{min-height:44px;padding:10px 20px;color:#fff;background:#7c5cff;border:1px solid #9480dc;border-radius:8px;cursor:pointer}button:disabled{opacity:.6;cursor:wait}:focus-visible{outline:3px solid #00c2ff;outline-offset:3px}summary{cursor:pointer;min-height:44px}small{display:block}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.check{display:flex;gap:12px;align-items:center}.check input{width:22px;height:22px;flex:none}.secondary{background:transparent}#status{white-space:pre-wrap;padding:16px;border:1px solid #514b66;border-radius:8px}#status.error{color:#ffb3b6;border-color:#ffb3b6}#output{min-height:300px}pre{white-space:pre-wrap;overflow-wrap:anywhere}li{margin:10px 0;overflow-wrap:anywhere}[hidden]{display:none!important}@media(max-width:600px){main{padding:20px 14px}section,details{padding:18px}button{width:100%}}
+</style>
+<main>
+<a id="back" href="/journey">← Back to your publication</a>
+<h1>Write something for LinkedIn</h1>
+<p>Free tools for a single post, source, or draft. Use the writer already selected in your publication. Check the result, then copy or download it.</p>
+<p id="status" role="status" aria-live="polite">Opening your workspace…</p>
+<button id="resume" class="secondary" hidden>Check my accepted request</button>
+<section><h2>Your draft</h2>
+<form id="draftForm">
+<label for="mode">What would you like to do?</label>
+<select id="mode" name="mode"><option value="post">Write a post</option><option value="repurpose">Turn an article or newsletter into a post</option><option value="hook">Explore opening lines</option><option value="humanize">Make a draft clearer and more natural</option><option value="audit">Check a draft for factual and style issues</option><option value="profile-review">Check my profile for gaps and inconsistencies</option><option value="comment">Draft a comment on one post</option><option value="reply">Draft a reply to one comment</option><option value="ideas">Suggest topic ideas for the week</option></select>
+<label for="text">Your idea, facts, or existing draft</label>
+<textarea id="text" name="text" maxlength="20000" required placeholder="Include the facts you want to share. Personal experience should come from your own notes."></textarea>
+<label for="sourceText">Supporting material or the post you want to respond to</label>
+<textarea id="sourceText" name="sourceText" maxlength="30000" placeholder="Paste the article, newsletter, post or comment here. For a reply, include the original post and the selected comment."></textarea>
+<small>Required for comments and replies. This material is evidence to compare; the writer does not independently verify it.</small>
+<label for="sourceUrls">Source links, if you have them</label><textarea id="sourceUrls" name="sourceUrls" maxlength="12000" placeholder="One public web address per line"></textarea>
+<small>Only supplied links can appear in the output. Confirm they support the claims before sharing.</small>
+<div class="actions"><button id="generate">Prepare my draft</button></div>
+</form></section>
+<section id="result" hidden><h2 id="resultTitle">Draft for review</h2><p id="resultMeta"></p><textarea id="output" readonly aria-label="Draft output"></textarea><div class="actions"><button id="copy" class="secondary">Copy text</button><button id="download" class="secondary">Download text</button></div><ul id="notes"></ul><details><summary>Sources and claim checks</summary><pre id="evidence"></pre></details></section>
+<details id="reader"><summary>Read a public LinkedIn post (optional)</summary>
+<p>Paste the text above to work without an extra account. To fetch a public post, use your own Apify account. A post uses one provider request; comments use a second. Your provider may charge for each request.</p>
+<details><summary>Save my Apify connection</summary><form id="keyForm"><label for="apiKey">Apify API key</label><input id="apiKey" type="password" autocomplete="off" maxlength="500" required><button>Save connection</button></form><small>Your key stays in this workspace and is never included in a draft.</small></details>
+<form id="readForm"><label for="url">Public LinkedIn post address</label><input id="url" type="url" maxlength="2000" required placeholder="https://www.linkedin.com/posts/…"><label class="check"><input id="includeComments" type="checkbox">Also fetch up to 20 comments (additional provider request)</label><button>Read using my Apify account</button></form>
+<div id="contextResult" hidden><pre id="contextText"></pre><label for="selectedComment">Include a specific comment</label><select id="selectedComment"><option value="">Post only</option></select><button id="useContext" class="secondary">Use this as supporting material</button></div>
+</details>
+<details><summary>Your saved work</summary><button id="refreshSaved" class="secondary">Refresh saved drafts and sources</button><ul id="saved"></ul></details>
+<p>Pro is planned at $99/month for saved personalization, managed workflows, audience intelligence and reviewed outreach. These Free tools do not enroll you in Pro or schedule any activity.</p>
+</main>
+<script>
+const $=id=>document.getElementById(id),query=new URLSearchParams(location.search),fragment=new URLSearchParams(location.hash.slice(1));
+const workspace=query.get('workspace')||sessionStorage.getItem('workspace')||'default',token=fragment.get('token')||sessionStorage.getItem('token')||'';
+history.replaceState(null,'',location.pathname);sessionStorage.setItem('workspace',workspace);sessionStorage.setItem('token',token);$('back').href='/journey?workspace='+encodeURIComponent(workspace)+'#token='+encodeURIComponent(token);
+let draftKey='',pendingKey='',authenticated=false,busy=true,currentResult=null,context=null;
+function notice(message,error=false){$('status').textContent=message;$('status').classList.toggle('error',error)}
+function setBusy(value){busy=value;for(const button of document.querySelectorAll('button'))button.disabled=value;for(const form of ['draftForm','readForm','keyForm'])for(const input of $(form).elements)input.disabled=value;}
+async function api(path,options={}){const r=await fetch(path+(path.includes('?')?'&':'?')+'workspace='+encodeURIComponent(workspace),{...options,headers:{authorization:'Bearer '+token,...options.headers}});const data=await r.json();if(!r.ok){const error=new Error(data.error||'Request failed ('+r.status+')');error.httpStatus=r.status;throw error}return data;}
+function draft(){return{mode:$('mode').value,text:$('text').value,sourceText:$('sourceText').value,sourceUrls:$('sourceUrls').value.split(/\n/).map(x=>x.trim()).filter(Boolean)}}
+function retain(){if(authenticated)sessionStorage.setItem(draftKey,JSON.stringify(draft()))}
+function show(receipt){
+ if(receipt.kind==='context'){context=receipt.result;$('contextResult').hidden=false;$('reader').open=true;$('contextText').textContent=JSON.stringify(context,null,2);$('selectedComment').replaceChildren(new Option('Post only',''),...(context.comments||[]).map((c,i)=>new Option((c.author||'Unnamed commenter')+': '+c.text.slice(0,100),String(i))));return;}
+ currentResult=receipt.result;$('result').hidden=false;$('resultTitle').textContent=currentResult.title;$('resultMeta').textContent='Saved '+new Date(receipt.createdAt).toLocaleString()+' · Review required';
+ $('output').value=currentResult.text+(currentResult.alternatives?.length?'\n\n'+currentResult.alternatives.map(x=>x.label+'\n'+x.text).join('\n\n'):'');
+ $('notes').replaceChildren(...(currentResult.reviewNotes||[]).map(t=>{const li=document.createElement('li');li.textContent=t;return li}));$('evidence').textContent=JSON.stringify({sourceUrls:currentResult.sourceUrls,claims:currentResult.claims},null,2);
+}
+async function saved(){const rows=await api('/v1/linkedin');$('saved').replaceChildren(...rows.map(row=>{const li=document.createElement('li'),b=document.createElement('button');b.className='secondary';b.textContent=row.title+' · '+new Date(row.createdAt).toLocaleString();b.onclick=async()=>{try{show(await api('/v1/linkedin?receipt='+row.receiptId))}catch(e){notice(e.message,true)}};li.append(b);return li}));}
+async function poll(job,tracked){const clear=()=>{if(tracked){sessionStorage.removeItem(pendingKey);$('resume').hidden=true}};while(true){const row=await api('/v1/journey/jobs/'+job);if(row.status==='done'){clear();return row.result}if(row.status!=='running'){clear();throw new Error(row.error||'The request was interrupted. Your input is retained.')}await new Promise(resolve=>setTimeout(resolve,1500));}}
+async function run(operation,data){if(!authenticated||busy)return;if(operation==='linkedin-workbench'){$('result').hidden=true;currentResult=null;}if(operation==='linkedin-context'){$('contextResult').hidden=true;context=null;}setBusy(true);notice(operation==='linkedin-workbench'?'Preparing your draft with the selected writer…':operation==='linkedin-context'?'Reading the requested source…':'Saving your connection…');try{
+ const tracked=operation!=='linkedin-reader-settings';if(!tracked&&sessionStorage.getItem(pendingKey))throw new Error('Check your accepted request before changing the connection.');let pending=tracked?JSON.parse(sessionStorage.getItem(pendingKey)||'null'):null;
+ if(pending&&(pending.operation!==operation||JSON.stringify(pending.data)!==JSON.stringify(data)))throw new Error('Check your accepted request before starting another one.');
+ pending=pending||{operation,data,key:crypto.randomUUID()};if(tracked)sessionStorage.setItem(pendingKey,JSON.stringify(pending));
+ if(!pending.job){let r;try{r=await api('/v1/journey/'+operation,{method:'POST',headers:{'content-type':'application/json','idempotency-key':pending.key},body:JSON.stringify(data)})}catch(e){if(e.httpStatus>=400&&e.httpStatus<500&&tracked)sessionStorage.removeItem(pendingKey);throw e}pending.job=r.job;if(tracked)sessionStorage.setItem(pendingKey,JSON.stringify(pending));}
+ const result=await poll(pending.job,tracked);if(result.kind)show(result);notice(result.message||'Completed.');await saved();return result;
+ }catch(e){notice(e.message+' Your entries are retained.',true);$('resume').hidden=!sessionStorage.getItem(pendingKey);}finally{setBusy(false)}}
+$('draftForm').addEventListener('input',retain);$('draftForm').onsubmit=e=>{e.preventDefault();retain();run('linkedin-workbench',draft())};
+$('keyForm').onsubmit=async e=>{e.preventDefault();const key=$('apiKey').value;$('apiKey').value='';await run('linkedin-reader-settings',{apiKey:key})};
+$('readForm').onsubmit=e=>{e.preventDefault();run('linkedin-context',{url:$('url').value,provider:'apify',includeComments:$('includeComments').checked})};
+$('resume').onclick=()=>{const p=JSON.parse(sessionStorage.getItem(pendingKey)||'null');if(p)run(p.operation,p.data)};
+$('refreshSaved').onclick=()=>saved().catch(e=>notice(e.message,true));
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('output').value);notice('Copied. Check the draft before sharing.')}catch{notice('Select the draft text and copy it using your keyboard.',true)}};
+$('download').onclick=()=>{const url=URL.createObjectURL(new Blob([$('output').value],{type:'text/plain;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='linkedin-draft.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+$('useContext').onclick=()=>{if(!context)return;const selected=$('selectedComment').value,comment=selected===''?null:context.comments[Number(selected)];$('sourceText').value=['Source: '+(context.actualUrl||context.requestedUrl),'Fetched: '+context.fetchedAt,'Post by '+(context.post.author.name||'unknown author')+':',context.post.text,context.post.truncated?'Post text was truncated by the reader.':'',...(comment?['Selected comment by '+(comment.author||'unknown author')+':',comment.text,'Comment ID: '+(comment.id||'unverified'),'Parent ID: '+(comment.parentId||'unknown'),comment.truncated?'Comment text was truncated by the reader.':'']:[]),'Coverage: '+context.coverage.reason,...context.warnings].filter(Boolean).join('\n\n');for(const url of [context.requestedUrl,context.actualUrl].filter(Boolean)){if(!$('sourceUrls').value.split(/\n/).includes(url))$('sourceUrls').value+=($('sourceUrls').value?'\n':'')+url;}retain();notice('Source context added. Choose a task and check the target before drafting.');$('text').focus()};
+setBusy(true);
+(async()=>{try{
+ // Legacy entries had no actor binding and cannot safely be assigned to the current login.
+ sessionStorage.removeItem(workspace+':linkedin-input');sessionStorage.removeItem(workspace+':linkedin-request');
+ await saved(); // Authenticate before restoring any private local draft or accepted request.
+ const credentialHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(token))),byte=>byte.toString(16).padStart(2,'0')).join('');
+ draftKey=workspace+':'+credentialHash+':linkedin-input';pendingKey=workspace+':'+credentialHash+':linkedin-request';authenticated=true;
+ const input=JSON.parse(sessionStorage.getItem(draftKey)||'null');if(input){$('mode').value=input.mode;$('text').value=input.text;$('sourceText').value=input.sourceText||'';$('sourceUrls').value=(input.sourceUrls||[]).join('\n')}
+ setBusy(false);notice('Ready. Your selected writer is used only when you prepare a draft.');window.linkedinReady=true;
+ const p=JSON.parse(sessionStorage.getItem(pendingKey)||'null');if(p){$('resume').hidden=false;notice('An earlier request has a saved receipt. Check it before starting another.');if(p.job)await run(p.operation,p.data)}
+ }catch(e){notice(e.message,true)}})();
+</script></html>

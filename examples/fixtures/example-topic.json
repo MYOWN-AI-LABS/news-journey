@@ -1,0 +1,12 @@
+{
+  "id": "20260101-example-topic",
+  "kind": "news",
+  "headline": "Example: a verifiable tooling update",
+  "angle": "Explain the observable change and its practical limits.",
+  "sourceItems": [
+    "example-source"
+  ],
+  "primaryUrl": "https://example.com/source",
+  "repo": null,
+  "alternates": []
+}

@@ -1,0 +1,26 @@
+{
+  "autonomy": "review",
+  "format": "roundup",
+  "newsletterUrl": "https://example.com/newsletter",
+  "siteUrl": "https://example.com/archive",
+  "youtube": {
+    "channelUrl": "https://www.youtube.com/@example",
+    "introUrl": "https://example.com/about"
+  },
+  "topicsPerRun": 3,
+  "roundup": {
+    "minStories": 3,
+    "maxStories": 5,
+    "wordBudget": {
+      "min": 200,
+      "max": 225
+    }
+  },
+  "wordBudget": {
+    "min": 110,
+    "max": 150
+  },
+  "voice": "af_heart",
+  "ttsEngine": "kokoro",
+  "dedupWindowDays": 30
+}

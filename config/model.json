@@ -1,0 +1,46 @@
+{
+  "provider": "claude",
+  "timeoutSeconds": 300,
+  "providers": {
+    "claude": {
+      "command": "claude"
+    },
+    "codex": {
+      "command": "codex"
+    },
+    "zai": {
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "model": "glm-5.1"
+    },
+    "grok": {
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "grok-4.5",
+      "command": "grok"
+    },
+    "gemini": {
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "model": "gemini-3.8-flash"
+    },
+    "ollama": {
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "model": "choose-an-installed-model"
+    },
+    "openaiCompatible": {
+      "baseUrl": "http://127.0.0.1:8000/v1",
+      "model": "replace-with-local-model"
+    },
+    "opencode": {
+      "command": "opencode",
+      "model": "ollama/choose-an-installed-model"
+    },
+    "antigravity": {
+      "command": "agy",
+      "model": "gemini-3.8-flash-high"
+    }
+  },
+  "rescue": {
+    "enabled": false,
+    "localTimeoutSeconds": 90,
+    "maxCallsPerDay": 2
+  }
+}

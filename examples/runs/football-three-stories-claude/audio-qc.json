@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "status": "pass",
+  "method": "raw-asr-script-comparison",
+  "changes": [
+    {
+      "kind": "replace",
+      "requested": [
+        "fa"
+      ],
+      "heard": [
+        "fah"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "fa"
+      ],
+      "heard": [
+        "fah"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "gianni"
+      ],
+      "heard": [
+        "giany"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "cancelled"
+      ],
+      "heard": [
+        "canceled"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "folarin",
+        "balogun"
+      ],
+      "heard": [
+        "fuller",
+        "in",
+        "balagun"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "scrapped"
+      ],
+      "heard": [
+        "scrap"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "marr"
+      ],
+      "heard": [
+        "mar"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "an"
+      ],
+      "heard": [
+        "and"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "blew"
+      ],
+      "heard": [
+        "blue"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "carabao"
+      ],
+      "heard": [
+        "car",
+        "of",
+        "out"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "shea",
+        "lacey"
+      ],
+      "heard": [
+        "she",
+        "lacy"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "fulham"
+      ],
+      "heard": [
+        "fulem"
+      ]
+    }
+  ],
+  "blocking": [],
+  "policy": "Numeric or measurement/currency unit changes, lost negation, consecutive omissions and substantial transcript mismatch hold. Other ASR wording/name differences are warnings; this does not prove voice identity, stress, pronunciation or listening acceptance.",
+  "engine": "kokoro",
+  "voice": "af_heart"
+}

@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "status": "pass",
+  "method": "raw-asr-script-comparison",
+  "changes": [
+    {
+      "kind": "replace",
+      "requested": [
+        "paola",
+        "arlottas"
+      ],
+      "heard": [
+        "palo",
+        "arlatas"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "timepoints"
+      ],
+      "heard": [
+        "timepents"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "arlotta"
+      ],
+      "heard": [
+        "arlata"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "biorxiv"
+      ],
+      "heard": [
+        "bio",
+        "arzyv"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "biorxiv"
+      ],
+      "heard": [
+        "bio",
+        "arzyv"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "wnt"
+      ],
+      "heard": [
+        "w",
+        "and",
+        "t"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "ras"
+      ],
+      "heard": [
+        "raws"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "istand"
+      ],
+      "heard": [
+        "isd",
+        "and"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "hepatocyte"
+      ],
+      "heard": [
+        "hepatocytes"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "inventorying"
+      ],
+      "heard": [
+        "inventoring"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "contexts"
+      ],
+      "heard": [
+        "context"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "streamlined"
+      ],
+      "heard": [
+        "streamline"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "nams"
+      ],
+      "heard": [
+        "noms"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "hipsc",
+        "cm"
+      ],
+      "heard": [
+        "high",
+        "psccm"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "nam"
+      ],
+      "heard": [
+        "nom"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "authorisation"
+      ],
+      "heard": [
+        "authorization"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "decisional"
+      ],
+      "heard": [
+        "decision"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "car",
+        "t"
+      ],
+      "heard": [
+        "carti"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "ai"
+      ],
+      "heard": [
+        "a"
+      ]
+    },
+    {
+      "kind": "replace",
+      "requested": [
+        "nams"
+      ],
+      "heard": [
+        "noms"
+      ]
+    }
+  ],
+  "blocking": [],
+  "policy": "Numeric or measurement/currency unit changes, lost negation, consecutive omissions and substantial transcript mismatch hold. Other ASR wording/name differences are warnings; this does not prove voice identity, stress, pronunciation or listening acceptance.",
+  "engine": "kokoro",
+  "voice": "af_heart"
+}

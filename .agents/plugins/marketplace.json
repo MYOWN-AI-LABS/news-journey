@@ -1,0 +1,12 @@
+{
+  "name": "content-harness",
+  "interface": { "displayName": "Content Harness" },
+  "plugins": [
+    {
+      "name": "content-harness",
+      "source": { "source": "local", "path": "./plugins/content-harness" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_USE" },
+      "category": "Productivity"
+    }
+  ]
+}

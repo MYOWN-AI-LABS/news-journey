@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict><key>Label</key><string>com.example.content-harness</string><key>ProgramArguments</key><array><string>/usr/bin/env</string><string>npm</string><string>run</string><string>dry-run</string></array><key>WorkingDirectory</key><string>__PROJECT_ROOT__</string><key>StartCalendarInterval</key><dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>30</integer></dict></dict></plist>

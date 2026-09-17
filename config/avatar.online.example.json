@@ -1,0 +1,26 @@
+{
+  "mode": "hybrid",
+  "avatarProvider": "heygen",
+  "voiceProvider": "elevenlabs",
+  "disclosure": "This video uses synthetic narration and a configured digital presenter.",
+  "elevenlabs": {
+    "voiceId": "REPLACE_WITH_CONSENTED_VOICE_ID",
+    "modelId": "eleven_multilingual_v2",
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speakerBoost": true
+  },
+  "resemble": {
+    "voiceUuid": ""
+  },
+  "heygen": {
+    "avatarId": "REPLACE_WITH_CONSENTED_AVATAR_ID",
+    "background": "#F3EFE5",
+    "ratio": "9:16",
+    "presenterScale": 0.4,
+    "presenterCorner": "bottom-right",
+    "pollSeconds": 10,
+    "maxPollMinutes": 10
+  }
+}

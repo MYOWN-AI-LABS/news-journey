@@ -1,0 +1,68 @@
+{
+  "id": "20260917-roundup-roundup-2026-09-17-carrick",
+  "kind": "roundup",
+  "headline": "Roundup 2026-09-17: Carrick 'not bothered' by pressure - but should he be after this latest mess?",
+  "angle": "Stories selected using your configured order.",
+  "sourceItems": [
+    "b0d6ea2d2c3287c6a9fa039c3afaebfe0ce322b4"
+  ],
+  "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/c3x2zryzpw27o?at_medium=RSS&at_campaign=rss",
+  "repo": null,
+  "alternates": [
+    {
+      "headline": "Chelsea's Lavia out to 'change narrative' after injuries",
+      "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/cnvlr92eyldo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "stories": [
+    {
+      "n": 1,
+      "headline": "Real Madrid keen on Man Utd forward Gabriel, 15",
+      "summary": "Real Madrid have a strong interest in signing 15-year-old Manchester United forward JJ Gabriel.",
+      "weight": "lead",
+      "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/c3x2zryzpw27o?at_medium=RSS&at_campaign=rss",
+      "verifiedClaims": [
+        "Real Madrid have a strong interest in signing 15-year-old Manchester United forward JJ Gabriel.",
+        "JJ Gabriel has sent Manchester United formal notice that he wants to cancel his registration with immediate effect.",
+        "Real Madrid want to recruit JJ Gabriel immediately and position him in their reserve team, Real Madrid Castilla.",
+        "Multiple major European clubs including Barcelona, PSG, Bayern Munich, and Chelsea also have a firm interest in signing JJ Gabriel."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/c3x2zryzpw27o?at_medium=RSS&at_campaign=rss",
+          "role": "primary",
+          "status": 200,
+          "sha256": "12d81a80360166c6b63e7ead6a3c5f555c90e6370876940ac1d5ddee3e28424d",
+          "observedAt": "2026-09-17T08:04:37.110Z"
+        }
+      ],
+      "repo": null,
+      "assetRef": "og-0",
+      "suggestedScene": "news_card",
+      "principalEntity": "Real Madrid keen on Man Utd forward Gabriel, 15",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/c3x2zryzpw27o?at_medium=RSS&at_campaign=rss",
+        "claims": [
+          "Real Madrid have a strong interest in signing 15-year-old Manchester United forward JJ Gabriel.",
+          "JJ Gabriel has sent Manchester United formal notice that he wants to cancel his registration with immediate effect.",
+          "Real Madrid want to recruit JJ Gabriel immediately and position him in their reserve team, Real Madrid Castilla.",
+          "Multiple major European clubs including Barcelona, PSG, Bayern Munich, and Chelsea also have a firm interest in signing JJ Gabriel."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.bbc.co.uk/sport/football/articles/c3x2zryzpw27o?at_medium=RSS&at_campaign=rss",
+            "role": "primary",
+            "status": 200,
+            "sha256": "12d81a80360166c6b63e7ead6a3c5f555c90e6370876940ac1d5ddee3e28424d",
+            "observedAt": "2026-09-17T08:04:37.110Z"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "ok": true,
+  "attempts": [
+    {
+      "at": "2026-09-17T16:39:32.951Z",
+      "findings": [
+        {
+          "severity": "blocking",
+          "detail": "Story 3 voiceover claims United's loss to Brighton was 'their first defeat at Old Trafford in 50 years,' but the verified claim is narrower: it was the first time United lost at Old Trafford *after leading 2-0* in 50 years. Dropping the 2-0 qualifier changes the meaning to imply Old Trafford has been loss-free for 50 years, which is false and unsupported."
+        }
+      ]
+    },
+    {
+      "at": "2026-09-17T16:40:43.092Z",
+      "findings": []
+    }
+  ]
+}

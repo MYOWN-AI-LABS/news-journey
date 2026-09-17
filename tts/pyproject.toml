@@ -1,0 +1,17 @@
+[project]
+name = "tts"
+version = "0.1.0"
+description = "Cross-platform narration and Whisper word alignment for the content harness"
+# curated-tokenizers currently requires Python below 3.13.
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "mlx-audio>=0.2.0; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    "mlx-whisper>=0.4.0; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    "faster-whisper>=1.1.0; sys_platform != 'darwin' or platform_machine != 'arm64'",
+    "edge-tts>=7.0.0",
+    "imageio-ffmpeg>=0.5.1",
+    "numpy>=1.26.0",
+    "pillow>=10.0.0",
+    "soundfile>=0.12.0",
+    "misaki[en]>=0.7.0",
+]

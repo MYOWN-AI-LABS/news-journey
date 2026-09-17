@@ -1,0 +1,95 @@
+{
+  "chapters": [
+    {
+      "title": "Four stages, one workspace",
+      "start": 0.0,
+      "narrationSeconds": 27.744
+    },
+    {
+      "title": "Describe the result you want",
+      "start": 29.145,
+      "narrationSeconds": 23.52
+    },
+    {
+      "title": "Make it yours",
+      "start": 54.068000000000005,
+      "narrationSeconds": 26.688
+    },
+    {
+      "title": "Add presenters when you want them",
+      "start": 82.158,
+      "narrationSeconds": 23.829
+    },
+    {
+      "title": "Create your private preview",
+      "start": 107.39,
+      "narrationSeconds": 27.243
+    },
+    {
+      "title": "Choose the visual for each story",
+      "start": 136.035,
+      "narrationSeconds": 29.291
+    },
+    {
+      "title": "See your finished preview",
+      "start": 166.728,
+      "narrationSeconds": 22.901
+    },
+    {
+      "title": "See the finished video variants",
+      "start": 191.032,
+      "narrationSeconds": 28.981
+    },
+    {
+      "title": "Choose your destinations",
+      "start": 235.387,
+      "narrationSeconds": 24.693
+    },
+    {
+      "title": "Review and publish deliberately",
+      "start": 261.484,
+      "narrationSeconds": 31.648
+    },
+    {
+      "title": "Track delivery and audience results",
+      "start": 294.53799999999995,
+      "narrationSeconds": 29.419
+    },
+    {
+      "title": "Follow up with your audience",
+      "start": 325.359,
+      "narrationSeconds": 29.909
+    },
+    {
+      "title": "See usage and cost limits",
+      "start": 356.673,
+      "narrationSeconds": 29.536
+    },
+    {
+      "title": "Every local model, with its editorial status",
+      "start": 387.618,
+      "narrationSeconds": 32.267
+    },
+    {
+      "title": "Improve the next edition",
+      "start": 421.287,
+      "narrationSeconds": 30.411
+    },
+    {
+      "title": "Book your demo",
+      "start": 453.101,
+      "narrationSeconds": 18.923
+    }
+  ],
+  "sampleStart": 221.525,
+  "finalNarrationEnd": 472.024,
+  "minimumClosingHoldSeconds": 6.017,
+  "externalPosts": 0,
+  "samplePresenter": "Fictional, AI generated using fal credits",
+  "trainingData": [
+    "delivery receipts",
+    "audience metrics",
+    "writing costs",
+    "viewer comment and approved unsent reply"
+  ]
+}

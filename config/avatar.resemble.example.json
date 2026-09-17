@@ -1,0 +1,26 @@
+{
+  "mode": "cards",
+  "avatarProvider": "heygen",
+  "voiceProvider": "resemble",
+  "disclosure": "This video uses synthetic narration from a consented configured voice.",
+  "elevenlabs": {
+    "voiceId": "",
+    "modelId": "eleven_multilingual_v2",
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speakerBoost": true
+  },
+  "resemble": {
+    "voiceUuid": "REPLACE_WITH_CONSENTED_VOICE_UUID"
+  },
+  "heygen": {
+    "avatarId": "",
+    "background": "#F3EFE5",
+    "ratio": "9:16",
+    "presenterScale": 0.4,
+    "presenterCorner": "bottom-right",
+    "pollSeconds": 10,
+    "maxPollMinutes": 10
+  }
+}

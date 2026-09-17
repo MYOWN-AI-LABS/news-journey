@@ -1,0 +1,121 @@
+{
+  "enabledSources": [
+    "hn",
+    "githubTrending",
+    "rss"
+  ],
+  "editorial": {
+    "preferredTopics": [
+      "developer tools",
+      "reliable automation",
+      "open source software"
+    ],
+    "excludedTopics": [],
+    "selectionNotes": "Favor verifiable releases and practical engineering impact. Prefer primary sources.",
+    "areas": {
+      "mission": "Find and explain the latest verifiable tools, research, and releases in the configured focus areas, and say who they affect.",
+      "focusAreas": [
+        "developer-tooling",
+        "automation",
+        "open-source",
+        "other"
+      ],
+      "verticals": [
+        "software-engineering",
+        "data-and-analytics",
+        "operations",
+        "cross-industry",
+        "other"
+      ]
+    }
+  },
+  "hn": {
+    "queries": [
+      "developer tools",
+      "automation",
+      "open source"
+    ],
+    "minPoints": 50,
+    "windowHours": 48
+  },
+  "githubTrending": {
+    "since": [
+      "daily",
+      "weekly"
+    ],
+    "languages": [
+      "typescript",
+      "python"
+    ],
+    "relevanceKeywords": [
+      "developer tools",
+      "automation",
+      "workflow",
+      "open source"
+    ],
+    "searchFallback": {
+      "minStars": 200,
+      "createdWithinDays": 14,
+      "topics": [
+        "developer-tools"
+      ]
+    }
+  },
+  "rss": [],
+  "publicApis": {
+    "catalog": {
+      "categories": [
+        "News",
+        "Science & Math"
+      ],
+      "query": "",
+      "auth": [
+        "No"
+      ],
+      "httpsOnly": true
+    },
+    "endpoints": [
+      {
+        "id": "spaceflight-news",
+        "name": "Spaceflight News",
+        "url": "https://api.spaceflightnewsapi.net/v4/articles/?limit=20",
+        "itemPath": "results",
+        "maxItems": 20,
+        "timeoutMs": 15000,
+        "headerEnv": {},
+        "fields": {
+          "title": "title",
+          "url": "url",
+          "summary": "summary",
+          "publishedAt": "published_at"
+        }
+      },
+      {
+        "id": "launch-library-2",
+        "name": "Launch Library 2",
+        "url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=20&mode=list",
+        "canonicalUrl": "https://thespacedevs.com/llapi",
+        "itemPath": "results",
+        "maxItems": 20,
+        "timeoutMs": 15000,
+        "headerEnv": {},
+        "fields": {
+          "title": "name",
+          "url": "url",
+          "summary": "status.description",
+          "publishedAt": "net"
+        }
+      }
+    ]
+  },
+  "verification": {
+    "uncapturableHosts": [],
+    "contact": "",
+    "timeoutMs": 15000
+  },
+  "ranking": {
+    "mode": "manual",
+    "priorities": [],
+    "sourceWeights": {}
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "ok": true,
+  "attempts": [
+    {
+      "at": "2026-09-17T09:42:17.098Z",
+      "findings": [
+        {
+          "severity": "warn",
+          "detail": "Story 8, linkedinPost: \"FDA, HESI and the Safety Pharmacology Society convened a workshop\" uses past tense, asserting the event took place. The verified claims only support that FDA \"will host\" the workshop on July 28, 2026 (page current as of June 8, 2026); occurrence is not confirmed by the sources. The voiceover (\"scheduled\") and publish description (\"convene\") are fine \u2014 align the LinkedIn copy to the same non-assertive framing."
+        },
+        {
+          "severity": "warn",
+          "detail": "Story 1 voiceover: \"When cells of different ages were combined, older ones immediately made neurons normally produced 2 or 3 months later\" compresses the verified claim, dropping that the combined organoid contained cells from different donors, that it was \"exposed to chemical signals to generate new neurons,\" and that the output was \"later-stage\" neurons. The direction of the finding is preserved, but the experimental condition is material context; consider restoring the chemical-stimulation step."
+        }
+      ]
+    }
+  ]
+}

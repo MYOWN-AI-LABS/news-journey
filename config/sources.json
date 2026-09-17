@@ -1,0 +1,70 @@
+{
+  "enabledSources": [
+    "hn",
+    "githubTrending",
+    "rss"
+  ],
+  "editorial": {
+    "preferredTopics": [],
+    "excludedTopics": [],
+    "selectionNotes": "Favor verifiable primary sources and practical impact for the configured audience.",
+    "areas": {
+      "mission": "Find and explain the latest verifiable developments in the configured focus areas, and say who they affect.",
+      "focusAreas": [
+        "other"
+      ],
+      "verticals": [
+        "other"
+      ]
+    }
+  },
+  "hn": {
+    "queries": [
+      "developer tools",
+      "automation",
+      "open source"
+    ],
+    "minPoints": 50,
+    "windowHours": 48
+  },
+  "githubTrending": {
+    "since": [
+      "daily",
+      "weekly"
+    ],
+    "languages": [
+      "typescript",
+      "python"
+    ],
+    "relevanceKeywords": [
+      "developer tools",
+      "automation",
+      "workflow",
+      "open source"
+    ],
+    "searchFallback": {
+      "minStars": 200,
+      "createdWithinDays": 14,
+      "topics": [
+        "developer-tools"
+      ]
+    }
+  },
+  "rss": [],
+  "publicApis": {
+    "catalog": {
+      "categories": [],
+      "query": "",
+      "auth": [
+        "No"
+      ],
+      "httpsOnly": true
+    },
+    "endpoints": []
+  },
+  "verification": {
+    "uncapturableHosts": [],
+    "contact": "",
+    "timeoutMs": 15000
+  }
+}

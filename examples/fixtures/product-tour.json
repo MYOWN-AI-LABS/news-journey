@@ -1,0 +1,12 @@
+{
+  "id": "20260101-product-tour",
+  "kind": "news",
+  "headline": "Example: Tour the review-first content engine",
+  "angle": "Show how a user chooses sources, generates a narrated video, reviews every claim, and keeps publication as a separate decision.",
+  "sourceItems": [
+    "example-product-tour"
+  ],
+  "primaryUrl": "https://example.com/product-tour",
+  "repo": null,
+  "alternates": []
+}

@@ -1,0 +1,236 @@
+{
+  "id": "20260917-roundup-roundup-2026-09-17-fa",
+  "kind": "roundup",
+  "headline": "Roundup 2026-09-17: FA chair demands Infantino release World Cup sell-off documents",
+  "angle": "Stories selected using your configured order.",
+  "sourceItems": [
+    "018bc653425b8dd927f6e393eec27b8587ffd6b2",
+    "076c079294f418c4b90251165e44e1fbbbe47deb",
+    "1c248eb67c62f322a809fd57cd271a6b10bc0a5c"
+  ],
+  "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/ckqxvd41z93qo?at_medium=RSS&at_campaign=rss",
+  "repo": null,
+  "alternates": [
+    {
+      "headline": "Real Madrid keen on Man Utd forward Gabriel, 15",
+      "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/c3x2zryzpw27o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "headline": "Newcastle players see Jaissle's angry side - can they respond?",
+      "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/ck980pprp5n1o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "stories": [
+    {
+      "n": 1,
+      "headline": "FA chair demands Infantino release World Cup sell-off documents",
+      "summary": "Fifa president Gianni Infantino has been told to release all documents relating to his controversial plan to sell off a stake in the World Cup.",
+      "weight": "lead",
+      "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/ckqxvd41z93qo?at_medium=RSS&at_campaign=rss",
+      "verifiedClaims": [
+        "Football Association chair Debbie Hewitt sent a letter demanding that Fifa president Gianni Infantino release all documents relating to his plan to sell off a stake in the World Cup.",
+        "Debbie Hewitt is a Fifa vice-president.",
+        "Hewitt's letter said the Fifa Council should also receive a written explanation for the cancelled suspension of United States forward Folarin Balogun at the World Cup.",
+        "The letter states Infantino should make all documents available before the next Fifa Council meeting, which is on 15 October.",
+        "The letter was also sent to Fifa secretary general Mattias Grafstrom.",
+        "The letter makes accusations of failures in governance and a breakdown in culture within Fifa.",
+        "Infantino's Fifa Forward Enterprise (FFE) proposal would have created a new company to manage commercial and ticketing rights of all competitions, including World Cups, with 21% sold off to a private investment company.",
+        "The FFE proposal was scrapped following widespread opposition from national associations.",
+        "Hewitt's letter adds that there should be an independent review of how FFE was conceived, by whom, and how the private investment was put to tender.",
+        "Uefa began preparing criminal legal proceedings against Infantino at three US courts over the FFE plan last month and demanded the release of all documents.",
+        "Fifa accused Uefa of a \"smear campaign against it and its leadership\" in a challenge to the litigation.",
+        "Infantino, 56, will stand for election for a fourth time in March, with his opponents having until 18 November to find an alternative candidate.",
+        "Folarin Balogun, 25, was allowed to play against Belgium in the last 16 when he would have expected to be serving a one-match suspension.",
+        "Balogun had been shown a straight red card for a foul on defender Tarik Muharemovic in the 2-0 win over Bosnia-Herzegovina in the last 32.",
+        "Fifa said the automatic one-match ban would be suspended for a year, with no reasoning provided beyond citing a rule allowing punishments to be suspended.",
+        "The FA had sent a letter of support for Infantino's re-election before the Balogun incident.",
+        "US President Donald Trump confirmed he called Infantino asking for Balogun's ban to be reviewed.",
+        "Uefa, Concacaf and the Asian Football Confederation accused Fifa and Infantino of breaking trust \"through deception\" in an open letter last month.",
+        "National associations including England, Wales and Scotland have withdrawn letters of support for Infantino's re-election.",
+        "The confederations of Africa, South America and Oceania have reiterated their backing of Infantino.",
+        "After FFE was cancelled, Infantino called a meeting of the Fifa management board in Rabat, Morocco.",
+        "Infantino must face Hewitt and the other 35 Fifa Council members next month."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/ckqxvd41z93qo?at_medium=RSS&at_campaign=rss",
+          "role": "primary",
+          "status": 200,
+          "sha256": "b6b0758348bed7beee1d20fcb47bd12c38dc3e43090a09ef2eb8d44960688a5c",
+          "observedAt": "2026-09-17T16:36:45.049Z"
+        }
+      ],
+      "repo": null,
+      "assetRef": "og-0",
+      "suggestedScene": "news_card",
+      "principalEntity": "FA chair demands Infantino release World Cup sell-off documents",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/ckqxvd41z93qo?at_medium=RSS&at_campaign=rss",
+        "claims": [
+          "Football Association chair Debbie Hewitt sent a letter demanding that Fifa president Gianni Infantino release all documents relating to his plan to sell off a stake in the World Cup.",
+          "Debbie Hewitt is a Fifa vice-president.",
+          "Hewitt's letter said the Fifa Council should also receive a written explanation for the cancelled suspension of United States forward Folarin Balogun at the World Cup.",
+          "The letter states Infantino should make all documents available before the next Fifa Council meeting, which is on 15 October.",
+          "The letter was also sent to Fifa secretary general Mattias Grafstrom.",
+          "The letter makes accusations of failures in governance and a breakdown in culture within Fifa.",
+          "Infantino's Fifa Forward Enterprise (FFE) proposal would have created a new company to manage commercial and ticketing rights of all competitions, including World Cups, with 21% sold off to a private investment company.",
+          "The FFE proposal was scrapped following widespread opposition from national associations.",
+          "Hewitt's letter adds that there should be an independent review of how FFE was conceived, by whom, and how the private investment was put to tender.",
+          "Uefa began preparing criminal legal proceedings against Infantino at three US courts over the FFE plan last month and demanded the release of all documents.",
+          "Fifa accused Uefa of a \"smear campaign against it and its leadership\" in a challenge to the litigation.",
+          "Infantino, 56, will stand for election for a fourth time in March, with his opponents having until 18 November to find an alternative candidate.",
+          "Folarin Balogun, 25, was allowed to play against Belgium in the last 16 when he would have expected to be serving a one-match suspension.",
+          "Balogun had been shown a straight red card for a foul on defender Tarik Muharemovic in the 2-0 win over Bosnia-Herzegovina in the last 32.",
+          "Fifa said the automatic one-match ban would be suspended for a year, with no reasoning provided beyond citing a rule allowing punishments to be suspended.",
+          "The FA had sent a letter of support for Infantino's re-election before the Balogun incident.",
+          "US President Donald Trump confirmed he called Infantino asking for Balogun's ban to be reviewed.",
+          "Uefa, Concacaf and the Asian Football Confederation accused Fifa and Infantino of breaking trust \"through deception\" in an open letter last month.",
+          "National associations including England, Wales and Scotland have withdrawn letters of support for Infantino's re-election.",
+          "The confederations of Africa, South America and Oceania have reiterated their backing of Infantino.",
+          "After FFE was cancelled, Infantino called a meeting of the Fifa management board in Rabat, Morocco.",
+          "Infantino must face Hewitt and the other 35 Fifa Council members next month."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.bbc.co.uk/sport/football/articles/ckqxvd41z93qo?at_medium=RSS&at_campaign=rss",
+            "role": "primary",
+            "status": 200,
+            "sha256": "b6b0758348bed7beee1d20fcb47bd12c38dc3e43090a09ef2eb8d44960688a5c",
+            "observedAt": "2026-09-17T16:36:45.049Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 2,
+      "headline": "Sutton's predictions v legendary guitarist Johnny Marr",
+      "summary": "BBC Sport football expert Chris Sutton takes on legendary guitarist and Man City fan Johnny Marr, plus the BBC readers and AI with his predictions for this weekend's Premier League fixtures.",
+      "weight": "standard",
+      "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/c62j06np0gpo?at_medium=RSS&at_campaign=rss",
+      "verifiedClaims": [
+        "Chris Sutton is a BBC Sport football expert.",
+        "Chris Sutton is making predictions for all 380 Premier League games this season against AI, BBC Sport readers, and a variety of guests.",
+        "For week four of the predictions series, Chris Sutton takes on Johnny Marr.",
+        "Johnny Marr is a guitarist and a Manchester City fan.",
+        "Johnny Marr's new album, The Age Of Everything, is out on 2 October.",
+        "The Age of Everything is Marr's fifth full-length studio record, and his previous four have all reached the top 10 in the UK album chart.",
+        "Chris Sutton and Johnny Marr were speaking to BBC Sport's Chris Bevan.",
+        "The AI predictions were generated using Microsoft Copilot Chat, asked to 'predict this weekend's Premier League scores'.",
+        "A correct result prediction is worth 10 points and an exact score prediction earns 40 points.",
+        "Readers can pick their own scores, and the most popular scoreline selected for each game is used in the scoreboards and tables.",
+        "BBC Sport also has a Match of the Day predictor game featuring six fixtures from domestic and European competitions each week."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/c62j06np0gpo?at_medium=RSS&at_campaign=rss",
+          "role": "primary",
+          "status": 200,
+          "sha256": "b53f08e80247dfcfa5fe233f7b08975e48d8cbfde489f49d200af627904285d6",
+          "observedAt": "2026-09-17T16:36:52.771Z"
+        }
+      ],
+      "repo": null,
+      "assetRef": "og-1",
+      "suggestedScene": "news_card",
+      "principalEntity": "Sutton's predictions v legendary guitarist Johnny Marr",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/c62j06np0gpo?at_medium=RSS&at_campaign=rss",
+        "claims": [
+          "Chris Sutton is a BBC Sport football expert.",
+          "Chris Sutton is making predictions for all 380 Premier League games this season against AI, BBC Sport readers, and a variety of guests.",
+          "For week four of the predictions series, Chris Sutton takes on Johnny Marr.",
+          "Johnny Marr is a guitarist and a Manchester City fan.",
+          "Johnny Marr's new album, The Age Of Everything, is out on 2 October.",
+          "The Age of Everything is Marr's fifth full-length studio record, and his previous four have all reached the top 10 in the UK album chart.",
+          "Chris Sutton and Johnny Marr were speaking to BBC Sport's Chris Bevan.",
+          "The AI predictions were generated using Microsoft Copilot Chat, asked to 'predict this weekend's Premier League scores'.",
+          "A correct result prediction is worth 10 points and an exact score prediction earns 40 points.",
+          "Readers can pick their own scores, and the most popular scoreline selected for each game is used in the scoreboards and tables.",
+          "BBC Sport also has a Match of the Day predictor game featuring six fixtures from domestic and European competitions each week."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.bbc.co.uk/sport/football/articles/c62j06np0gpo?at_medium=RSS&at_campaign=rss",
+            "role": "primary",
+            "status": 200,
+            "sha256": "b53f08e80247dfcfa5fe233f7b08975e48d8cbfde489f49d200af627904285d6",
+            "observedAt": "2026-09-17T16:36:52.771Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "headline": "Carrick 'not bothered' by pressure - but should he be after this latest mess?",
+      "summary": "Manager Michael Carrick insists he does not feel under pressure after Manchester United's EFL Cup exit.",
+      "weight": "standard",
+      "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/cmwyzr576y9zo?at_medium=RSS&at_campaign=rss",
+      "verifiedClaims": [
+        "Manchester United manager Michael Carrick said he does not feel under pressure.",
+        "Carrick said pressure from outside 'doesn't bother me one bit' after Manchester United's Carabao Cup third-round exit against Brighton.",
+        "Manchester United lost 2-3 to Brighton at Old Trafford in the Carabao Cup (EFL Cup) third round after leading 2-0.",
+        "This was the first time Manchester United had lost at Old Trafford after leading 2-0 in 50 years.",
+        "Carrick said 'it feels bad because we haven't had a great week or two, or three weeks.'",
+        "Some Manchester United fans booed after the loss to Brighton.",
+        "Brighton manager Fabian Hurzeler said 'the longer the game went, the more we had control' and 'I thought we deserved to win.'",
+        "Carrick did not dispute Hurzeler's assessment.",
+        "Shea Lacey scored in the eighth minute on his first senior start for Manchester United, becoming the first teenager to score on his United debut since Marcus Rashford in February 2016.",
+        "Manchester United have one more game before the international break, away at Fulham on Sunday.",
+        "Former England midfielder Jamie Redknapp said on Sky Sports that Manchester United are 'miles off it' and that this weekend is a huge game for Carrick."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cmwyzr576y9zo?at_medium=RSS&at_campaign=rss",
+          "role": "primary",
+          "status": 200,
+          "sha256": "7be1bca5c9abb5476f6d82f2c832ccbbcac379752b2bcd85a0bb05fb98dba316",
+          "observedAt": "2026-09-17T16:36:59.399Z"
+        }
+      ],
+      "repo": null,
+      "assetRef": "og-2",
+      "suggestedScene": "news_card",
+      "principalEntity": "Carrick 'not bothered' by pressure - but should he be after this latest mess?",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.bbc.co.uk/sport/football/articles/cmwyzr576y9zo?at_medium=RSS&at_campaign=rss",
+        "claims": [
+          "Manchester United manager Michael Carrick said he does not feel under pressure.",
+          "Carrick said pressure from outside 'doesn't bother me one bit' after Manchester United's Carabao Cup third-round exit against Brighton.",
+          "Manchester United lost 2-3 to Brighton at Old Trafford in the Carabao Cup (EFL Cup) third round after leading 2-0.",
+          "This was the first time Manchester United had lost at Old Trafford after leading 2-0 in 50 years.",
+          "Carrick said 'it feels bad because we haven't had a great week or two, or three weeks.'",
+          "Some Manchester United fans booed after the loss to Brighton.",
+          "Brighton manager Fabian Hurzeler said 'the longer the game went, the more we had control' and 'I thought we deserved to win.'",
+          "Carrick did not dispute Hurzeler's assessment.",
+          "Shea Lacey scored in the eighth minute on his first senior start for Manchester United, becoming the first teenager to score on his United debut since Marcus Rashford in February 2016.",
+          "Manchester United have one more game before the international break, away at Fulham on Sunday.",
+          "Former England midfielder Jamie Redknapp said on Sky Sports that Manchester United are 'miles off it' and that this weekend is a huge game for Carrick."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.bbc.co.uk/sport/football/articles/cmwyzr576y9zo?at_medium=RSS&at_campaign=rss",
+            "role": "primary",
+            "status": 200,
+            "sha256": "7be1bca5c9abb5476f6d82f2c832ccbbcac379752b2bcd85a0bb05fb98dba316",
+            "observedAt": "2026-09-17T16:36:59.399Z"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<!--
+  Your own newsletter shell. Copy this file to <your workspace>/branding/newsletter.html and change anything
+  you like: markup, CSS, your own scripts, your own header and footer. The harness only fills the
+  {{placeholders}} below and never edits the rest. Placeholders (see docs/branding.md):
+    text (HTML-escaped): title publication author organization tagline website footer date issueNo readMinutes subject coveredWeek
+    html (complete markup): logo video lead items radar signals styles scripts
+  Leave out any placeholder you do not want. {{styles}} carries the harness's story-visual CSS and theme
+  variables; {{scripts}} carries the audio player and transcript. Both are optional.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{title}}</title>
+{{styles}}
+<style>
+  /* Your CSS wins: it comes after the harness styles. */
+  body { font-family: Georgia, serif; }
+  .my-header { display: flex; align-items: center; gap: 16px; border-bottom: 3px solid var(--accent); padding-bottom: 12px; }
+  .my-header h1 { font-size: 34px; margin: 0; }
+  .my-footer { margin-top: 40px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="my-header">
+    {{logo}}
+    <div>
+      <h1>{{publication}}</h1>
+      <div>{{organization}} · {{tagline}}</div>
+      <div>Issue {{issueNo}} · {{date}} · {{readMinutes}} min read</div>
+    </div>
+  </header>
+
+  {{video}}
+  {{lead}}
+  {{items}}
+  {{radar}}
+  {{signals}}
+
+  <footer class="my-footer">
+    <p>Written by {{author}} for {{organization}}. <a href="{{website}}">{{website}}</a></p>
+    <p>{{footer}}</p>
+    <p>Covered this week: {{coveredWeek}}</p>
+  </footer>
+</div>
+{{scripts}}
+</body>
+</html>

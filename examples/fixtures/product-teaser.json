@@ -1,0 +1,12 @@
+{
+  "id": "20260101-product-teaser",
+  "kind": "news",
+  "headline": "Example: From sourced signal to reviewed video",
+  "angle": "Create a concise teaser showing configurable discovery, sourced narration, local or provider-backed media, and an explicit human review gate.",
+  "sourceItems": [
+    "example-product-teaser"
+  ],
+  "primaryUrl": "https://example.com/product-teaser",
+  "repo": null,
+  "alternates": []
+}

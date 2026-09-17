@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "ok": true,
+  "attempts": [
+    {
+      "at": "2026-09-17T08:05:26.910Z",
+      "findings": [
+        {
+          "severity": "blocking",
+          "detail": "The voiceover states 'The BBC confirms that Gabriel's formal notice... has alerted European football's top teams', violating the rule that a report is not confirmation and making an unverified causal claim that the notice alerted top teams."
+        },
+        {
+          "severity": "blocking",
+          "detail": "The motion status is set to 'announced', which is an unverified maturity label as no transfer or move has been announced."
+        },
+        {
+          "severity": "blocking",
+          "detail": "The motion how field states 'Player cancels Manchester United registration', dropping the material qualifier that Gabriel sent notice that he wants to cancel his registration."
+        },
+        {
+          "severity": "blocking",
+          "detail": "The voiceover claims Gabriel 'has triggered intense interest', making an unverified causal claim and overstating the verified 'firm interest'."
+        }
+      ]
+    },
+    {
+      "at": "2026-09-17T08:05:54.571Z",
+      "findings": []
+    }
+  ]
+}

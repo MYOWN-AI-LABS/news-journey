@@ -1,0 +1,167 @@
+{
+  "hook": "Human brain organoids sustained more than 5 years.",
+  "body": [
+    {
+      "voiceover": "Harvard reports that Paola Arlotta's lab sustained human brain organoids more than 5 years \u2014 3 times the previous record of 694 days \u2014 in findings published in Nature. The team examined 34 organoids at 8 timepoints. When cells of different ages were combined, older ones immediately made neurons normally produced 2 or 3 months later. They concluded the cells retain a memory of steps already performed. Arlotta called it a proof of principle.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "Five-year human brain organoids",
+        "stat": "694 days before",
+        "sub": "Arlotta lab, published in Nature"
+      },
+      "assetRef": "og-0",
+      "motion": {
+        "who": "Paola Arlotta's lab at Harvard",
+        "what": "Human brain organoids sustained in culture more than 5 years, past the 694-day record",
+        "how": "34 organoids sampled by single-cell RNA sequencing at 8 timepoints; cells of different ages combined in one organoid",
+        "impact": "Older progenitors immediately made later-stage neurons, which the researchers read as a memory of developmental steps already performed",
+        "status": "shipped",
+        "kind": "memory"
+      }
+    },
+    {
+      "voiceover": "A bioRxiv preprint describes ProteinTalks, a neural ordinary differential equation foundation model built from over 38 million perturbed protein measurements in breast cancer cell lines. The authors report it predicts drug efficacy and synergy, flags resistance-associated proteins, and offers a basis for virtual cells.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "ProteinTalks models protein network dynamics",
+        "stat": "38M measurements",
+        "sub": "bioRxiv preprint"
+      },
+      "assetRef": "og-1",
+      "motion": {
+        "who": "Rui Sun, Tiannan Guo and colleagues",
+        "what": "ProteinTalks, a neural ordinary differential equation foundation model for virtual cell construction",
+        "how": "Pretrained on over 38 million perturbed protein measurements generated in breast cancer cell lines",
+        "impact": "Authors report predicted drug efficacy and synergy, resistance-associated proteins, and xenograft drug responses",
+        "status": "preprint",
+        "kind": "flow"
+      }
+    },
+    {
+      "voiceover": "Also on bioRxiv, Oxford researchers posted SPOT, a shape, appearance and motion phenotype tool. They report applying it to over 1.6 million organoid instances, and that altered WNT signaling \u2014 not mutant RAS or p53 \u2014 predisposes intestinal organoids to irregular morphogenesis.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "SPOT reads organoid morpho-dynamics",
+        "stat": "1.6M organoids",
+        "sub": "bioRxiv preprint, patent pending"
+      },
+      "assetRef": "og-2",
+      "motion": {
+        "who": "Felix Y. Zhou, Xin Lu and colleagues",
+        "what": "Shape-Appearance-Motion phenome plus SPOT, described as an image-transcriptome and its analyzer",
+        "how": "Applied to a simulated organoid database with known ground-truth and over 1.6 million mouse and human organoid instances from 2D projection videos",
+        "impact": "With single-cell RNA sequencing, altered WNT signaling, not mutant RAS or p53, predisposed intestinal organoids to irregular morphogenesis",
+        "status": "preprint",
+        "kind": "compress"
+      }
+    },
+    {
+      "voiceover": "Turning to regulators: Emulate announced it submitted its full FDA ISTAND qualification package for the Human Liver-Chip, covering drug-induced liver injury. It cites reproducibility across 3 laboratories and 3 hepatocyte donors. Qualification, Emulate says, would set a regulatory precedent.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "Liver-Chip enters final ISTAND stage",
+        "stat": "3 labs, 3 donors",
+        "sub": "Emulate announcement"
+      },
+      "assetRef": "og-3",
+      "motion": {
+        "who": "Emulate, Inc.",
+        "what": "Full FDA ISTAND qualification package submitted for the Human Liver-Chip as a drug development tool for drug-induced liver injury assessment",
+        "how": "Data from the Zo\u00eb Culture Module plus, for the first time in the process, the AVA Emulation System",
+        "impact": "Emulate says qualification would set a regulatory precedent for Organ-on-a-Chip liver toxicity testing",
+        "status": "announced",
+        "kind": "device"
+      }
+    },
+    {
+      "voiceover": "CDER publishes a table inventorying drug development contexts where it's open to streamlined nonclinical programs, including NAMs. For anticancer drugs warranting QT assessment, it says hiPSC-CM studies following best practices can replace an animal study. Sponsors are encouraged to discuss proposals.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "CDER lists streamlined nonclinical contexts",
+        "stat": "hiPSC-CM for QT",
+        "sub": "FDA CDER page"
+      },
+      "assetRef": "og-4",
+      "motion": {
+        "who": "FDA Center for Drug Evaluation and Research",
+        "what": "Inventory table of drug development contexts open to streamlined nonclinical programs, including NAMs use",
+        "how": "Categories span safety pharmacology, general toxicity, carcinogenicity, DART and screens; 505(b)(2), generic and biosimilar pathways excluded",
+        "impact": "For anticancer pharmaceuticals warranting QT assessment, hiPSC-CM studies following best practices can stand in for an animal study",
+        "status": "announced",
+        "kind": "flow"
+      }
+    },
+    {
+      "voiceover": "In Europe, EMA says it launched a voluntary pilot letting companies, CROs and academic labs submit NAM data outside a marketing authorisation application, with non-binding, non-decisional feedback. Submissions run until the third quarter of 2027, then a lessons-learned report.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "EMA opens voluntary NAM data pilot",
+        "stat": "Open to Q3 2027",
+        "sub": "Non-binding feedback"
+      },
+      "assetRef": "og-5",
+      "motion": {
+        "who": "European Medicines Agency",
+        "what": "Voluntary data submission pilot for New Approach Methodologies data",
+        "how": "Companies, method developers, CROs and academic labs apply, then submit a briefing package assessed by an operational expert group of non-clinical experts",
+        "impact": "Participants get individual, non-binding, non-decisional feedback; EMA will publish a lessons-learned report at the end",
+        "status": "announced",
+        "kind": "flow"
+      }
+    },
+    {
+      "voiceover": "NIH's Common Fund announced 20 Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize, run with NASA's Tournament Lab. They include CAR-T immunotherapy clinical trials on a chip and AI-integrated human skin immune organoids, all eligible for Phase 2.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "Complement-ARIE names Phase 1 winners",
+        "stat": "20 winners",
+        "sub": "NIH Common Fund"
+      },
+      "assetRef": "og-6",
+      "motion": {
+        "who": "NIH Common Fund Complement-ARIE program with NASA's Tournament Lab",
+        "what": "20 Phase 1 winners of the Reduction to Practice Challenge Prize, eligible for Phase 2",
+        "how": "Submissions needed a clear intended use plus a plan to reach usable form within the challenge timeframe",
+        "impact": "Aims at combinatorial NAM platforms that can be submitted to the Validation and Qualification Network managed by the Foundation for NIH",
+        "status": "announced",
+        "kind": "flow"
+      }
+    },
+    {
+      "voiceover": "And finally, FDA, HESI and the Safety Pharmacology Society scheduled a hybrid workshop on ICH S7A and NAMs in safety pharmacology, aiming to build consensus to reopen the guideline. FDA says it won't change guidelines, but will shape future policy.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "Workshop targets ICH S7A revision",
+        "stat": "Consensus to reopen",
+        "sub": "FDA, HESI, SPS"
+      },
+      "assetRef": "og-7",
+      "motion": {
+        "who": "FDA with the Health and Environmental Sciences Institute and the Safety Pharmacology Society",
+        "what": "Hybrid public workshop on ICH S7A and NAMs in safety pharmacology",
+        "how": "One-day exchange of real-world case studies between regulators and industry to define discipline-specific NAM use cases for S7A",
+        "impact": "FDA says it will not change ICH guidelines directly, but the exchange will be pivotal in shaping future regulatory policy",
+        "status": "announced",
+        "kind": "flow"
+      }
+    }
+  ],
+  "cta": "Subscribe for sourced reporting.",
+  "publish": {
+    "title": "Five-year brain organoids, a virtual cell model, and regulators opening the door",
+    "description": "Harvard reports organoids sustained more than 5 years, 3 times the 694-day record, published in Nature (Harvard FAS). ProteinTalks, a neural ODE foundation model from over 38 million perturbed protein measurements (bioRxiv preprint). SPOT characterizes morpho-dynamics across over 1.6 million organoid instances and links irregular morphogenesis to altered WNT signaling (bioRxiv preprint). Emulate submits its full FDA ISTAND package for the Human Liver-Chip for drug-induced liver injury (Emulate press release). CDER's table lists contexts open to streamlined nonclinical programs, including hiPSC-CM studies in place of an animal QT study (FDA CDER). EMA launches a voluntary, non-binding NAM data submission pilot open to the third quarter of 2027 (EMA news). NIH Common Fund names 20 Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize with NASA's Tournament Lab (NIH Common Fund). FDA, HESI and the Safety Pharmacology Society convene a hybrid workshop aiming at consensus to reopen ICH S7A (FDA).\n\n\ud83d\udcf0 Full written briefing \u2014 Selected Developments in NAMs: https://example.com/newsletter\n\n\ud83c\udfa5 Selected Developments in NAMs (YouTube): https://www.youtube.com/@example\nChannel intro: https://example.com/about\n\nDisclosure: produced with an automated editorial workflow; review every source before publication.",
+    "hashtags": [
+      "#NAMs",
+      "#organoids",
+      "#OrganOnAChip",
+      "#DILI",
+      "#regulatoryscience",
+      "#proteomics",
+      "#virtualcell",
+      "#3Rs"
+    ],
+    "linkedinPost": "Today's briefing: Harvard reports human brain organoids sustained more than 5 years, 3 times the 694-day record, with older cells skipping ahead developmentally; two bioRxiv preprints add computational muscle, ProteinTalks from over 38 million perturbed protein measurements and SPOT across more than 1.6 million organoid instances, where altered WNT signaling rather than mutant RAS or p53 predisposed intestinal organoids to irregular morphogenesis.\nOn the regulatory side, Emulate says it submitted its full FDA ISTAND qualification package for the Human Liver-Chip for drug-induced liver injury, CDER's table names contexts open to streamlined nonclinical programs including hiPSC-CM studies in place of an animal QT study, and EMA opened a non-binding voluntary NAM data submission pilot running to the third quarter of 2027.\nAlso: NIH Common Fund named 20 Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize, and FDA, HESI and the Safety Pharmacology Society convened a workshop aimed at building consensus to reopen ICH S7A.\n\n\ud83d\udcf0 Selected Developments in NAMs (full written briefing): https://example.com/newsletter\n\n\ud83c\udfa5 Selected Developments in NAMs (YouTube): https://www.youtube.com/@example\nChannel intro: https://example.com/about\n\nDisclosure: produced with an automated editorial workflow; review every source before publication."
+  },
+  "intro": "This is Selected Developments in NAMs.",
+  "fullVoiceoverText": "Human brain organoids sustained more than 5 years. This is Selected Developments in NAMs. Harvard reports that Paola Arlotta's lab sustained human brain organoids more than 5 years \u2014 3 times the previous record of 694 days \u2014 in findings published in Nature. The team examined 34 organoids at 8 timepoints. When cells of different ages were combined, older ones immediately made neurons normally produced 2 or 3 months later. They concluded the cells retain a memory of steps already performed. Arlotta called it a proof of principle. A bioRxiv preprint describes ProteinTalks, a neural ordinary differential equation foundation model built from over 38 million perturbed protein measurements in breast cancer cell lines. The authors report it predicts drug efficacy and synergy, flags resistance-associated proteins, and offers a basis for virtual cells. Also on bioRxiv, Oxford researchers posted SPOT, a shape, appearance and motion phenotype tool. They report applying it to over 1.6 million organoid instances, and that altered WNT signaling \u2014 not mutant RAS or p53 \u2014 predisposes intestinal organoids to irregular morphogenesis. Turning to regulators: Emulate announced it submitted its full FDA ISTAND qualification package for the Human Liver-Chip, covering drug-induced liver injury. It cites reproducibility across 3 laboratories and 3 hepatocyte donors. Qualification, Emulate says, would set a regulatory precedent. CDER publishes a table inventorying drug development contexts where it's open to streamlined nonclinical programs, including NAMs. For anticancer drugs warranting QT assessment, it says hiPSC-CM studies following best practices can replace an animal study. Sponsors are encouraged to discuss proposals. In Europe, EMA says it launched a voluntary pilot letting companies, CROs and academic labs submit NAM data outside a marketing authorisation application, with non-binding, non-decisional feedback. Submissions run until the third quarter of 2027, then a lessons-learned report. NIH's Common Fund announced 20 Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize, run with NASA's Tournament Lab. They include CAR-T immunotherapy clinical trials on a chip and AI-integrated human skin immune organoids, all eligible for Phase 2. And finally, FDA, HESI and the Safety Pharmacology Society scheduled a hybrid workshop on ICH S7A and NAMs in safety pharmacology, aiming to build consensus to reopen the guideline. FDA says it won't change guidelines, but will shape future policy. Subscribe for sourced reporting."
+}

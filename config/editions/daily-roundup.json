@@ -1,0 +1,14 @@
+{
+  "editionId": "daily-roundup",
+  "displayName": "Example Briefing",
+  "newsletterTitle": "Example Signal",
+  "badge": "BETA",
+  "videoAccent": "#008C86",
+  "coverFile": "examples/assets/placeholder-cover.svg",
+  "newsletterLine": "EXAMPLE SIGNAL — REVIEW BEFORE PUBLISHING",
+  "wordBudget": null,
+  "speedFactor": 1,
+  "cadence": null,
+  "prompt": "Select well-sourced developer tooling and reliable automation updates. Avoid unsupported claims.",
+  "source": "harvest"
+}

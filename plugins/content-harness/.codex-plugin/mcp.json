@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "content-harness": {
+      "command": "node",
+      "args": ["bin/serve.mjs"],
+      "cwd": ".",
+      "env": { "CONTENT_HARNESS_AGENT": "codex" }
+    }
+  }
+}

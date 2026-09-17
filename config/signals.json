@@ -1,0 +1,13 @@
+{
+  "reddit": {
+    "enabled": false
+  },
+  "linkedin": {
+    "enabled": false
+  },
+  "x": {
+    "enabled": false
+  },
+  "providerBudgetMs": 30000,
+  "cacheHours": 6
+}

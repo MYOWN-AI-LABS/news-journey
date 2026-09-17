@@ -1,0 +1,586 @@
+{
+  "id": "20260917-roundup-selected-developments-in-nams-2",
+  "kind": "roundup",
+  "headline": "Selected Developments in NAMs: five-year brain organoids, a virtual cell, and regulators opening the door",
+  "angle": "For each development: what was shown or decided, by whom, its context of use, the evidence status, and what it means for the adoption of New Approach Methodologies in research, safety assessment and regulatory science.",
+  "sourceItems": [],
+  "primaryUrl": "https://current.fas.harvard.edu/stories/lab-grown-brain-organoids-set-longevity-record",
+  "repo": null,
+  "alternates": [],
+  "stories": [
+    {
+      "n": 1,
+      "headline": "Lab-grown brain organoids set a longevity record and retain a memory of their own development",
+      "summary": "Harvard stem cell scientists reported a new record for sustaining human brain organoids: the cell cultures were kept for more than five years, three times longer than the previous record of 694 days, and replicated the developmental stages of human brain cells. As organoids age, the researchers reported, they retain a memory of the developmental steps already performed. The paper, from the lab of Paola Arlotta, was published in Nature.",
+      "weight": "lead",
+      "primaryUrl": "https://current.fas.harvard.edu/stories/lab-grown-brain-organoids-set-longevity-record",
+      "repo": null,
+      "assetRef": "og-0",
+      "suggestedScene": "news_card",
+      "principalEntity": "Paola Arlotta laboratory, Harvard",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "Harvard neuroscientists in the lab of Paola Arlotta reported that lab-grown human brain organoids were sustained in culture for more than five years, three times longer than the previous record.",
+        "The findings were published this week in Nature, according to a Harvard Faculty of Arts and Sciences article dated Aug. 19, 2026.",
+        "Paola Arlotta, the Golub Family Professor of Stem Cell and Regenerative Biology at Harvard, is the senior author of the new paper.",
+        "The previous record for the oldest organoid was 694 days and was reported in 2021 by a team of researchers at UCLA and Stanford.",
+        "Each peppercorn-sized organoid contained more than 1 million cerebral cortex cells derived from human donors.",
+        "The team examined 34 organoids and monitored them with single-cell RNA sequencing at eight timepoints between six months and five years.",
+        "Combined with previous research, the researchers gathered data on 110 organoids and nearly 425,000 individual cells.",
+        "The researchers found that organoid cells faithfully modeled the molecular developmental sequence of human brains during gestation and the first years of life.",
+        "DNA methylation, used as an age clock, showed that the lab-grown organoids replicated the same steps documented in human brains.",
+        "When cells of different ages and from different donors were combined into a single organoid and exposed to chemical signals to generate new neurons, younger progenitors produced early-stage cells while older ones immediately made later-stage neurons normally produced two or three months later.",
+        "The researchers concluded that the organoid brain cells recorded the passage of time and retain a memory of the developmental steps already performed.",
+        "Arlotta said the team was a little bit shocked by the results and called the effect a 'time warp' of development in which the cells skip ahead.",
+        "The study was spearheaded by two former postdoctoral fellows in the Arlotta lab, Irene Faravelli and Noelia Ant\u00f3n-Bola\u00f1os, who are the lead authors.",
+        "Ant\u00f3n-Bola\u00f1os is now an assistant professor at the University Medical Center Utrecht, and Faravelli is now an assistant professor at the University of Milan.",
+        "The same pair published a paper two years ago describing the production of human brain 'chimeroids,' aggregates of brain cells derived from multiple donors, and the same technique was used in the new study.",
+        "To improve cell survival, the investigators used a liquid medium designed to promote spontaneous electrical signaling and added an amino acid supplement as an auxiliary energy source.",
+        "Within nine months the organoid neurons increased in number and formed denser synapses, and after one year all organoids in the new medium showed vigorous bursts of electrical activity while none in the other medium did.",
+        "The researchers documented this electrical activity for two years.",
+        "The lab now has some organoids that are seven years old, but there are no plans to continue culturing them for the sake of setting a new longevity record.",
+        "Arlotta said the work is a proof of principle and that the team now has to figure out how to make development happen faster.",
+        "Arlotta is also a principal faculty member at the Harvard Stem Cell Institute and a member at the Broad Institute of Harvard and MIT.",
+        "The research described in the story received federal funding from the National Institutes of Health under grants including RF1MH123977, R01MH112940 and R01AG087374."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://current.fas.harvard.edu/stories/lab-grown-brain-organoids-set-longevity-record",
+          "role": "primary",
+          "status": 200,
+          "sha256": "35207ad39b2d557976f1241483b2fa2f6fb713dfd4ad9e1981bb23ebaebc30f8",
+          "observedAt": "2026-09-17T09:21:20.081Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://current.fas.harvard.edu/stories/lab-grown-brain-organoids-set-longevity-record",
+        "claims": [
+          "Harvard neuroscientists in the lab of Paola Arlotta reported that lab-grown human brain organoids were sustained in culture for more than five years, three times longer than the previous record.",
+          "The findings were published this week in Nature, according to a Harvard Faculty of Arts and Sciences article dated Aug. 19, 2026.",
+          "Paola Arlotta, the Golub Family Professor of Stem Cell and Regenerative Biology at Harvard, is the senior author of the new paper.",
+          "The previous record for the oldest organoid was 694 days and was reported in 2021 by a team of researchers at UCLA and Stanford.",
+          "Each peppercorn-sized organoid contained more than 1 million cerebral cortex cells derived from human donors.",
+          "The team examined 34 organoids and monitored them with single-cell RNA sequencing at eight timepoints between six months and five years.",
+          "Combined with previous research, the researchers gathered data on 110 organoids and nearly 425,000 individual cells.",
+          "The researchers found that organoid cells faithfully modeled the molecular developmental sequence of human brains during gestation and the first years of life.",
+          "DNA methylation, used as an age clock, showed that the lab-grown organoids replicated the same steps documented in human brains.",
+          "When cells of different ages and from different donors were combined into a single organoid and exposed to chemical signals to generate new neurons, younger progenitors produced early-stage cells while older ones immediately made later-stage neurons normally produced two or three months later.",
+          "The researchers concluded that the organoid brain cells recorded the passage of time and retain a memory of the developmental steps already performed.",
+          "Arlotta said the team was a little bit shocked by the results and called the effect a 'time warp' of development in which the cells skip ahead.",
+          "The study was spearheaded by two former postdoctoral fellows in the Arlotta lab, Irene Faravelli and Noelia Ant\u00f3n-Bola\u00f1os, who are the lead authors.",
+          "Ant\u00f3n-Bola\u00f1os is now an assistant professor at the University Medical Center Utrecht, and Faravelli is now an assistant professor at the University of Milan.",
+          "The same pair published a paper two years ago describing the production of human brain 'chimeroids,' aggregates of brain cells derived from multiple donors, and the same technique was used in the new study.",
+          "To improve cell survival, the investigators used a liquid medium designed to promote spontaneous electrical signaling and added an amino acid supplement as an auxiliary energy source.",
+          "Within nine months the organoid neurons increased in number and formed denser synapses, and after one year all organoids in the new medium showed vigorous bursts of electrical activity while none in the other medium did.",
+          "The researchers documented this electrical activity for two years.",
+          "The lab now has some organoids that are seven years old, but there are no plans to continue culturing them for the sake of setting a new longevity record.",
+          "Arlotta said the work is a proof of principle and that the team now has to figure out how to make development happen faster.",
+          "Arlotta is also a principal faculty member at the Harvard Stem Cell Institute and a member at the Broad Institute of Harvard and MIT.",
+          "The research described in the story received federal funding from the National Institutes of Health under grants including RF1MH123977, R01MH112940 and R01AG087374."
+        ],
+        "revisions": [
+          {
+            "url": "https://current.fas.harvard.edu/stories/lab-grown-brain-organoids-set-longevity-record",
+            "role": "primary",
+            "status": 200,
+            "sha256": "35207ad39b2d557976f1241483b2fa2f6fb713dfd4ad9e1981bb23ebaebc30f8",
+            "observedAt": "2026-09-17T09:21:20.081Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 2,
+      "headline": "ProteinTalks: a perturbation proteomics-based foundation model for virtual cell construction",
+      "summary": "In a bioRxiv preprint titled 'A perturbation proteomics-based foundation model for virtual cell construction', posted February 10, 2025, Rui Sun, Liujia Qian, Tiannan Guo and colleagues generate a large-scale dataset of over 38 million perturbed protein measurements in breast cancer cell lines and develop a neural ordinary differential equation-based foundation model, named ProteinTalks. The authors write that building a virtual cell requires comprehensive understanding of protein network dynamics of a cell, which necessitates large-scale perturbation proteome data and intelligent computational models learned from the proteome data corpus. During pretraining, ProteinTalks gains a fundamental understanding of cellular protein network dynamics, and the model exhibits consistently improved predictive accuracy across various downstream tasks. In cancer cells, ProteinTalks robustly predicts drug efficacy and synergy, identifies novel drug combinations, and, through its interpretability, uncovers resistance-associated proteins; applied to patient-derived tumor xenografts, it predicts potential responses to drugs, and its integration with clinical patient data enhances the prognosis prediction of breast cancer patients. The competing interest statement notes that T.G. and Y.Z. are shareholders of Westlake Omics Inc.",
+      "weight": "standard",
+      "primaryUrl": "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v1",
+      "repo": null,
+      "assetRef": "og-1",
+      "suggestedScene": "news_card",
+      "principalEntity": "ProteinTalks (Sun, Qian, Guo and colleagues)",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "A bioRxiv preprint titled 'A perturbation proteomics-based foundation model for virtual cell construction' was posted on February 10, 2025, with the DOI 10.1101/2025.02.07.637070.",
+        "The preprint's authors are Rui Sun, Liujia Qian, Yongge Li, Honghan Cheng, Zhangzhi Xue, Xuedong Zhang, Lingling Tan, Yuecheng Zhan, Wenbin Hu, Qi Xiao, Zhiwei Liu, Guangmei Zhang, E Weinan, Peijie Zhou, Han Wen, Yi Zhu and Tiannan Guo, with Rui Sun listed first and Tiannan Guo listed last.",
+        "The corresponding authors are Tiannan Guo, Yi Zhu and Han Wen.",
+        "Several of the authors are affiliated with Westlake University in Hangzhou, Zhejiang Province, China, including its School of Medicine, the State Key Laboratory of Medical Proteomics and the Research Center for Industries of the Future, as well as the Westlake Center for Intelligent Proteomics at Westlake Laboratory of Life Sciences and Biomedicine.",
+        "Other authors are affiliated with DP Technology Co., Ltd. in Beijing, Westlake Omics Co., Ltd. in Hangzhou, the AI for Science Institute in Beijing, and Peking University.",
+        "The abstract states that building a virtual cell requires comprehensive understanding of protein network dynamics of a cell, which necessitates large-scale perturbation proteome data and intelligent computational models learned from the proteome data corpus.",
+        "The authors report generating a large-scale dataset of over 38 million perturbed protein measurements in breast cancer cell lines.",
+        "The authors report developing a neural ordinary differential equation-based foundation model named ProteinTalks.",
+        "The abstract states that during pretraining ProteinTalks gains a fundamental understanding of cellular protein network dynamics.",
+        "The abstract states that the model encodes protein networks and exhibits consistently improved predictive accuracy across various downstream tasks, which the authors say highlights its generalization capabilities and adaptability.",
+        "The abstract states that in cancer cells ProteinTalks robustly predicts drug efficacy and synergy, identifies novel drug combinations, and through its interpretability uncovers resistance-associated proteins.",
+        "The abstract states that when applied to patient-derived tumor xenografts, described as a more complex system, ProteinTalks predicts potential responses to drugs.",
+        "The abstract states that integrating ProteinTalks with clinical patient data enhances the prognosis prediction of breast cancer patients.",
+        "The authors describe the work as a foundational model based on proteome dynamics that offers potential for downstream applications including drug discovery and provides a basis for developing virtual cells.",
+        "The competing interest statement says that T.G. and Y.Z. are shareholders of Westlake Omics Inc., that L.T., Y.Z. and W.H. are employees of Westlake Omics Inc., that H.W. and Y.L. are employees of DP Technology Co., Ltd., and that the remaining authors declare no competing interests.",
+        "The preprint is listed under the subject area Systems Biology on bioRxiv."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v1",
+          "role": "primary",
+          "status": 200,
+          "sha256": "09e415cfb325e64dea7de30206c75da2bb722c1d4efab752728754be428ba62c",
+          "observedAt": "2026-09-17T09:36:43.594Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v1",
+        "claims": [
+          "A bioRxiv preprint titled 'A perturbation proteomics-based foundation model for virtual cell construction' was posted on February 10, 2025, with the DOI 10.1101/2025.02.07.637070.",
+          "The preprint's authors are Rui Sun, Liujia Qian, Yongge Li, Honghan Cheng, Zhangzhi Xue, Xuedong Zhang, Lingling Tan, Yuecheng Zhan, Wenbin Hu, Qi Xiao, Zhiwei Liu, Guangmei Zhang, E Weinan, Peijie Zhou, Han Wen, Yi Zhu and Tiannan Guo, with Rui Sun listed first and Tiannan Guo listed last.",
+          "The corresponding authors are Tiannan Guo, Yi Zhu and Han Wen.",
+          "Several of the authors are affiliated with Westlake University in Hangzhou, Zhejiang Province, China, including its School of Medicine, the State Key Laboratory of Medical Proteomics and the Research Center for Industries of the Future, as well as the Westlake Center for Intelligent Proteomics at Westlake Laboratory of Life Sciences and Biomedicine.",
+          "Other authors are affiliated with DP Technology Co., Ltd. in Beijing, Westlake Omics Co., Ltd. in Hangzhou, the AI for Science Institute in Beijing, and Peking University.",
+          "The abstract states that building a virtual cell requires comprehensive understanding of protein network dynamics of a cell, which necessitates large-scale perturbation proteome data and intelligent computational models learned from the proteome data corpus.",
+          "The authors report generating a large-scale dataset of over 38 million perturbed protein measurements in breast cancer cell lines.",
+          "The authors report developing a neural ordinary differential equation-based foundation model named ProteinTalks.",
+          "The abstract states that during pretraining ProteinTalks gains a fundamental understanding of cellular protein network dynamics.",
+          "The abstract states that the model encodes protein networks and exhibits consistently improved predictive accuracy across various downstream tasks, which the authors say highlights its generalization capabilities and adaptability.",
+          "The abstract states that in cancer cells ProteinTalks robustly predicts drug efficacy and synergy, identifies novel drug combinations, and through its interpretability uncovers resistance-associated proteins.",
+          "The abstract states that when applied to patient-derived tumor xenografts, described as a more complex system, ProteinTalks predicts potential responses to drugs.",
+          "The abstract states that integrating ProteinTalks with clinical patient data enhances the prognosis prediction of breast cancer patients.",
+          "The authors describe the work as a foundational model based on proteome dynamics that offers potential for downstream applications including drug discovery and provides a basis for developing virtual cells.",
+          "The competing interest statement says that T.G. and Y.Z. are shareholders of Westlake Omics Inc., that L.T., Y.Z. and W.H. are employees of Westlake Omics Inc., that H.W. and Y.L. are employees of DP Technology Co., Ltd., and that the remaining authors declare no competing interests.",
+          "The preprint is listed under the subject area Systems Biology on bioRxiv."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v1",
+            "role": "primary",
+            "status": 200,
+            "sha256": "09e415cfb325e64dea7de30206c75da2bb722c1d4efab752728754be428ba62c",
+            "observedAt": "2026-09-17T09:36:43.594Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "headline": "SPOT: a Shape, Appearance and Motion phenotype observation tool identifies phenotype-genotype-function coupling in 3D organoid imaging",
+      "summary": "In a bioRxiv preprint posted November 29, 2025, Felix Y. Zhou, Xin Lu and colleagues report the development of a standardized Shape-Appearance-Motion (SAM) 'phenome' and SAM-Phenotype-Observation-Tool (SPOT), which act as an image-'transcriptome' and image-'transcriptome analyzer' respectively and provide unbiased and comprehensive description of morpho-dynamic phenotypes without prior knowledge. The authors developed and applied SAM-SPOT to a simulated organoids database with known ground-truth and to more than 1.6 million mouse and human organoid instances with defined genetic and chemical perturbations, and report that SAM-SPOT can effectively and robustly characterize 3D morpho-dynamics from 2D projection videos. Combined with single-cell RNA sequencing, SAM-SPOT revealed that altered WNT signaling, but not mutant RAS or p53, predisposes intestinal organoids to irregular morphogenesis. The competing interest statement notes that a provisional patent is pending for SPOT, and the preprint is made available under a CC-BY-NC-ND 4.0 International license.",
+      "weight": "standard",
+      "primaryUrl": "https://www.biorxiv.org/content/10.1101/2025.11.28.691111v1",
+      "repo": null,
+      "assetRef": "og-2",
+      "suggestedScene": "news_card",
+      "principalEntity": "SPOT (Zhou, Lu and colleagues)",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "A preprint titled \"Identifying phenotype-genotype-function coupling in 3D organoid imaging using Shape, Appearance and Motion Phenotype Observation Tool (SPOT)\" was posted on bioRxiv on November 29, 2025, with the DOI 10.1101/2025.11.28.691111.",
+        "The preprint's first author is Felix Y. Zhou and its last author is Xin Lu, and both are listed as the corresponding authors alongside twelve other co-authors.",
+        "Most of the listed authors give their affiliation as the Ludwig Institute for Cancer Research, Nuffield Department of Medicine, University of Oxford, with some also affiliated with Oxford's Mathematical Institute or Department of Chemistry.",
+        "The authors report developing a standardized Shape-Appearance-Motion (SAM) \"phenome\" and a SAM-Phenotype-Observation-Tool (SPOT), which they describe as acting as an image-\"transcriptome\" and an image-\"transcriptome analyzer\" respectively.",
+        "The authors state that the SAM phenome and SPOT provide unbiased and comprehensive description of morpho-dynamic phenotypes without prior knowledge.",
+        "The authors say they developed and applied SAM-SPOT to their own simulated organoids database with known ground-truth and to more than 1.6 million mouse and human organoid instances with defined genetic and chemical perturbations.",
+        "The abstract states that SAM-SPOT can effectively and robustly characterize 3D morpho-dynamics from 2D projection videos.",
+        "The authors report that, combined with single-cell RNA sequencing, SAM-SPOT revealed that altered WNT signaling, but not mutant RAS or p53, predisposes intestinal organoids to irregular morphogenesis.",
+        "The competing interest statement says a provisional patent is pending for SPOT, and that co-author Thomas M. Carroll is a founder, employee, and shareholder of the diagnostics company Cleancard Ltd.",
+        "The preprint is made available under a CC-BY-NC-ND 4.0 International license, and bioRxiv lists its subject area as Cancer Biology."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.biorxiv.org/content/10.1101/2025.11.28.691111v1",
+          "role": "primary",
+          "status": 200,
+          "sha256": "01e31c3ec0b46987914a2c36d9823d93bda10b56e54c155322950bf284123ab8",
+          "observedAt": "2026-09-17T09:37:01.749Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.biorxiv.org/content/10.1101/2025.11.28.691111v1",
+        "claims": [
+          "A preprint titled \"Identifying phenotype-genotype-function coupling in 3D organoid imaging using Shape, Appearance and Motion Phenotype Observation Tool (SPOT)\" was posted on bioRxiv on November 29, 2025, with the DOI 10.1101/2025.11.28.691111.",
+          "The preprint's first author is Felix Y. Zhou and its last author is Xin Lu, and both are listed as the corresponding authors alongside twelve other co-authors.",
+          "Most of the listed authors give their affiliation as the Ludwig Institute for Cancer Research, Nuffield Department of Medicine, University of Oxford, with some also affiliated with Oxford's Mathematical Institute or Department of Chemistry.",
+          "The authors report developing a standardized Shape-Appearance-Motion (SAM) \"phenome\" and a SAM-Phenotype-Observation-Tool (SPOT), which they describe as acting as an image-\"transcriptome\" and an image-\"transcriptome analyzer\" respectively.",
+          "The authors state that the SAM phenome and SPOT provide unbiased and comprehensive description of morpho-dynamic phenotypes without prior knowledge.",
+          "The authors say they developed and applied SAM-SPOT to their own simulated organoids database with known ground-truth and to more than 1.6 million mouse and human organoid instances with defined genetic and chemical perturbations.",
+          "The abstract states that SAM-SPOT can effectively and robustly characterize 3D morpho-dynamics from 2D projection videos.",
+          "The authors report that, combined with single-cell RNA sequencing, SAM-SPOT revealed that altered WNT signaling, but not mutant RAS or p53, predisposes intestinal organoids to irregular morphogenesis.",
+          "The competing interest statement says a provisional patent is pending for SPOT, and that co-author Thomas M. Carroll is a founder, employee, and shareholder of the diagnostics company Cleancard Ltd.",
+          "The preprint is made available under a CC-BY-NC-ND 4.0 International license, and bioRxiv lists its subject area as Cancer Biology."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.biorxiv.org/content/10.1101/2025.11.28.691111v1",
+            "role": "primary",
+            "status": 200,
+            "sha256": "01e31c3ec0b46987914a2c36d9823d93bda10b56e54c155322950bf284123ab8",
+            "observedAt": "2026-09-17T09:37:01.749Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "headline": "Emulate submits its full ISTAND qualification package for the Human Liver-Chip",
+      "summary": "On September 9, 2026 Emulate announced it had submitted its FDA Innovative Science and Technology Approaches for New Drugs (ISTAND) full qualification package for its Human Liver-Chip, to establish Organ-on-a-Chip technology as a qualified Drug Development Tool for drug-induced liver injury (DILI) assessment. The submission includes data generated on both the Zo\u00eb Culture Module and the AVA Emulation System, the first time AVA data will be evaluated as part of the FDA qualification process. If the FDA qualifies the Human Liver-Chip for DILI assessment, Emulate says, it would establish a regulatory precedent for Organ-on-a-Chip technology.",
+      "weight": "standard",
+      "primaryUrl": "https://emulatebio.com/press/emulate-enters-final-stage-of-fda-istand-program/",
+      "repo": null,
+      "assetRef": "og-3",
+      "suggestedScene": "news_card",
+      "principalEntity": "Emulate",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "Emulate, Inc. announced on September 9, 2026 that it has submitted its FDA Innovative Science and Technology Approaches for New Drugs (ISTAND) full qualification package for its Human Liver-Chip.",
+        "Emulate says the submission advances its efforts to establish Organ-on-a-Chip technology as a qualified Drug Development Tool for drug-induced liver injury assessment.",
+        "The submission includes data generated on both Emulate's Zo\u00eb Culture Module and its next-generation AVA Emulation System.",
+        "Emulate says the submission marks the first time data from the AVA Emulation System will be evaluated as part of the FDA qualification process.",
+        "Emulate says that if the FDA ultimately qualifies the Human Liver-Chip for drug-induced liver injury assessment, it would establish an important regulatory precedent for Organ-on-a-Chip technology and give drug developers a standardized, human-relevant approach for evaluating liver toxicity.",
+        "Emulate says the qualification package includes data showing reproducibility across three independent laboratories using three different primary human hepatocyte donors.",
+        "Emulate says the package includes data showing a consistent ability to distinguish between structurally similar compounds with different liver toxicity profiles.",
+        "Emulate says the package includes data showing reliable performance over time, with repeat studies conducted months apart producing consistent results.",
+        "Emulate says the package includes data showing successful translation of the assay to the high-throughput AVA Emulation System, which it says supports future scalability of up to 96 independent Organ-Chip samples per run.",
+        "Emulate says the initial round of qualification data was established on the Zo\u00eb platform and that adding AVA data to the final submission demonstrates the same scientific performance can be achieved on its automated, higher-throughput system.",
+        "Jim Corbett, Chief Executive Officer of Emulate, said the submission represents years of close collaboration with the FDA and reflects the maturity of Organ-on-a-Chip technology as a practical tool for drug development.",
+        "Corbett said Emulate's application was shaped by FDA reviewers' comments and questions throughout the Letter of Intent and Qualification Plan stages.",
+        "Emulate says the qualification package was spearheaded by its Chief Technology Officer Daniel Levner, Ph.D., and its Chief Scientific Officer Lorna Ewart, Ph.D.",
+        "Lorna Ewart said the strength of the submission is that the Liver-Chip works consistently, citing reproducibility across laboratories, multiple cell donors, and studies conducted months apart.",
+        "Emulate says the submission builds on years of collaboration with the FDA, including joint scientific publications that helped establish best practices and official guidelines for interpreting Liver-Chip data.",
+        "Emulate describes the submission as entering the final stage of the ISTAND qualification process.",
+        "The announcement was datelined Boston, Massachusetts."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://emulatebio.com/press/emulate-enters-final-stage-of-fda-istand-program/",
+          "role": "primary",
+          "status": 200,
+          "sha256": "c7d7a846059dfbdc083d48d26ec71372b8c58f99d5097a110b0faf44577bbdd2",
+          "observedAt": "2026-09-17T09:23:09.899Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://emulatebio.com/press/emulate-enters-final-stage-of-fda-istand-program/",
+        "claims": [
+          "Emulate, Inc. announced on September 9, 2026 that it has submitted its FDA Innovative Science and Technology Approaches for New Drugs (ISTAND) full qualification package for its Human Liver-Chip.",
+          "Emulate says the submission advances its efforts to establish Organ-on-a-Chip technology as a qualified Drug Development Tool for drug-induced liver injury assessment.",
+          "The submission includes data generated on both Emulate's Zo\u00eb Culture Module and its next-generation AVA Emulation System.",
+          "Emulate says the submission marks the first time data from the AVA Emulation System will be evaluated as part of the FDA qualification process.",
+          "Emulate says that if the FDA ultimately qualifies the Human Liver-Chip for drug-induced liver injury assessment, it would establish an important regulatory precedent for Organ-on-a-Chip technology and give drug developers a standardized, human-relevant approach for evaluating liver toxicity.",
+          "Emulate says the qualification package includes data showing reproducibility across three independent laboratories using three different primary human hepatocyte donors.",
+          "Emulate says the package includes data showing a consistent ability to distinguish between structurally similar compounds with different liver toxicity profiles.",
+          "Emulate says the package includes data showing reliable performance over time, with repeat studies conducted months apart producing consistent results.",
+          "Emulate says the package includes data showing successful translation of the assay to the high-throughput AVA Emulation System, which it says supports future scalability of up to 96 independent Organ-Chip samples per run.",
+          "Emulate says the initial round of qualification data was established on the Zo\u00eb platform and that adding AVA data to the final submission demonstrates the same scientific performance can be achieved on its automated, higher-throughput system.",
+          "Jim Corbett, Chief Executive Officer of Emulate, said the submission represents years of close collaboration with the FDA and reflects the maturity of Organ-on-a-Chip technology as a practical tool for drug development.",
+          "Corbett said Emulate's application was shaped by FDA reviewers' comments and questions throughout the Letter of Intent and Qualification Plan stages.",
+          "Emulate says the qualification package was spearheaded by its Chief Technology Officer Daniel Levner, Ph.D., and its Chief Scientific Officer Lorna Ewart, Ph.D.",
+          "Lorna Ewart said the strength of the submission is that the Liver-Chip works consistently, citing reproducibility across laboratories, multiple cell donors, and studies conducted months apart.",
+          "Emulate says the submission builds on years of collaboration with the FDA, including joint scientific publications that helped establish best practices and official guidelines for interpreting Liver-Chip data.",
+          "Emulate describes the submission as entering the final stage of the ISTAND qualification process.",
+          "The announcement was datelined Boston, Massachusetts."
+        ],
+        "revisions": [
+          {
+            "url": "https://emulatebio.com/press/emulate-enters-final-stage-of-fda-istand-program/",
+            "role": "primary",
+            "status": 200,
+            "sha256": "c7d7a846059dfbdc083d48d26ec71372b8c58f99d5097a110b0faf44577bbdd2",
+            "observedAt": "2026-09-17T09:23:09.899Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "headline": "FDA's CDER lists the drug development contexts where it is open to streamlined nonclinical programs and NAMs",
+      "summary": "The FDA Center for Drug Evaluation and Research (CDER) page 'CDER Streamlined Nonclinical Studies and Acceptable New Approach Methodologies (NAMs)' contains a table with an inventory of drug development contexts for which CDER is open to a streamlined nonclinical program. This includes but is not limited to reduced sample size, reduced number of species tested, and NAMs use. While the table represents current streamlined approaches, the FDA says it is committed to further reducing animal testing, and sponsors may propose nonclinical tests, including NAMs, as appropriate, and study designs that reduce the number of animals in toxicology studies. Sponsors are encouraged to discuss their nonclinical programs with the FDA review divisions, and the Agency will evaluate whether the proposed approaches are acceptable. The table excludes 505(b)(2), generic, and biosimilar pathways as well as studies related to impurities and excipients. CDER says that NAMs, when combined with knowledge of the pathway, results of pharmacology studies, and other relevant data, may offer ways to ensure the safety and efficacy of human drugs more effectively and efficiently than traditional animal testing.",
+      "weight": "standard",
+      "primaryUrl": "https://www.fda.gov/about-fda/center-drug-evaluation-and-research-cder/cder-streamlined-nonclinical-studies-and-acceptable-new-approach-methodologies-nams",
+      "repo": null,
+      "assetRef": "og-4",
+      "suggestedScene": "news_card",
+      "principalEntity": "FDA Center for Drug Evaluation and Research",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "The FDA's Center for Drug Evaluation and Research publishes a page titled 'CDER Streamlined Nonclinical Studies and Acceptable New Approach Methodologies (NAMs)' that contains a table with an inventory of drug development contexts for which CDER is open to a streamlined nonclinical program.",
+        "CDER says the streamlined approaches in the table include but are not limited to reduced sample size, reduced number of species tested, and use of new approach methodologies.",
+        "The page states that while the table represents current streamlined approaches, the FDA is committed to further reducing animal testing, and sponsors may propose nonclinical tests, including NAMs, as appropriate, as well as study designs that reduce the number of animals in toxicology studies.",
+        "The page says sponsors are encouraged to discuss their nonclinical programs with the FDA review divisions and that the Agency will evaluate whether the proposed approaches are acceptable.",
+        "The page states that the table excludes 505(b)(2), generic, and biosimilar pathways as well as studies related to impurities and excipients.",
+        "CDER says that new approach methodologies, when combined with knowledge of the pathway, results of pharmacology studies, and other relevant data, may offer ways to achieve the goal of ensuring the safety and efficacy of human drugs more effectively and efficiently than traditional animal testing.",
+        "The page says NAMs support CDER's long-standing interest and investment in implementing the 3Rs of animal testing in drug development, which it defines as Replacement, Reduction, and Refinement.",
+        "The page says the table provides general information, that sponsors should consult guidance documents and appropriate FDA review divisions for more information, and that the table will be updated as new information becomes available.",
+        "The table's toxicity type categories include Safety Pharmacology, General Toxicity, Carcinogenicity, Developmental and Reproductive Toxicity (DART), Juvenile Animal Toxicology, Special Toxicity and Other Types of Toxicity, Screens, and Other Opportunities.",
+        "For anticancer pharmaceuticals where cause for concern warrants a QT prolongation assessment, the table says hiPSC-CM studies that follow best practices can be used in place of an animal study that would otherwise be conducted to evaluate QT prolongation or proarrhythmic risk.",
+        "The table says safety pharmacology endpoints may be incorporated into general toxicity studies in order to reduce animal use, and that this practice is routine for biologics.",
+        "The table lists Draft Guidance for Industry documents on 'Monoclonal Antibodies: Streamlined Nonclinical Safety Studies' and 'Oncology Pharmaceuticals: Streamlined Nonclinical Safety Studies for Biologics and Conjugated Products' among its references."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.fda.gov/about-fda/center-drug-evaluation-and-research-cder/cder-streamlined-nonclinical-studies-and-acceptable-new-approach-methodologies-nams",
+          "role": "primary",
+          "status": 200,
+          "sha256": "875061a51d85960b23a00e2b7fbe045fc0e206f54b02dbcde532e8015e108a89",
+          "observedAt": "2026-09-17T09:35:41.677Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.fda.gov/about-fda/center-drug-evaluation-and-research-cder/cder-streamlined-nonclinical-studies-and-acceptable-new-approach-methodologies-nams",
+        "claims": [
+          "The FDA's Center for Drug Evaluation and Research publishes a page titled 'CDER Streamlined Nonclinical Studies and Acceptable New Approach Methodologies (NAMs)' that contains a table with an inventory of drug development contexts for which CDER is open to a streamlined nonclinical program.",
+          "CDER says the streamlined approaches in the table include but are not limited to reduced sample size, reduced number of species tested, and use of new approach methodologies.",
+          "The page states that while the table represents current streamlined approaches, the FDA is committed to further reducing animal testing, and sponsors may propose nonclinical tests, including NAMs, as appropriate, as well as study designs that reduce the number of animals in toxicology studies.",
+          "The page says sponsors are encouraged to discuss their nonclinical programs with the FDA review divisions and that the Agency will evaluate whether the proposed approaches are acceptable.",
+          "The page states that the table excludes 505(b)(2), generic, and biosimilar pathways as well as studies related to impurities and excipients.",
+          "CDER says that new approach methodologies, when combined with knowledge of the pathway, results of pharmacology studies, and other relevant data, may offer ways to achieve the goal of ensuring the safety and efficacy of human drugs more effectively and efficiently than traditional animal testing.",
+          "The page says NAMs support CDER's long-standing interest and investment in implementing the 3Rs of animal testing in drug development, which it defines as Replacement, Reduction, and Refinement.",
+          "The page says the table provides general information, that sponsors should consult guidance documents and appropriate FDA review divisions for more information, and that the table will be updated as new information becomes available.",
+          "The table's toxicity type categories include Safety Pharmacology, General Toxicity, Carcinogenicity, Developmental and Reproductive Toxicity (DART), Juvenile Animal Toxicology, Special Toxicity and Other Types of Toxicity, Screens, and Other Opportunities.",
+          "For anticancer pharmaceuticals where cause for concern warrants a QT prolongation assessment, the table says hiPSC-CM studies that follow best practices can be used in place of an animal study that would otherwise be conducted to evaluate QT prolongation or proarrhythmic risk.",
+          "The table says safety pharmacology endpoints may be incorporated into general toxicity studies in order to reduce animal use, and that this practice is routine for biologics.",
+          "The table lists Draft Guidance for Industry documents on 'Monoclonal Antibodies: Streamlined Nonclinical Safety Studies' and 'Oncology Pharmaceuticals: Streamlined Nonclinical Safety Studies for Biologics and Conjugated Products' among its references."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.fda.gov/about-fda/center-drug-evaluation-and-research-cder/cder-streamlined-nonclinical-studies-and-acceptable-new-approach-methodologies-nams",
+            "role": "primary",
+            "status": 200,
+            "sha256": "875061a51d85960b23a00e2b7fbe045fc0e206f54b02dbcde532e8015e108a89",
+            "observedAt": "2026-09-17T09:35:41.677Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 6,
+      "headline": "EMA launches a voluntary data submission pilot for New Approach Methodologies data",
+      "summary": "On 1 September 2026 the European Medicines Agency (EMA) announced that it has launched a new voluntary data submission (VDS) pilot to facilitate the sharing of data generated using New Approach Methodologies (NAMs). The pilot aims to create a structured, non-binding framework that enables companies, method developers, contract research organisations, academic laboratories and other stakeholders to voluntarily submit and discuss NAM data independently of a marketing authorisation application. Participants will receive individual, non-binding and non-decisional feedback from an operational expert group comprising non-clinical experts from across the European medicines regulatory network. EMA says NAMs can include complex in vitro systems such as organoids and microphysiological systems, computational models, as well as a combination of multiple methodologies. Organisations interested in participating are invited to submit an application form to express their interest; following an initial validation process, selected applicants will be invited to submit a full briefing package for scientific assessment. An information document (reference EMA/149393/2026), including details on the scope of the pilot, eligibility criteria, submission requirements and assessment process, is also available. Submissions to the VDS pilot are expected until the third quarter of 2027, and at the end of the pilot EMA will publish a lessons-learned report.",
+      "weight": "standard",
+      "primaryUrl": "https://www.ema.europa.eu/en/news/voluntary-data-submission-pilot-advance-innovative-alternatives-animal-testing",
+      "repo": null,
+      "assetRef": "og-5",
+      "suggestedScene": "news_card",
+      "principalEntity": "European Medicines Agency",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "The European Medicines Agency has launched a new voluntary data submission pilot to facilitate the sharing of data generated using New Approach Methodologies, according to an EMA news item dated 1 September 2026.",
+        "EMA says the pilot is part of its efforts to foster the regulatory acceptance of New Approach Methodologies by enabling regulators to gain experience with these approaches and assess their scientific value in a regulatory context.",
+        "EMA says New Approach Methodologies can include complex in vitro systems such as organoids and microphysiological systems, computational models, as well as a combination of multiple methodologies.",
+        "EMA says the voluntary data submission pilot aims to create a structured, non-binding framework that enables companies, method developers, contract research organisations, academic laboratories and other stakeholders to voluntarily submit and discuss New Approach Methodologies data independently of a marketing authorisation application.",
+        "EMA says participants will receive individual, non-binding and non-decisional feedback from an operational expert group made up of non-clinical experts from across the European medicines regulatory network.",
+        "EMA says these innovative methods have the potential to provide information comparable to, or better than, current testing approaches while helping to replace or reduce the use of traditional animal studies in the non-clinical development of medicines.",
+        "EMA says that although New Approach Methodologies are increasingly used in research and early medicine development, data on their use are rarely shared with regulators, which limits opportunities to build confidence in their regulatory application.",
+        "EMA says the initiative builds on its longstanding commitment to the 3Rs principles of replacing, reducing and refining the use of animals in medicines development and regulation.",
+        "EMA invites organisations interested in participating to submit an application form to express their interest, and says that following an initial validation process selected applicants will be invited to submit a full briefing package for scientific assessment.",
+        "EMA has published a voluntary data submission pilot information document with reference number EMA/149393/2026, covering the scope of the pilot, eligibility criteria, submission requirements and the assessment process, first published on 1 September 2026.",
+        "EMA says submissions to the voluntary data submission pilot are expected until the third quarter of 2027.",
+        "EMA says it will publish a lessons-learned report at the end of the pilot."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.ema.europa.eu/en/news/voluntary-data-submission-pilot-advance-innovative-alternatives-animal-testing",
+          "role": "primary",
+          "status": 200,
+          "sha256": "a99a4767b5460c2aa7d8f5bb1eda7d4180c365d05c7585f05ebe43a088dc8fe6",
+          "observedAt": "2026-09-17T09:32:25.517Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.ema.europa.eu/en/news/voluntary-data-submission-pilot-advance-innovative-alternatives-animal-testing",
+        "claims": [
+          "The European Medicines Agency has launched a new voluntary data submission pilot to facilitate the sharing of data generated using New Approach Methodologies, according to an EMA news item dated 1 September 2026.",
+          "EMA says the pilot is part of its efforts to foster the regulatory acceptance of New Approach Methodologies by enabling regulators to gain experience with these approaches and assess their scientific value in a regulatory context.",
+          "EMA says New Approach Methodologies can include complex in vitro systems such as organoids and microphysiological systems, computational models, as well as a combination of multiple methodologies.",
+          "EMA says the voluntary data submission pilot aims to create a structured, non-binding framework that enables companies, method developers, contract research organisations, academic laboratories and other stakeholders to voluntarily submit and discuss New Approach Methodologies data independently of a marketing authorisation application.",
+          "EMA says participants will receive individual, non-binding and non-decisional feedback from an operational expert group made up of non-clinical experts from across the European medicines regulatory network.",
+          "EMA says these innovative methods have the potential to provide information comparable to, or better than, current testing approaches while helping to replace or reduce the use of traditional animal studies in the non-clinical development of medicines.",
+          "EMA says that although New Approach Methodologies are increasingly used in research and early medicine development, data on their use are rarely shared with regulators, which limits opportunities to build confidence in their regulatory application.",
+          "EMA says the initiative builds on its longstanding commitment to the 3Rs principles of replacing, reducing and refining the use of animals in medicines development and regulation.",
+          "EMA invites organisations interested in participating to submit an application form to express their interest, and says that following an initial validation process selected applicants will be invited to submit a full briefing package for scientific assessment.",
+          "EMA has published a voluntary data submission pilot information document with reference number EMA/149393/2026, covering the scope of the pilot, eligibility criteria, submission requirements and the assessment process, first published on 1 September 2026.",
+          "EMA says submissions to the voluntary data submission pilot are expected until the third quarter of 2027.",
+          "EMA says it will publish a lessons-learned report at the end of the pilot."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.ema.europa.eu/en/news/voluntary-data-submission-pilot-advance-innovative-alternatives-animal-testing",
+            "role": "primary",
+            "status": 200,
+            "sha256": "a99a4767b5460c2aa7d8f5bb1eda7d4180c365d05c7585f05ebe43a088dc8fe6",
+            "observedAt": "2026-09-17T09:32:25.517Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "headline": "NIH Common Fund names twenty Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize",
+      "summary": "The NIH Common Fund announced the Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize in a public webinar on July 20, 2026; the winners are eligible to compete in Phase 2 of the Challenge. The NIH Common Fund has teamed up with NASA's Tournament Lab to launch the Reduction to Practice prize, a competition that invites innovative New Approach Methodologies (NAMs) solutions from teams who can successfully demonstrate implementation of integrated human-based solutions in a practical and usable form within a 3-year period. The goal of the challenge is to accelerate and catalyze near-ready integrated, or 'combinatorial' NAM platforms that use different methods to answer a question about human disease or biology and that can be submitted to the Complement-ARIE Validation and Qualification Network (VQN), managed by the Foundation for NIH. Phase 1 submissions were required to include a clear description of intended use for the proposed combinatorial NAM solution and a research plan that demonstrated feasibility to refine the solution to a usable form within the timeframe of the Challenge. The page lists twenty Phase 1 winners, among them Predictive Brain Combinatorial NAM, submitted by Massachusetts General Hospital; Human Lung Models for Anti-Fibrotic Drug Testing, submitted by Wake Forest University Health Sciences; CAR-T Immunotherapy Clinical Trials on a Chip, submitted by CAR-T Chips Team; AI-integrated human skin immune organoids, submitted by Stanford University; LIVER-COMBINE: A Human Relevant NAM Platform, submitted by Liver-Combine Consortium; and Gut Feelings: A GI Toxicity Prediction Engine, submitted by Cedars-Sinai Medical Center. The page was last reviewed on August 10, 2026.",
+      "weight": "standard",
+      "primaryUrl": "https://commonfund.nih.gov/complementarie/news/phase-1-winners-announced-complement-arie-reduction-practice-challenge-prize",
+      "repo": null,
+      "assetRef": "og-6",
+      "suggestedScene": "news_card",
+      "principalEntity": "NIH Common Fund Complement-ARIE program",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "The NIH Common Fund's Complement-ARIE program page, dated July 20, 2026, announces the Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize.",
+        "The page says the Phase 1 winners were announced in a public webinar on July 20th, 2026 and are eligible to compete in Phase 2 of the Challenge.",
+        "The NIH Common Fund has teamed up with NASA's Tournament Lab to launch the Reduction to Practice prize, a competition that invites innovative New Approach Methodologies solutions from teams who can successfully demonstrate implementation of integrated human-based solutions in a practical and usable form within a 3-year period.",
+        "The goal of the challenge is to accelerate and catalyze near-ready integrated, or 'combinatorial,' NAM platforms that use different methods to answer a question about human disease or biology and that can be submitted to the Complement-ARIE Validation and Qualification Network.",
+        "The Complement-ARIE Validation and Qualification Network is managed by the Foundation for NIH.",
+        "Phase 1 submissions were required to include a clear description of intended use for the proposed combinatorial NAM solution and a research plan that demonstrated feasibility to refine the solution to a usable form within the timeframe of the Challenge.",
+        "The page states that Phase 1 winners provided strong early data, had an intended use for their platform, and provided clear project development plans for future phases of the Challenge.",
+        "The page lists twenty named Phase 1 winners.",
+        "Predictive Brain Combinatorial NAM was submitted by Massachusetts General Hospital.",
+        "Human Lung Models for Anti-Fibrotic Drug Testing was submitted by Wake Forest University Health Sciences.",
+        "CAR-T Immunotherapy Clinical Trials on a Chip was submitted by CAR-T Chips Team.",
+        "AI-integrated human skin immune organoids was submitted by Stanford University.",
+        "LIVER-COMBINE: A Human Relevant NAM Platform was submitted by Liver-Combine Consortium.",
+        "Gut Feelings: A GI Toxicity Prediction Engine was submitted by Cedars-Sinai Medical Center.",
+        "Other listed Phase 1 winners include Combining vTIME and AI for IO Drug CRS Prediction from Qureator Inc., Combinatorial NAM for Human Atherosclerosis Model from Endomimetics Inc., Combinatorial Human Bone Remodeling NAM Platform from the University of Massachusetts - Amherst, and PACE-IT: Immune-Cardiac NAM for Med Device Testing from the University of Minnesota.",
+        "Additional listed Phase 1 winners include High-Throughput Human Tissue Remodeling & Toxicity from First State Click-Chem Solutions, Combinatorial NAM for Endometriosis Drug Efficacy from VeriSIM Life, Inc., Multi-Brain Region Assembloid Combinatorial Models from Regenerative Research Foundation, and Multiorgan Predictive Biologic Toxicity Framework from Biopico Systems Inc.",
+        "Further listed Phase 1 winners include Human Brain Organoids to Predict DNT from Bioprinting Laboratories Inc., Precision dosing of oligonucleotide therapeutics from Javelin Biotech Inc., NeuroTraX-AI from Frontier Bio Corporation, and AI-Driven Antibody Repurposing for New Therapies from Wake Forest University Health Sciences.",
+        "Plasticity Biomarkers in Human Cortical Organoids was submitted by 28bio Inc., and MAJIC: The Future of Human Joint Drug Testing was submitted by CellField Technologies Inc.",
+        "The page states it was last reviewed on August 10, 2026.",
+        "The page links to Phase 1 Winner Summaries."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://commonfund.nih.gov/complementarie/news/phase-1-winners-announced-complement-arie-reduction-practice-challenge-prize",
+          "role": "primary",
+          "status": 200,
+          "sha256": "d97cd400131e3ff5aec46f247178c97bacc6e826a0a2c76196759ea8cf1f0f6c",
+          "observedAt": "2026-09-17T09:35:58.715Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://commonfund.nih.gov/complementarie/news/phase-1-winners-announced-complement-arie-reduction-practice-challenge-prize",
+        "claims": [
+          "The NIH Common Fund's Complement-ARIE program page, dated July 20, 2026, announces the Phase 1 winners of the Complement-ARIE Reduction to Practice Challenge Prize.",
+          "The page says the Phase 1 winners were announced in a public webinar on July 20th, 2026 and are eligible to compete in Phase 2 of the Challenge.",
+          "The NIH Common Fund has teamed up with NASA's Tournament Lab to launch the Reduction to Practice prize, a competition that invites innovative New Approach Methodologies solutions from teams who can successfully demonstrate implementation of integrated human-based solutions in a practical and usable form within a 3-year period.",
+          "The goal of the challenge is to accelerate and catalyze near-ready integrated, or 'combinatorial,' NAM platforms that use different methods to answer a question about human disease or biology and that can be submitted to the Complement-ARIE Validation and Qualification Network.",
+          "The Complement-ARIE Validation and Qualification Network is managed by the Foundation for NIH.",
+          "Phase 1 submissions were required to include a clear description of intended use for the proposed combinatorial NAM solution and a research plan that demonstrated feasibility to refine the solution to a usable form within the timeframe of the Challenge.",
+          "The page states that Phase 1 winners provided strong early data, had an intended use for their platform, and provided clear project development plans for future phases of the Challenge.",
+          "The page lists twenty named Phase 1 winners.",
+          "Predictive Brain Combinatorial NAM was submitted by Massachusetts General Hospital.",
+          "Human Lung Models for Anti-Fibrotic Drug Testing was submitted by Wake Forest University Health Sciences.",
+          "CAR-T Immunotherapy Clinical Trials on a Chip was submitted by CAR-T Chips Team.",
+          "AI-integrated human skin immune organoids was submitted by Stanford University.",
+          "LIVER-COMBINE: A Human Relevant NAM Platform was submitted by Liver-Combine Consortium.",
+          "Gut Feelings: A GI Toxicity Prediction Engine was submitted by Cedars-Sinai Medical Center.",
+          "Other listed Phase 1 winners include Combining vTIME and AI for IO Drug CRS Prediction from Qureator Inc., Combinatorial NAM for Human Atherosclerosis Model from Endomimetics Inc., Combinatorial Human Bone Remodeling NAM Platform from the University of Massachusetts - Amherst, and PACE-IT: Immune-Cardiac NAM for Med Device Testing from the University of Minnesota.",
+          "Additional listed Phase 1 winners include High-Throughput Human Tissue Remodeling & Toxicity from First State Click-Chem Solutions, Combinatorial NAM for Endometriosis Drug Efficacy from VeriSIM Life, Inc., Multi-Brain Region Assembloid Combinatorial Models from Regenerative Research Foundation, and Multiorgan Predictive Biologic Toxicity Framework from Biopico Systems Inc.",
+          "Further listed Phase 1 winners include Human Brain Organoids to Predict DNT from Bioprinting Laboratories Inc., Precision dosing of oligonucleotide therapeutics from Javelin Biotech Inc., NeuroTraX-AI from Frontier Bio Corporation, and AI-Driven Antibody Repurposing for New Therapies from Wake Forest University Health Sciences.",
+          "Plasticity Biomarkers in Human Cortical Organoids was submitted by 28bio Inc., and MAJIC: The Future of Human Joint Drug Testing was submitted by CellField Technologies Inc.",
+          "The page states it was last reviewed on August 10, 2026.",
+          "The page links to Phase 1 Winner Summaries."
+        ],
+        "revisions": [
+          {
+            "url": "https://commonfund.nih.gov/complementarie/news/phase-1-winners-announced-complement-arie-reduction-practice-challenge-prize",
+            "role": "primary",
+            "status": 200,
+            "sha256": "d97cd400131e3ff5aec46f247178c97bacc6e826a0a2c76196759ea8cf1f0f6c",
+            "observedAt": "2026-09-17T09:35:58.715Z"
+          }
+        ]
+      }
+    },
+    {
+      "n": 8,
+      "headline": "FDA, HESI and the Safety Pharmacology Society convene a hybrid workshop on ICH S7A and NAMs in safety pharmacology",
+      "summary": "The U.S. Food and Drug Administration (FDA), in collaboration with the Health and Environmental Sciences Institute (HESI) and the Safety Pharmacology Society (SPS), scheduled a hybrid public workshop entitled 'ICH S7A and New Approach Methodologies (NAMs) in Safety Pharmacology' for July 28, 2026, from 8:30 a.m. to 4:00 p.m. ET, in the Great Room of Building 31 on the FDA White Oak Campus in Silver Spring, Maryland, with virtual attendance via Teams. The one-day meeting aims to unite representatives from regulatory agencies and industry to develop a cohesive vision and scientific rationale for revising the International Council for Harmonisation (ICH) S7A guideline, with the goal of gathering key stakeholder perspectives and building consensus to reopen the guideline. The workshop objectives are to establish a shared, cross-regional understanding of NAMs in safety pharmacology, clarify regulatory opportunities and constraints for NAM inclusion in S7A, define clear, discipline-specific NAM use cases relevant to S7A, and develop actionable recommendations and next steps to support NAM integration into S7A. FDA says the event will not result in specific changes to ICH guidelines, but the information exchanged will be pivotal in shaping future regulatory policies. The workshop is intended for members of HESI and SPS as well as regulators from the FDA, and the page's content is current as of June 8, 2026.",
+      "weight": "standard",
+      "primaryUrl": "https://www.fda.gov/drugs/news-events-human-drugs/fdahealth-and-environmental-sciences-institutesafety-pharmacology-society-hybrid-workshop-ich-s7a",
+      "repo": null,
+      "assetRef": "og-7",
+      "suggestedScene": "news_card",
+      "principalEntity": "FDA, HESI and the Safety Pharmacology Society",
+      "area": "other",
+      "verticals": [
+        "other"
+      ],
+      "verifiedClaims": [
+        "The U.S. Food and Drug Administration, in collaboration with the Health and Environmental Sciences Institute and the Safety Pharmacology Society, will host a hybrid public workshop entitled \"ICH S7A and New Approach Methodologies (NAMs) in Safety Pharmacology\" on July 28, 2026.",
+        "The workshop is scheduled for 8:30 a.m. to 4:00 p.m. ET.",
+        "People can attend the workshop in person or online, with virtual attendance via Teams.",
+        "The in-person location is the Great Room, Building 31, on the FDA White Oak Campus at 10903 New Hampshire Avenue, Silver Spring, MD 20993-0002.",
+        "FDA says the one-day meeting aims to unite representatives from regulatory agencies and industry to develop a cohesive vision and scientific rationale for revising the International Council for Harmonisation S7A guideline, with the goal of gathering key stakeholder perspectives and building consensus to reopen the guideline.",
+        "FDA says the workshop will facilitate the exchange of practical, real-world experiences regarding the integration and utilization of NAMs within safety pharmacology, with the objective of identifying areas of scientific consensus between FDA and industry.",
+        "FDA says that by fostering dialogue and sharing case studies, the meeting aims to enhance regulators' understanding of the intended applications, benefits, limitations, and implementation timelines of NAMs models, and to provide insights that will inform and support the forthcoming revision of the ICH S7A guideline.",
+        "FDA describes a regulatory landscape increasingly emphasizing the reduction of animal testing, citing a recent FDA roadmap, and says the forum will enable evaluation of the predictive capabilities of NAMs relative to traditional animal models.",
+        "FDA states that while this event will not result in specific changes to ICH guidelines, the information exchanged will be pivotal in shaping future regulatory policies.",
+        "The stated workshop objectives are to establish a shared, cross-regional understanding of NAMs in safety pharmacology, to clarify regulatory opportunities and constraints for NAM inclusion in S7A, to define clear, discipline-specific NAM use cases relevant to S7A, and to develop actionable recommendations and next steps to support NAM integration into S7A.",
+        "The workshop is intended for members of HESI and SPS as well as regulators from the FDA.",
+        "Registration is required for both in-person and virtual attendance, and FDA directs people to the Safety Pharmacology Society website for this workshop to register.",
+        "FDA lists OCPWorkshops@fda.hhs.gov as the contact for questions regarding the event.",
+        "The FDA event page states its content is current as of June 8, 2026."
+      ],
+      "claimEvidence": [
+        {
+          "url": "https://www.fda.gov/drugs/news-events-human-drugs/fdahealth-and-environmental-sciences-institutesafety-pharmacology-society-hybrid-workshop-ich-s7a",
+          "role": "primary",
+          "status": 200,
+          "sha256": "4fd1a429b3469e2e50f07f307b9ec887867cc80e510737ab496c516caad8118d",
+          "observedAt": "2026-09-17T09:33:03.087Z"
+        }
+      ],
+      "storyEvent": {
+        "version": 1,
+        "primaryUrl": "https://www.fda.gov/drugs/news-events-human-drugs/fdahealth-and-environmental-sciences-institutesafety-pharmacology-society-hybrid-workshop-ich-s7a",
+        "claims": [
+          "The U.S. Food and Drug Administration, in collaboration with the Health and Environmental Sciences Institute and the Safety Pharmacology Society, will host a hybrid public workshop entitled \"ICH S7A and New Approach Methodologies (NAMs) in Safety Pharmacology\" on July 28, 2026.",
+          "The workshop is scheduled for 8:30 a.m. to 4:00 p.m. ET.",
+          "People can attend the workshop in person or online, with virtual attendance via Teams.",
+          "The in-person location is the Great Room, Building 31, on the FDA White Oak Campus at 10903 New Hampshire Avenue, Silver Spring, MD 20993-0002.",
+          "FDA says the one-day meeting aims to unite representatives from regulatory agencies and industry to develop a cohesive vision and scientific rationale for revising the International Council for Harmonisation S7A guideline, with the goal of gathering key stakeholder perspectives and building consensus to reopen the guideline.",
+          "FDA says the workshop will facilitate the exchange of practical, real-world experiences regarding the integration and utilization of NAMs within safety pharmacology, with the objective of identifying areas of scientific consensus between FDA and industry.",
+          "FDA says that by fostering dialogue and sharing case studies, the meeting aims to enhance regulators' understanding of the intended applications, benefits, limitations, and implementation timelines of NAMs models, and to provide insights that will inform and support the forthcoming revision of the ICH S7A guideline.",
+          "FDA describes a regulatory landscape increasingly emphasizing the reduction of animal testing, citing a recent FDA roadmap, and says the forum will enable evaluation of the predictive capabilities of NAMs relative to traditional animal models.",
+          "FDA states that while this event will not result in specific changes to ICH guidelines, the information exchanged will be pivotal in shaping future regulatory policies.",
+          "The stated workshop objectives are to establish a shared, cross-regional understanding of NAMs in safety pharmacology, to clarify regulatory opportunities and constraints for NAM inclusion in S7A, to define clear, discipline-specific NAM use cases relevant to S7A, and to develop actionable recommendations and next steps to support NAM integration into S7A.",
+          "The workshop is intended for members of HESI and SPS as well as regulators from the FDA.",
+          "Registration is required for both in-person and virtual attendance, and FDA directs people to the Safety Pharmacology Society website for this workshop to register.",
+          "FDA lists OCPWorkshops@fda.hhs.gov as the contact for questions regarding the event.",
+          "The FDA event page states its content is current as of June 8, 2026."
+        ],
+        "revisions": [
+          {
+            "url": "https://www.fda.gov/drugs/news-events-human-drugs/fdahealth-and-environmental-sciences-institutesafety-pharmacology-society-hybrid-workshop-ich-s7a",
+            "role": "primary",
+            "status": 200,
+            "sha256": "4fd1a429b3469e2e50f07f307b9ec887867cc80e510737ab496c516caad8118d",
+            "observedAt": "2026-09-17T09:33:03.087Z"
+          }
+        ]
+      }
+    }
+  ]
+}

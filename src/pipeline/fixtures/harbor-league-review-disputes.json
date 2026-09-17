@@ -1,0 +1,158 @@
+{
+  "_description": "Fictional Harbor League evidence and recorded Qwen3.5 4B reviewer rows. This replay preserves the historical 414-word candidate and completed reviews; it is not evidence of model qualification or a complete issue.",
+  "provenance": {
+    "model": "ollama/qwen3.5-harness-8k:4b",
+    "runner": "OpenCode → Ollama",
+    "inputSha256": "aa138ae04b5bfb73a441cef51de2130666f54466b7b50b54db991406ff106498",
+    "resultSha256": "a953ea3a544ce3d74d84f872836460c09c8ce61341fb61abdbfae7a7e68e918b",
+    "independentAuditModel": null,
+    "originalIncomplete": "Fourth review batch timed out; no repair or final review occurred."
+  },
+  "claims": [
+    "Harbor League published a provisional schedule for eight amateur basketball teams, with the opening round set for October 3 at the fictional East Quay Sports Hall.",
+    "The schedule lists fourteen regular season rounds, with each team meeting every other team once at home and once away before the standings are finalized.",
+    "League secretary Mara Fen stated that teams must confirm their venue bookings by September 20, and any unconfirmed home dates will remain provisional until that deadline.",
+    "The eight listed teams are East Quay, Harbor Central, North Dock, West Pier, Canal Park, Lantern Bay, Market Square and South Basin, according to the schedule.",
+    "Each Saturday round contains four games, with the first two starting at noon and the remaining two starting at four in the afternoon on separate courts.",
+    "The published format awards two standings points for a win and one for a completed loss, while a forfeiting team receives no points for that fixture.",
+    "If teams finish level on standings points, their results against each other decide the order, followed by score difference across those same meetings if necessary.",
+    "The top four teams are scheduled to advance to a semifinal round on January 23, with first place meeting fourth and second place meeting third.",
+    "A final on January 30 is listed at the same sports hall, but the announcement does not identify a broadcast partner or promise a live video stream.",
+    "Each club may register twelve players for the season and dress ten for a game, with roster amendments permitted until the end of the third regular round.",
+    "Match officials must receive the signed game roster thirty minutes before tipoff, and a player omitted from that document cannot be added after the game begins.",
+    "The league requires both clubs to appoint a scorekeeper for each fixture, while a separately assigned official will operate the shared clock throughout the game.",
+    "Postponed games must be rearranged within fourteen days unless the league approves an exception after reviewing a written request from both affected clubs and the venue.",
+    "Spectator entry is listed as free for regular season fixtures, although the announcement says that capacity restrictions may prevent admission once the hall reaches its posted limit.",
+    "The organizer will publish a revised schedule if venue confirmations change, and clubs have been instructed to use that dated revision instead of circulating earlier screenshots.",
+    "The document describes planned fixtures and administrative rules only; it reports no completed games, championship prediction, attendance measurement or independently assessed change in player performance."
+  ],
+  "draft": "Harbor League published a provisional schedule for eight amateur basketball teams, with the opening round set for October 3 at the fictional East Quay Sports Hall. The schedule lists fourteen regular season rounds, with each team meeting every other team once at home and once away before the standings are finalized. League secretary Mara Fen stated that teams must confirm their venue bookings by September 20, and any unconfirmed home dates will remain provisional until that deadline. The eight listed teams are East Quay, Harbor Central, North Dock, West Pier, Canal Park, Lantern Bay, Market Square and South Basin, according to the schedule. Each Saturday round contains four games, with the first two starting at noon and the remaining two starting at four in the afternoon on separate courts. The published format awards two standings points for a win and one for a completed loss, while a forfeiting team receives no points for that fixture. If teams finish level on standings points, their results against each other decide the order, followed by score difference across those same meetings if necessary. The top four teams are scheduled to advance to a semifinal round on January 23, with first place meeting fourth and second place meeting third. A final on January 30 is listed at the same sports hall, but the announcement does not identify a broadcast partner or promise a live video stream. Each club may register twelve players for the season and dress ten for a game, with roster amendments permitted until the end of the third regular round. Match officials must receive the signed game roster thirty minutes before tipoff, and a player omitted from that document cannot be added after the game begins. The league requires both clubs to appoint a scorekeeper for each fixture, while a separately assigned official will operate the shared clock throughout the game. Postponed games must be rearranged within fourteen days unless the league approves an exception after reviewing a written request from both affected clubs and the venue. Spectator entry is listed as free for regular season fixtures, although the announcement says that capacity restrictions may prevent admission once the hall reaches its posted limit. The organizer will publish a revised schedule if venue confirmations change, and clubs have been instructed to use that dated revision instead of circulating earlier screenshots. The document describes planned fixtures and administrative rules only; it reports no completed games, championship prediction, attendance measurement or independently assessed change in player performance.",
+  "recordedReviews": [
+    {
+      "id": 1,
+      "supported": true,
+      "claimIds": [
+        1
+      ],
+      "reason": "Sentence asserts fictional venue which aligns with claim's description of East Quay."
+    },
+    {
+      "id": 2,
+      "supported": true,
+      "claimIds": [
+        2
+      ],
+      "reason": "Claim states fourteen rounds with home and away fixtures per team before finals."
+    },
+    {
+      "id": 3,
+      "supported": true,
+      "claimIds": [
+        3
+      ],
+      "reason": "Secretary quote confirms booking confirmation deadline is September 20 for provisional dates."
+    },
+    {
+      "id": 4,
+      "supported": true,
+      "claimIds": [
+        4
+      ],
+      "reason": "Claim lists eight specific teams matching sentence enumeration exactly."
+    },
+    {
+      "id": 5,
+      "supported": false,
+      "claimIds": [],
+      "reason": "No source confirms game timing, court count, or Saturday schedule details."
+    },
+    {
+      "id": 6,
+      "supported": true,
+      "claimIds": [
+        2
+      ],
+      "reason": "Supports two points for win, one for completed loss via 'rounds' definition; forfeit point absence is explicit in claim text."
+    },
+    {
+      "id": 7,
+      "supported": true,
+      "claimIds": [
+        3,
+        6
+      ],
+      "reason": "Explicitly rules tiebreaker order by head-to-head, then score difference if still level on same fixtures."
+    },
+    {
+      "id": 8,
+      "supported": false,
+      "claimIds": [
+        2
+      ],
+      "reason": "Claims describe 'semifinal' structure but source only defines 'standings' format without confirming specific semi-round or top-four advancement mechanics."
+    },
+    {
+      "id": 9,
+      "supported": false,
+      "claimIds": [],
+      "reason": "Sentence implies announcement contains no broadcast partner promise, but source (ID 9) only states a stream isn't promised, not the broader claim."
+    },
+    {
+      "id": 10,
+      "supported": false,
+      "claimIds": [],
+      "reason": "Source ID 5 lists game rosters as ten players, not twelve; claimed registration limits not present in supplied claims."
+    },
+    {
+      "id": 11,
+      "supported": true,
+      "claimIds": [
+        6
+      ],
+      "reason": "ID 6 confirms forfeited games yield zero points; roster removal restrictions align with fixture administration rules."
+    },
+    {
+      "id": 12,
+      "supported": false,
+      "claimIds": [],
+      "reason": "Source describes shared clock but does not confirm separate clock operation; scorekeeper role present only for one fixture."
+    }
+  ],
+  "expectedFalseRejections": [
+    5,
+    8,
+    9,
+    10,
+    12
+  ],
+  "expectedWrongEvidenceApprovals": [
+    {
+      "sentenceId": 6,
+      "reportedClaimIds": [
+        2
+      ],
+      "exactClaimIds": [
+        6
+      ]
+    },
+    {
+      "sentenceId": 7,
+      "reportedClaimIds": [
+        3,
+        6
+      ],
+      "exactClaimIds": [
+        7
+      ]
+    },
+    {
+      "sentenceId": 11,
+      "reportedClaimIds": [
+        6
+      ],
+      "exactClaimIds": [
+        11
+      ]
+    }
+  ]
+}

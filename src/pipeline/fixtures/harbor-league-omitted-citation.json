@@ -1,0 +1,28 @@
+{
+  "provenance": {
+    "model": "qwen2.5-coder:7b",
+    "runner": "Ollama",
+    "candidateSha256": "0c9346fa5ea0d4b572d48a12073e85bab8a11c4662f713d67c44f36c673b3592",
+    "scope": "Raw lead component; independent source audit found faithful prose and omitted citation 3. Not full model acceptance."
+  },
+  "candidate": {
+    "text": "Harbor League published a provisional schedule for eight amateur basketball teams, with the opening round set for October 3 at the fictional East Quay Sports Hall. The schedule lists fourteen regular season rounds, with each team meeting every other team once at home and once away before the standings are finalized. League secretary Mara Fen stated that teams must confirm their venue bookings by September 20, and any unconfirmed home dates will remain provisional until that deadline. The eight listed teams are East Quay, Harbor Central, North Dock, West Pier, Canal Park, Lantern Bay, Market Square, and South Basin, according to the schedule. Each Saturday round contains four games, with the first two starting at noon and the remaining two starting at four in the afternoon on separate courts. The published format awards two standings points for a win and one for a completed loss, while a forfeiting team receives no points for that fixture. If teams finish level on standings points, their results against each other decide the order, followed by score difference across those same meetings if necessary. The top four teams are scheduled to advance to a semifinal round on January 23, with first place meeting fourth and second place meeting third. A final on January 30 is listed at the same sports hall, but the announcement does not identify a broadcast partner or promise a live video stream. Each club may register twelve players for the season and dress ten for a game, with roster amendments permitted until the end of the third regular round. Match officials must receive the signed game roster thirty minutes before tipoff, and a player omitted from that document cannot be added after the game begins. The league requires both clubs to appoint a scorekeeper for each fixture, while a separately assigned official will operate the shared clock throughout the game. Postponed games must be rearranged within fourteen days unless the league approves an exception after reviewing a written request from both affected clubs and the venue. Spectator entry is listed as free for regular season fixtures, although the announcement says that capacity restrictions may prevent admission once the hall reaches its posted limit. The organizer will publish a revised schedule if venue confirmations change, and clubs have been instructed to use that dated revision instead of circulating earlier screenshots. The document describes planned fixtures and administrative rules only; it reports no completed games, championship prediction, attendance measurement, or independently assessed change in player performance.",
+    "claimIds": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ]
+  }
+}

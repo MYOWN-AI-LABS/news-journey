@@ -1,0 +1,72 @@
+{
+  "hook": "FA demands Infantino release World Cup sell-off documents",
+  "body": [
+    {
+      "voiceover": "FA chair Debbie Hewitt sent a letter demanding Fifa president Gianni Infantino release all documents on his plan to sell off a stake in the World Cup. Hewitt, a Fifa vice-president, wants a written explanation for the cancelled suspension of USA forward Folarin Balogun, and documents released before the Fifa Council meets on October 15. Her letter also calls for an independent review of the scrapped sell-off plan, and accuses Fifa of governance failures. England, Wales and Scotland have withdrawn support for Infantino's re-election bid.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "FA Demands Infantino Release Documents",
+        "stat": "Council meets Oct 15"
+      },
+      "assetRef": "og-0",
+      "motion": {
+        "who": "FA chair Debbie Hewitt",
+        "what": "demands Infantino release World Cup sell-off documents",
+        "how": "letter sent to Fifa's president and secretary general ahead of the October 15 Council meeting",
+        "impact": "adds pressure amid governance accusations and withdrawn national federation support",
+        "status": "announced",
+        "kind": "flow"
+      }
+    },
+    {
+      "voiceover": "Next, BBC Sport expert Chris Sutton predicts every Premier League game this season against AI, readers, and guests. This week he's up against Johnny Marr, the guitarist and Manchester City fan whose new album, The Age Of Everything, is out October 2nd. A correct result earns 10 points, an exact score gets 40.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "Sutton vs Johnny Marr Predictions",
+        "stat": "Exact score: 40 pts"
+      },
+      "assetRef": "og-1",
+      "motion": {
+        "who": "Chris Sutton",
+        "what": "predicts Premier League fixtures against Johnny Marr",
+        "how": "weekly predictor pits Sutton against AI, readers and guests using a points scoring system",
+        "impact": "spotlights BBC's season-long predictions contest with a celebrity guest",
+        "status": "shipped",
+        "kind": "flow"
+      }
+    },
+    {
+      "voiceover": "Finally, Manchester United manager Michael Carrick says outside pressure 'doesn't bother me one bit' after United blew a 2-0 lead to lose 2-3 to Brighton in the Carabao Cup. It's the first time United have lost at Old Trafford after leading 2-0 in 50 years. Teenager Shea Lacey scored on his senior debut. United face Fulham Sunday.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "Carrick Not Bothered By Pressure",
+        "stat": "Lost 2-3 after leading 2-0"
+      },
+      "assetRef": "og-2",
+      "motion": {
+        "who": "Michael Carrick",
+        "what": "denies feeling pressure after Carabao Cup exit to Brighton",
+        "how": "United blew a 2-0 lead to lose 2-3 at Old Trafford, first such loss in 50 years",
+        "impact": "raises scrutiny ahead of Sunday's away game at Fulham",
+        "status": "unverified",
+        "kind": "flow"
+      }
+    }
+  ],
+  "cta": "Subscribe for sourced reporting.",
+  "publish": {
+    "title": "FA demands Infantino's World Cup documents, Sutton vs Marr predictions, Carrick under pressure",
+    "description": "FA chair Debbie Hewitt demands Fifa release World Cup sell-off documents before the October 15 Council meeting. Chris Sutton takes on guitarist Johnny Marr in this week's Premier League predictions. Manchester United's Michael Carrick says he isn't bothered by pressure after a Carabao Cup exit to Brighton. Source: BBC Sport.\n\nDisclosure: produced with an automated editorial workflow; review every source before publication.",
+    "hashtags": [
+      "FIFA",
+      "Infantino",
+      "PremierLeague",
+      "ManUtd",
+      "CarabaoCup",
+      "FootballNews"
+    ],
+    "linkedinPost": "Governance pressure is mounting on Fifa: the FA has formally demanded Infantino release all documents on his shelved World Cup sell-off plan ahead of next month's Council meeting. Elsewhere, BBC's predictions series adds a celebrity twist with Johnny Marr, and Manchester United face fresh scrutiny after a Carabao Cup collapse against Brighton. A quick, sourced roundup for Premier League and European football followers.\n\nDisclosure: produced with an automated editorial workflow; review every source before publication."
+  },
+  "intro": "This is Football Weekly Roundup.",
+  "fullVoiceoverText": "FA demands Infantino release World Cup sell-off documents This is Football Weekly Roundup. FA chair Debbie Hewitt sent a letter demanding Fifa president Gianni Infantino release all documents on his plan to sell off a stake in the World Cup. Hewitt, a Fifa vice-president, wants a written explanation for the cancelled suspension of USA forward Folarin Balogun, and documents released before the Fifa Council meets on October 15. Her letter also calls for an independent review of the scrapped sell-off plan, and accuses Fifa of governance failures. England, Wales and Scotland have withdrawn support for Infantino's re-election bid. Next, BBC Sport expert Chris Sutton predicts every Premier League game this season against AI, readers, and guests. This week he's up against Johnny Marr, the guitarist and Manchester City fan whose new album, The Age Of Everything, is out October 2nd. A correct result earns 10 points, an exact score gets 40. Finally, Manchester United manager Michael Carrick says outside pressure 'doesn't bother me one bit' after United blew a 2-0 lead to lose 2-3 to Brighton in the Carabao Cup. It's the first time United have lost at Old Trafford after leading 2-0 in 50 years. Teenager Shea Lacey scored on his senior debut. United face Fulham Sunday. Subscribe for sourced reporting."
+}

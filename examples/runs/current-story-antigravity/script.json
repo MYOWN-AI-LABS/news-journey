@@ -1,0 +1,38 @@
+{
+  "hook": "Real Madrid want 15-year-old Manchester United forward JJ Gabriel.",
+  "body": [
+    {
+      "voiceover": "The BBC reports that Real Madrid have a strong interest in signing 15-year-old Manchester United forward JJ Gabriel. According to the report, Gabriel has sent Manchester United formal notice that he wants to cancel his registration with immediate effect. The reporting states that Real Madrid want to recruit Gabriel immediately and position him in their reserve team, Real Madrid Castilla. Why does this matter? The BBC reports that multiple major European clubs, including Barcelona, PSG, Bayern Munich, and Chelsea, also have a firm interest in signing JJ Gabriel. The report notes that Real Madrid aren't the only major European club interested in the 15-year-old forward. While Real Madrid want to recruit Gabriel immediately for Real Madrid Castilla, clubs like Barcelona, PSG, Bayern Munich, and Chelsea hold a firm interest as well. According to the report, this comes after Gabriel sent Manchester United formal notice that he wants to cancel his registration with immediate effect. The BBC's reporting highlights that Real Madrid have a strong interest in bringing in 15-year-old Gabriel right away. With Barcelona, PSG, Bayern Munich, and Chelsea also retaining firm interest, the report states that Real Madrid plan to place him in Real Madrid Castilla immediately.",
+      "scene": "news_card",
+      "onScreen": {
+        "title": "Real Madrid target Man Utd forward JJ Gabriel",
+        "stat": "Age 15",
+        "sub": "Cancel registration notice sent"
+      },
+      "assetRef": "og-0",
+      "motion": {
+        "who": "Real Madrid and JJ Gabriel",
+        "what": "Real Madrid seek immediate recruitment of 15-year-old forward JJ Gabriel for Real Madrid Castilla",
+        "how": "Gabriel sends Manchester United formal notice that he wants to cancel his registration with immediate effect",
+        "impact": "Multiple major European clubs including Barcelona, PSG, Bayern Munich, and Chelsea also hold firm interest",
+        "status": "unverified",
+        "kind": "flow"
+      }
+    }
+  ],
+  "cta": "Subscribe for sourced reporting.",
+  "publish": {
+    "title": "Real Madrid Keen on Man Utd Forward JJ Gabriel, 15 and More",
+    "description": "Real Madrid have strong interest in signing 15-year-old Manchester United forward JJ Gabriel, who has sent formal notice to cancel his registration. Source: BBC Sport.\n\nDisclosure: produced with an automated editorial workflow; review every source before publication.",
+    "hashtags": [
+      "RealMadrid",
+      "ManUtd",
+      "JJGabriel",
+      "FootballNews",
+      "Transfers"
+    ],
+    "linkedinPost": "Real Madrid have expressed a strong interest in recruiting 15-year-old Manchester United forward JJ Gabriel for Real Madrid Castilla. According to BBC Sport reporting, Gabriel has formally requested to cancel his registration, while clubs including Barcelona, PSG, Bayern Munich, and Chelsea also hold firm interest.\n\nDisclosure: produced with an automated editorial workflow; review every source before publication."
+  },
+  "intro": "This is Football Briefing.",
+  "fullVoiceoverText": "Real Madrid want 15-year-old Manchester United forward JJ Gabriel. This is Football Briefing. The BBC reports that Real Madrid have a strong interest in signing 15-year-old Manchester United forward JJ Gabriel. According to the report, Gabriel has sent Manchester United formal notice that he wants to cancel his registration with immediate effect. The reporting states that Real Madrid want to recruit Gabriel immediately and position him in their reserve team, Real Madrid Castilla. Why does this matter? The BBC reports that multiple major European clubs, including Barcelona, PSG, Bayern Munich, and Chelsea, also have a firm interest in signing JJ Gabriel. The report notes that Real Madrid aren't the only major European club interested in the 15-year-old forward. While Real Madrid want to recruit Gabriel immediately for Real Madrid Castilla, clubs like Barcelona, PSG, Bayern Munich, and Chelsea hold a firm interest as well. According to the report, this comes after Gabriel sent Manchester United formal notice that he wants to cancel his registration with immediate effect. The BBC's reporting highlights that Real Madrid have a strong interest in bringing in 15-year-old Gabriel right away. With Barcelona, PSG, Bayern Munich, and Chelsea also retaining firm interest, the report states that Real Madrid plan to place him in Real Madrid Castilla immediately. Subscribe for sourced reporting."
+}

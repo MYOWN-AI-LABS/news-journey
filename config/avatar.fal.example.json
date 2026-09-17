@@ -1,0 +1,34 @@
+{
+  "mode": "hybrid",
+  "avatarProvider": "fal",
+  "voiceProvider": "kokoro",
+  "disclosure": "This video uses synthetic narration and a configured digital presenter.",
+  "elevenlabs": {
+    "voiceId": "",
+    "modelId": "eleven_multilingual_v2",
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speakerBoost": true
+  },
+  "resemble": {
+    "voiceUuid": ""
+  },
+  "heygen": {
+    "avatarId": "",
+    "background": "#F3EFE5",
+    "ratio": "9:16",
+    "presenterScale": 0.4,
+    "presenterCorner": "bottom-right",
+    "pollSeconds": 10,
+    "maxPollMinutes": 10
+  },
+  "fal": {
+    "model": "fal-ai/kling-video/ai-avatar/v2/standard",
+    "sourceImage": "REPLACE_WITH_LOCAL_CONSENTED_PORTRAIT.png",
+    "prompt": "Natural eye contact, restrained head movement, and subtle conversational gestures.",
+    "introSeconds": 12,
+    "pollSeconds": 10,
+    "maxPollMinutes": 15
+  }
+}

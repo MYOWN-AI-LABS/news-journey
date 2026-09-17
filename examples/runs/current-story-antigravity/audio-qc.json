@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "status": "pass",
+  "method": "raw-asr-script-comparison",
+  "changes": [
+    {
+      "kind": "replace",
+      "requested": [
+        "want"
+      ],
+      "heard": [
+        "won"
+      ]
+    }
+  ],
+  "blocking": [],
+  "policy": "Numeric or measurement/currency unit changes, lost negation, consecutive omissions and substantial transcript mismatch hold. Other ASR wording/name differences are warnings; this does not prove voice identity, stress, pronunciation or listening acceptance.",
+  "engine": "kokoro",
+  "voice": "af_heart"
+}

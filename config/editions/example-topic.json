@@ -1,0 +1,17 @@
+{
+  "editionId": "example-topic",
+  "displayName": "Example Topic",
+  "newsletterTitle": "Example Topic Briefing",
+  "badge": "EXAMPLE",
+  "videoAccent": "#D45B34",
+  "coverFile": "examples/assets/placeholder-cover.svg",
+  "newsletterLine": "EXAMPLE TOPIC — REVIEW BEFORE PUBLISHING",
+  "wordBudget": {
+    "min": 160,
+    "max": 200
+  },
+  "speedFactor": 1,
+  "cadence": null,
+  "prompt": "Explain one verifiable topic for a general technical audience.",
+  "source": "web"
+}

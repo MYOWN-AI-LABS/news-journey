@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "content-harness",
+  "description": "Free MIT: prepare sourced drafts, inspect local review status and publish to the channels you connect. Pro services are planned.",
+  "owner": {
+    "name": "MyOwnAI Labs",
+    "url": "https://github.com/MYOWN-AI-LABS"
+  },
+  "plugins": [
+    {
+      "name": "content-harness",
+      "description": "Free MIT: prepare sourced drafts, inspect local review status and publish to the channels you connect. Pro services are planned.",
+      "source": "./plugins/content-harness",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "note": "Curated public feeds offered when a brief's topics match a family and the workspace has no feeds of its own. Every URL was fetched and returned RSS with items (civic family 2026-09-10; health family 2026-09-11, when each feed's newest article also passed the selection-time readability probe). Re-verify before adding more. Attribution is not clearance: stories still pass the same source verification. Sports family added 2026-09-17: all three feeds fetched with items and media that day.",
+  "families": [
+    {
+      "id": "civic-government",
+      "name": "Civic and government affairs",
+      "keywords": [
+        "housing",
+        "transit",
+        "transportation",
+        "public health",
+        "election",
+        "elections",
+        "voting",
+        "city",
+        "council",
+        "municipal",
+        "local government",
+        "state government",
+        "zoning",
+        "health department",
+        "public policy",
+        "civic"
+      ],
+      "feeds": [
+        {
+          "name": "Shelterforce",
+          "url": "https://shelterforce.org/feed/",
+          "covers": "housing policy"
+        },
+        {
+          "name": "Streetsblog USA",
+          "url": "https://usa.streetsblog.org/feed",
+          "covers": "transit and street policy"
+        },
+        {
+          "name": "KFF Health News",
+          "url": "https://kffhealthnews.org/feed/",
+          "covers": "public health policy"
+        },
+        {
+          "name": "CDC Newsroom",
+          "url": "https://tools.cdc.gov/api/v2/resources/media/132608.rss",
+          "covers": "federal public health releases"
+        },
+        {
+          "name": "Route Fifty",
+          "url": "https://www.route-fifty.com/rss/all/",
+          "covers": "state and local government"
+        },
+        {
+          "name": "electionline",
+          "url": "https://electionline.org/feed/",
+          "covers": "election administration"
+        }
+      ]
+    },
+    {
+      "id": "health-medicine",
+      "name": "Health care and medicine",
+      "keywords": [
+        "health care",
+        "healthcare",
+        "clinical",
+        "hospital",
+        "hospitals",
+        "patient",
+        "patients",
+        "medical",
+        "medicine",
+        "digital health",
+        "health it",
+        "nursing",
+        "fda",
+        "drug",
+        "drugs",
+        "pharma",
+        "biotech"
+      ],
+      "feeds": [
+        {
+          "name": "STAT",
+          "url": "https://www.statnews.com/feed/",
+          "covers": "health, medicine and life-science reporting"
+        },
+        {
+          "name": "MedCity News",
+          "url": "https://medcitynews.com/feed/",
+          "covers": "health-care innovation and providers"
+        },
+        {
+          "name": "HIT Consultant",
+          "url": "https://hitconsultant.net/feed/",
+          "covers": "health IT and clinical AI"
+        },
+        {
+          "name": "FDA press announcements",
+          "url": "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/press-releases/rss.xml",
+          "covers": "federal drug and device regulation"
+        },
+        {
+          "name": "KFF Health News",
+          "url": "https://kffhealthnews.org/feed/",
+          "covers": "health policy"
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "keywords": [
+        "sports",
+        "sport",
+        "football",
+        "soccer",
+        "premier league",
+        "champions league",
+        "europa league",
+        "scottish premiership",
+        "football club",
+        "football transfer",
+        "matchday",
+        "football fixtures"
+      ],
+      "feeds": [
+        {
+          "name": "BBC Sport \u2014 Football",
+          "url": "https://feeds.bbci.co.uk/sport/football/rss.xml",
+          "covers": "football news with the source's own photographs"
+        },
+        {
+          "name": "BBC Sport",
+          "url": "https://feeds.bbci.co.uk/sport/rss.xml",
+          "covers": "all sports"
+        },
+        {
+          "name": "Sky Sports \u2014 Football",
+          "url": "https://www.skysports.com/rss/12040",
+          "covers": "football news"
+        }
+      ]
+    }
+  ]
+}

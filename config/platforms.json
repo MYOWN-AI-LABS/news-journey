@@ -1,0 +1,23 @@
+{
+  "youtube": {
+    "enabled": false
+  },
+  "instagram": {
+    "enabled": false
+  },
+  "linkedin": {
+    "enabled": false
+  },
+  "x": {
+    "enabled": false
+  },
+  "threads": {
+    "enabled": false
+  },
+  "tiktok": {
+    "enabled": false
+  },
+  "reddit": {
+    "enabled": false
+  }
+}
