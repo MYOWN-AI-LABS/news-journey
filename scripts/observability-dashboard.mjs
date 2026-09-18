@@ -240,7 +240,7 @@ const archiveNote = cfg.siteUrl
   ? `exact-page checks run against ${esc(cfg.siteUrl)} when this page was generated`
   : "no siteUrl configured in config/pipeline.json — archive liveness was not checked";
 
-const html = `<!doctype html><meta charset="utf-8"><title>Observability — AI Content Engine</title>
+const html = `<!doctype html><meta charset="utf-8"><title>Observability — News Journey</title>
 <style>
 :root{--bg:#0c0e16;--panel:#141826;--panel2:#1b2030;--line:#2a3147;--ink:#e8ecf6;--dim:#8b94ad;--ok:#34d399;--owed:#f87171;--stuck:#fbbf24;--missed:#6b7490;--acc:#7c5cff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;padding:22px}
@@ -286,7 +286,7 @@ td.archive{font-size:10px;font-weight:750;letter-spacing:.035em;white-space:nowr
 .foot{color:var(--dim);font-size:11.5px;margin-top:6px}
 a{color:var(--acc)}
 </style>
-<h1>Observability — AI Content Engine</h1>
+<h1>Observability — News Journey</h1>
 <div class="sub">Last ${recent.length} productions · generated ${esc(new Date().toISOString().replace("T", " ").slice(0, 16))}</div>
 
 <div class="kpis">

@@ -25,7 +25,7 @@ Describe your audience and what they should learn. News Journey finds current, r
 
 <div align="center">
 
-<video src="https://github.com/user-attachments/assets/e2adb25c-ceec-498e-b344-d7961cd9da24" poster="docs/journey-assets/walkthrough-poster.jpg" controls muted playsinline width="720"></video>
+<video src="https://github.com/user-attachments/assets/3ef621d3-d75d-4982-a922-f5dd0620b5f8" poster="docs/journey-assets/walkthrough-poster.jpg" controls muted playsinline width="720"></video>
 
 *Jordan's Journey — the whole product in eight minutes. [Full-quality file](docs/journey-assets/walkthrough-v8.mp4) · [captions](docs/journey-assets/walkthrough-v8.vtt)*
 </div>

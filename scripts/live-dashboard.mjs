@@ -152,7 +152,7 @@ function pipelineGraph() {
 
 const cfg = rj(join(ROOT, "config/pipeline.json")) ?? {};
 const defaultEdition = rj(join(ROOT, "config/editions/daily-roundup.json"));
-const TITLE = defaultEdition?.newsletterTitle || defaultEdition?.displayName || "AI Content Engine";
+const TITLE = defaultEdition?.newsletterTitle || defaultEdition?.displayName || "News Journey";
 
 const HTML = `<!doctype html><meta charset="utf-8"><title>${escHtml(TITLE)} — live run ${escHtml(DAY)}</title>
 <style>
