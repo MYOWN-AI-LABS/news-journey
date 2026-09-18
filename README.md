@@ -65,6 +65,13 @@ brief ─► sources ─► stories ─► script ─► newsletter ─► visua
 - **Narration and video** use the built-in narrator or your own local voice, with a transcript check on the audio, then render locally.
 - **Preview** shows the newsletter and video together. Publishing to a connected channel is a separate, explicit action.
 
+<div align="center">
+
+<video src="https://github.com/user-attachments/assets/eed0bbd9-c0df-425c-8ce9-973b8b2f8189" controls muted playsinline width="720"></video>
+
+*The same pipeline, rendered. Four minutes, no narration needed.*
+</div>
+
 ## Writers
 
 Bring the account you already have. The Free edition offers the four writers that have each produced a finished edition from a plain brief on a fresh workspace.
