@@ -59,9 +59,9 @@ node ops/setup-llmfit.mjs
 
 Hermes and OpenClaw choose their own model and GPU infrastructure. Running them on a GPU does not move the harness writer or renderer automatically. A customer-hosted inference endpoint can use the harness's compatible API writer, with the exact model and endpoint set in the local browser. Verify where inference runs and test that provider's API; an MCP connection alone does not test GPU placement, speed or model support. Keep the control interface on loopback.
 
-## Grok API, Grok Build and Grok Bot
+## Grok CLI and Grok Bot
 
-**Grok API** is a writing-provider option. Select Grok, enter an exact model available to your xAI account and save its API credential in the local workspace setup. The shipped adapter uses `https://api.x.ai/v1` and `XAI_API_KEY`. It is separate from the `grok` connector, which operates the [Grok Build coding CLI](https://docs.x.ai/build/features/mcp-servers).
+**Grok writer** uses the [Grok Build CLI](https://docs.x.ai/build/cli/reference) and its saved login. Install it and sign in with `grok login`. Leave the model name blank to use the current `grok models` recommendation; an explicit model stays pinned. New workspaces use the CLI even without a saved command. News Journey does not require an xAI API key or fall back to HTTP for this writer. Model discovery does not generate content; checking/generating still requires available account usage.
 
 **Grok Bot** is a [persistent cloud agent](https://docs.x.ai/grok-bot/overview). The harness includes an optional remote MCP server, not a Grok Bot account. Its local browser setup requires an existing customer-owned named Cloudflare tunnel, stable HTTPS hostname and matching credentials file. Start the connection explicitly and complete the account's available connector flow. OAuth grants bind one member/workspace, expire after one hour and require fresh consent; the remote client never receives the local member token. Disconnect revokes grants and stops the managed tunnel. The local computer and tunnel must remain running for this connection. Do not expose the control UI or owner token. Grok Bot account integration is unverified until that account successfully calls `harness_status`.
 

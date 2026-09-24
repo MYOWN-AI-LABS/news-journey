@@ -18,6 +18,6 @@ own settings. Provider usage can cost money. The software license does not pay f
 For checks without model calls: `npm test`, `npm run test:unit`, `npm run typecheck`, then `npm run dry-run`.
 Publishing is a separate, explicit step after you review the preview; nothing is posted until you choose to.
 
-For OpenCode, Ollama, Hermes, OpenClaw, Grok API, Grok Bot and your own GPU host, follow the [connector and voice guide](docs/connect-and-voice.md). It separates shipped adapters from integrations that still need a live account test.
+For OpenCode, Ollama, Hermes, OpenClaw, Grok CLI, Grok Bot and your own GPU host, follow the [connector and voice guide](docs/connect-and-voice.md). It separates shipped adapters from integrations that still need a live account test.
 
 To use Claude Code or Codex with this workspace, follow the [plugin installation guide](plugins/content-harness/README.md). It includes the public GitHub marketplace commands, workspace binding and a status call to verify the connection.

@@ -10,9 +10,7 @@
       "model": "glm-5.1"
     },
     "grok": {
-      "command": "grok",
-      "baseUrl": "https://api.x.ai/v1",
-      "model": "grok-4.5"
+      "command": "grok"
     },
     "gemini": {
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",

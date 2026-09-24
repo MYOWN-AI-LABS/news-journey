@@ -9,8 +9,7 @@ Choose the writer in the Journey or edit the selected workspace's `config/model.
 | `claude` | Installed Claude CLI and its saved login | `providers.claude.command` and optional model |
 | `codex` | Installed Codex CLI and its saved login | `providers.codex.command` and optional model; an omitted model is resolved from the saved Codex configuration |
 | `opencode` | Installed OpenCode CLI, isolated writer session | Explicit `ollama/<model>` or supported `opencode/<model>-free` route; see below |
-| `grok` with `command` | Installed Grok Build CLI and its saved login | `providers.grok.command`, optional model |
-| `grok` without `command` | xAI HTTP API | Explicit model; `XAI_API_KEY`; default base URL `https://api.x.ai/v1` |
+| `grok` | Installed Grok Build CLI and its saved login; no API fallback | Optional command (default `grok`); blank model uses the current `grok models` recommendation, resolved and pinned before dispatch |
 | `antigravity` | Google Antigravity's signed-in `agy` CLI (Gemini models), print mode, text only | `providers.antigravity.model` from `agy models`, default `gemini-3.8-flash-high` when unset; optional `command`, `reasoningEffort`; no API key; 900 s per call by default |
 | `gemini` | Gemini OpenAI-compatible HTTP API | Explicit model; `GEMINI_API_KEY`; default base URL `https://generativelanguage.googleapis.com/v1beta/openai` |
 | `zai` | Z.AI HTTP API | Explicit model; `ZAI_API_KEY`; default base URL `https://api.z.ai/api/paas/v4` |
@@ -24,7 +23,7 @@ OpenCode currently accepts the harness's validated Ollama and anonymous OpenCode
 
 For an installed Ollama model that advertises vision, OpenCode can receive up to six bounded PNG/JPEG/WebP images through private CLI attachments. The adapter checks the selected model's local metadata and sends the same model both text and image bytes; it does not grant browsing tools or switch providers. The hosted free route remains text-only in this adapter. Configure the actual Ollama model context as well as the harness settings: OpenCode's context metadata does not enlarge Ollama's runtime context. Image transport support still requires a real end-to-end quality test for the chosen model.
 
-Grok Build CLI and Grok API are separate routes. A saved CLI login does not establish API access or credits. Grok Bot is a remote connector host, not a native writer transport. Gemini CLI, Hermes and OpenClaw can operate the harness through its connector; that does not select their host model as the harness writer. See [agent compatibility](agent-compatibility.md).
+Grok always uses the Build CLI, including new workspaces with no provider settings. Model discovery uses `grok models` without an inference request; its recommended model is cached for at most 60 seconds, then refreshed. Explicit model names remain pinned. A failed lookup stops with instructions instead of selecting an old model or switching to HTTP. Clear the model name in Writer settings to return to automatic selection. CLI login and available usage are still required. For deliberately configured API access, use the separate OpenAI-compatible provider where available. Grok Bot is a remote connector host, not a native writer transport. Gemini CLI, Hermes and OpenClaw can operate the harness through its connector; that does not select their host model as the harness writer. See [agent compatibility](agent-compatibility.md).
 
 ## Bedrock
 

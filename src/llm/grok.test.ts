@@ -1,11 +1,28 @@
 import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, chmodSync, readFileSync, rmSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { dirname, join } from 'node:path';
+import { dirname, join, delimiter } from 'node:path';
 import { after, describe, it } from 'node:test';
-import { GrokCliFailure, GROK_CLI_REVIEW_TRANSPORT_VERSION, grokText } from './grok.js';
+import type { GrokCliFailure as GrokFailure } from './grok.js';
+import { CODE_ROOT, createWorkspace } from '../workspaces.js';
 import type { ModelRuntime } from './model.js';
-import { modelJson, resolveModelRuntime, type ModelConfig } from './model.js';
+import type { ModelConfig } from './model.js';
+
+// Transport diagnostics and synthetic usage must stay out of the operator workspace.
+const testIdentity = mkdtempSync(join(tmpdir(), 'grok-test-identity-'));
+const priorWorkspace = process.env.HARNESS_WORKSPACE, priorIdentity = process.env.HARNESS_IDENTITY_FILE, priorToken = process.env.HARNESS_TOKEN;
+delete process.env.HARNESS_WORKSPACE; delete process.env.HARNESS_TOKEN;
+process.env.HARNESS_IDENTITY_FILE = join(testIdentity, 'identity.json');
+const testSlug = 'grok-test-' + process.pid, testRoot = createWorkspace(testSlug, false, CODE_ROOT);
+process.env.HARNESS_WORKSPACE = testSlug;
+const { GrokCliFailure, GROK_CLI_REVIEW_TRANSPORT_VERSION, grokText, configuredGrokModel } = await import('./grok.js');
+const { modelJson, resolveModelRuntime } = await import('./model.js');
+after(() => {
+  rmSync(testRoot, { recursive: true, force: true }); rmSync(testIdentity, { recursive: true, force: true });
+  for (const [key, value] of Object.entries({ HARNESS_WORKSPACE: priorWorkspace, HARNESS_IDENTITY_FILE: priorIdentity, HARNESS_TOKEN: priorToken })) {
+    if (value === undefined) delete process.env[key]; else process.env[key] = value;
+  }
+});
 
 const fixtureDirs: string[] = [];
 after(() => { for (const dir of fixtureDirs) rmSync(dir, { recursive: true, force: true }); });
@@ -30,7 +47,7 @@ function outputCommand(value: unknown): string {
   return fakeGrok(process.platform === 'win32' ? `echo ${raw}` : `#!/usr/bin/env node\nprocess.stdout.write(${JSON.stringify(raw)});\n`);
 }
 function runtime(command: string): ModelRuntime { return { provider: 'grok', label: 'Grok CLI', command, timeoutMs: 10_000 }; }
-async function rejectedReceipt(run: () => Promise<unknown>, expected: RegExp): Promise<{ error: GrokCliFailure; receipt: any }> {
+async function rejectedReceipt(run: () => Promise<unknown>, expected: RegExp): Promise<{ error: GrokFailure; receipt: any }> {
   let caught: unknown;
   try { await run(); } catch (error) { caught = error; }
   assert.ok(caught instanceof GrokCliFailure, 'failure must retain a private transport diagnostic');
@@ -133,4 +150,32 @@ process.stdout.write(JSON.stringify({text:'Frame received',stopReason:'end_turn'
     await assert.rejects(grokText('Inspect', runtime(command), Array(7).fill(path)), /at most six/);
     writeFileSync(path, 'not a PNG'); await assert.rejects(grokText('Inspect', runtime(command), [path]), /PNG, JPEG or WebP/);
   });
+});
+
+it('fresh Grok selection discovers the catalog default and invokes only the CLI without API credentials', { skip: process.platform === 'win32' }, async () => {
+  const command = fakeGrok(`#!/usr/bin/env node
+const fs=require('node:fs'),assert=require('node:assert/strict'),args=process.argv.slice(2);
+assert.equal(process.env.XAI_API_KEY,undefined);assert.equal(process.env.AI_CONTENT_MODEL_API_KEY,undefined);
+if(args.includes('models')){fs.appendFileSync(__filename+'.catalog','1');process.stdout.write('Default model: grok-next-flagship\\n\\nAvailable models:\\n  * grok-next-flagship (default)\\n  - grok-4.5\\n');}
+else{assert.equal(args[args.indexOf('--model')+1],'grok-next-flagship');assert.ok(args.includes('--prompt-file'));fs.appendFileSync(__filename+'.calls','1');process.stdout.write(JSON.stringify({text:'{"ok":true}',stopReason:'end_turn',num_turns:1}));}
+`);
+  const priorPath = process.env.PATH, priorKey = process.env.XAI_API_KEY;
+  process.env.PATH = dirname(command) + delimiter + (priorPath || ''); process.env.XAI_API_KEY = 'must-not-reach-cli';
+  try {
+    const settings: ModelConfig = { provider: 'grok', providers: {}, rescue: { enabled: false } };
+    const runtime = resolveModelRuntime(settings, { XAI_API_KEY: 'unused', AI_CONTENT_MODEL_API_KEY: 'unused' });
+    assert.equal(runtime.command, 'grok'); assert.equal(runtime.model, 'grok-next-flagship');
+    assert.equal(runtime.apiKey, undefined); assert.equal(runtime.baseUrl, undefined);
+    const result = await modelJson<{ ok: boolean }>('Return {"ok":true}.', v => v.ok === true ? null : 'not ok', settings, {});
+    assert.equal(result.ok, true); assert.equal(readFileSync(command+'.calls','utf8'),'1');
+    assert.equal(readFileSync(command+'.catalog','utf8'),'1', 'short-lived cache avoids repeated metadata processes');
+    assert.equal(resolveModelRuntime(settings, { AI_CONTENT_MODEL_NAME: 'user-pinned-model' }).model, 'user-pinned-model');
+    assert.throws(() => resolveModelRuntime(settings, { AI_CONTENT_MODEL_BASE_URL: 'https://api.x.ai/v1' }), /no API fallback/);
+  } finally { if(priorPath===undefined)delete process.env.PATH;else process.env.PATH=priorPath; if(priorKey===undefined)delete process.env.XAI_API_KEY;else process.env.XAI_API_KEY=priorKey; }
+});
+
+it('missing or malformed Grok catalog fails without choosing an old model or using HTTP', { skip: process.platform === 'win32' }, () => {
+  assert.throws(() => configuredGrokModel(undefined, join(tmpdir(),'missing-grok-executable')), /No API fallback/);
+  assert.throws(() => configuredGrokModel(undefined, fakeGrok('#!/usr/bin/env node\nconsole.log("grok-4.5");\n')), /No API fallback/);
+  assert.equal(configuredGrokModel(' user-pinned-model ', 'missing-command'), 'user-pinned-model');
 });

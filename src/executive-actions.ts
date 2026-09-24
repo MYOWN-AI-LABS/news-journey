@@ -125,7 +125,7 @@ export const CHANNELS: Record<string, { provider: string; fields: string[]; port
   tiktok: { provider: 'tiktok', fields: ['TIKTOK_CLIENT_KEY', 'TIKTOK_CLIENT_SECRET', 'TIKTOK_REDIRECT_URI'], portal: 'https://developers.tiktok.com/' },
   reddit: { provider: 'reddit', fields: ['REDDIT_CLIENT_ID', 'REDDIT_CLIENT_SECRET', 'REDDIT_USER_AGENT', 'REDDIT_SUBREDDIT'], portal: 'https://www.reddit.com/prefs/apps' },
 };
-const MODEL_KEYS: Record<string, string> = { zai: 'ZAI_API_KEY', grok: 'XAI_API_KEY', gemini: 'GEMINI_API_KEY', 'openai-compatible': 'OPENAI_COMPATIBLE_API_KEY' };
+const MODEL_KEYS: Record<string, string> = { zai: 'ZAI_API_KEY', gemini: 'GEMINI_API_KEY', 'openai-compatible': 'OPENAI_COMPATIBLE_API_KEY' };
 const secretFields = new Set([...Object.values(CHANNELS).flatMap(c => c.fields), ...Object.values(MODEL_KEYS), 'ELEVENLABS_API_KEY', 'RESEMBLE_API_KEY', 'HEYGEN_API_KEY', 'HEDRA_API_KEY', 'FAL_KEY', 'PUBLIC_VIDEO_URL_TEMPLATE', 'OPENAI_REALTIME_API_KEY', 'APIFY_TOKEN']);
 function text(value: unknown, label: string, max = 1000): string {
   if (typeof value !== 'string' || value.length > max || /[\x00-\x1f\x7f]/.test(value)) throw new Error(`Invalid ${label}`);
@@ -317,7 +317,7 @@ export function executiveState(root: string, role: string, actorId?: string) {
       const disabled = Boolean(custom && !source.enabledSources?.includes('publicApis'));
       return { id, name: c.name, description: c.description, category: c.category, reason: c.reason, connection: custom ? 'ready' : c.connection, ready: Boolean(custom || c.endpoint), connected: Boolean(saved && !needsUpdate), disabled, needsUpdate, documentationUrl };
     }),
-    model: { provider, localRescue: model.rescue?.enabled === true, rescueAllowance, name: provider === 'claude' ? '' : env.AI_CONTENT_MODEL_NAME || runtime.model || '', region: provider === 'bedrock' ? env.AWS_REGION || env.AWS_DEFAULT_REGION || runtime.region || '' : '', url: ['claude', 'codex', 'opencode', 'bedrock'].includes(provider) ? '' : env.AI_CONTENT_MODEL_BASE_URL || runtime.baseUrl || '', keySaved: Boolean(MODEL_KEYS[provider] && (env.AI_CONTENT_MODEL_API_KEY || env[MODEL_KEYS[provider]])) },
+    model: { provider, localRescue: model.rescue?.enabled === true, rescueAllowance, name: provider === 'claude' ? '' : env.AI_CONTENT_MODEL_NAME || runtime.model || '', region: provider === 'bedrock' ? env.AWS_REGION || env.AWS_DEFAULT_REGION || runtime.region || '' : '', url: ['claude', 'codex', 'opencode', 'grok', 'bedrock'].includes(provider) ? '' : env.AI_CONTENT_MODEL_BASE_URL || runtime.baseUrl || '', keySaved: Boolean(MODEL_KEYS[provider] && (env.AI_CONTENT_MODEL_API_KEY || env[MODEL_KEYS[provider]])) },
     activity: activeJourneyTask(root, actorId),
     lastDraft: lastDraft(root, actorId),
     completedToday: completedToday(root, actorId),

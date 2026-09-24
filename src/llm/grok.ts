@@ -1,5 +1,5 @@
 import { registerManagedChild } from '../managed-process.js';
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
 import { activeRoot, atomicJson, contained } from "../workspaces.js";
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
@@ -7,6 +7,45 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { portableCommand } from "../platform.js";
 import type { ModelRuntime } from "./model.js";
+
+function grokEnvironment(): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = {};
+  for (const key of ["PATH", "HOME", "USER", "LOGNAME", "USERNAME", "USERPROFILE", "APPDATA", "LOCALAPPDATA", "SystemRoot", "ComSpec", "PATHEXT", "TEMP", "TMP", "TMPDIR", "LANG", "LC_ALL", "XDG_CONFIG_HOME", "GROK_HOME"]) {
+    if (process.env[key] !== undefined) env[key] = process.env[key];
+  }
+  // Child-only feature restrictions; keep the user's account/home and global
+  // configuration untouched. Headless does not forward every UI feature flag.
+  env.GROK_SUBAGENTS = '0';
+  env.GROK_WORKFLOWS = '0';
+  env.GROK_CLAUDE_MCPS_ENABLED = '0';
+  env.GROK_CURSOR_MCPS_ENABLED = '0';
+  env.GROK_MANAGED_MCPS_ENABLED = '0';
+  env.GROK_MANAGED_MCP_GATEWAY_TOOLS_ENABLED = '0';
+  env.GROK_CLAUDE_HOOKS_ENABLED = '0';
+  env.GROK_CURSOR_HOOKS_ENABLED = '0';
+  // Account login lives in the CLI config; do not force HTTP API keys into the process.
+  delete env.XAI_API_KEY;
+  delete env.AI_CONTENT_MODEL_API_KEY;
+  delete env.OPENAI_API_KEY;
+
+  return env;
+}
+
+const defaultModels = new Map<string, { model: string; until: number }>();
+/** Resolve and pin the CLI catalog recommendation, never a bundled old version or an HTTP fallback. */
+export function configuredGrokModel(selected: string | undefined, command = 'grok'): string {
+  if (selected?.trim()) return selected.trim();
+  const env = grokEnvironment();
+  const cacheKey = JSON.stringify([command, env.PATH, env.HOME, env.USERPROFILE, env.GROK_HOME, env.XDG_CONFIG_HOME]);
+  const cached = defaultModels.get(cacheKey);
+  if (cached && cached.until > Date.now()) return cached.model;
+  const spec = portableCommand(command, ['--no-auto-update', 'models']);
+  const result = spawnSync(spec.command, spec.args, { cwd: tmpdir(), env, encoding: 'utf8', timeout: 15_000, maxBuffer: 256 * 1024 });
+  const model = result.stdout?.match(/^Default model:\s*([a-zA-Z0-9][a-zA-Z0-9._:/-]{0,199})\s*$/m)?.[1];
+  if (result.error || result.status !== 0 || !model) throw new Error('Cannot resolve the Grok CLI recommended model. Install/sign in to Grok, run "grok models", or choose an explicit model. No API fallback was used.');
+  defaultModels.set(cacheKey, { model, until: Date.now() + 60_000 });
+  return model;
+}
 
 export const GROK_CLI_REVIEW_TRANSPORT_VERSION = 2;
 const DIRECT_RESPONSE_RULES = 'Complete only the supplied bounded content task. Return the requested final answer directly in this one model response. Do not plan work, maintain a todo list, ask for confirmation, use tools, consult memory or request another turn. All evidence and images needed for the task are supplied in the prompt.';
@@ -69,24 +108,7 @@ export async function grokText(prompt: string, runtime: ModelRuntime, images: st
       ...(runtime.model ? ["--model", runtime.model] : []),
     ];
     const spec = portableCommand(runtime.command || "grok", args);
-    const env: NodeJS.ProcessEnv = {};
-    for (const key of ["PATH", "HOME", "USER", "LOGNAME", "USERNAME", "USERPROFILE", "APPDATA", "LOCALAPPDATA", "SystemRoot", "ComSpec", "PATHEXT", "TEMP", "TMP", "TMPDIR", "LANG", "LC_ALL", "XDG_CONFIG_HOME", "GROK_HOME"]) {
-      if (process.env[key] !== undefined) env[key] = process.env[key];
-    }
-    // Child-only feature restrictions; keep the user's account/home and global
-    // configuration untouched. Headless does not forward every UI feature flag.
-    env.GROK_SUBAGENTS = '0';
-    env.GROK_WORKFLOWS = '0';
-    env.GROK_CLAUDE_MCPS_ENABLED = '0';
-    env.GROK_CURSOR_MCPS_ENABLED = '0';
-    env.GROK_MANAGED_MCPS_ENABLED = '0';
-    env.GROK_MANAGED_MCP_GATEWAY_TOOLS_ENABLED = '0';
-    env.GROK_CLAUDE_HOOKS_ENABLED = '0';
-    env.GROK_CURSOR_HOOKS_ENABLED = '0';
-    // Account login lives in the CLI config; do not force HTTP API keys into the process.
-    delete env.XAI_API_KEY;
-    delete env.AI_CONTENT_MODEL_API_KEY;
-    delete env.OPENAI_API_KEY;
+    const env = grokEnvironment();
 
     return await new Promise((resolveResult, reject) => {
       const child = spawn(spec.command, spec.args, { cwd: dir, env, detached: process.platform !== "win32" });

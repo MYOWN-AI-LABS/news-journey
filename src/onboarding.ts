@@ -51,7 +51,7 @@ function validateWriter(provider?: string, url?: string): void {
     const u = new URL(url);
     if (!/^https?:$/.test(u.protocol) || u.username || u.password || u.search || u.hash) throw new Error("Model URL must be HTTP(S), with no credentials/query/fragment");
     if (provider === "bedrock") throw new Error("Bedrock uses an AWS region and credential chain, not a Model URL");
-    if (["claude", "codex", "opencode"].includes(provider || "")) throw new Error("CLI writers use their selected CLI provider, not a Model URL");
+    if (["claude", "codex", "opencode", "grok"].includes(provider || "")) throw new Error("CLI writers use their selected CLI provider, not a Model URL");
   }
 }
 
@@ -65,7 +65,8 @@ export function saveWriter(root: string, provider: string, name: string, url: st
   model.provider = provider;
   const settings = (model.providers ??= {})[provider === "openai-compatible" ? "openaiCompatible" : provider] ??= {};
   if (name) settings.model = name;
-  else if (provider === "codex") delete settings.model;
+  else if (provider === "codex" || provider === "grok") delete settings.model;
+  if (provider === "grok") { settings.command ||= "grok"; delete settings.baseUrl; }
   if (url) settings.baseUrl = url.replace(/\/$/, "");
   syncModelCredentials(root, CODE_ROOT, provider, true, false);
   atomicJson(contained(root, "config/model.json"), model);
@@ -134,7 +135,7 @@ export function configureExecutive(codeRoot = CODE_ROOT, suppliedBrief?: string,
 
 /** Only the chosen model's key crosses this explicit intake boundary; other workspace secrets stay isolated. */
 function syncModelCredentials(root: string, codeRoot: string, provider: string, explicitModel: boolean, importLegacy = true): void {
-  const keys: Record<string,string> = {zai:"ZAI_API_KEY",grok:"XAI_API_KEY",gemini:"GEMINI_API_KEY","openai-compatible":"OPENAI_COMPATIBLE_API_KEY"};
+  const keys: Record<string,string> = {zai:"ZAI_API_KEY",gemini:"GEMINI_API_KEY","openai-compatible":"OPENAI_COMPATIBLE_API_KEY"};
   const key = keys[provider];
   const file = join(root, ".env");
   let text = existsSync(file) ? readFileSync(file,"utf8") : "";
@@ -154,7 +155,7 @@ function syncModelCredentials(root: string, codeRoot: string, provider: string, 
   // A generic key belongs to the workspace's prior provider. It must never shadow a new provider key.
   if(current.AI_CONTENT_MODEL_API_KEY) {
     const prior = current.AI_CONTENT_MODEL_PROVIDER || read<{provider?:string}>(join(root,"config/model.json"),{}).provider;
-    const priorKey = prior && keys[prior];
+    const priorKey = prior === "grok" ? "XAI_API_KEY" : prior && keys[prior];
     if(priorKey) { if(!current[priorKey])set(priorKey,current.AI_CONTENT_MODEL_API_KEY);set("AI_CONTENT_MODEL_API_KEY"); }
     else if(prior!==provider) throw new Error("Remove the previous provider's generic AI_CONTENT_MODEL_API_KEY from this workspace before switching providers");
   }

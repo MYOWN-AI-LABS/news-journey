@@ -162,3 +162,9 @@ Basic personal preferences and correction reminders are optional in Free and Pro
 [Choose a model](docs/model-providers.md) · [Connect your agent](docs/agent-compatibility.md) · [Connectors and voice](docs/connect-and-voice.md) · [Story visualization](docs/story-visualization.md) · [Channel connections](docs/channel-authorization.md) · [Control API](docs/control-api.md)
 
 </details>
+
+## Grok writer defaults
+
+Grok uses the signed-in Grok Build CLI, including fresh workspaces. Leave its model name blank to select the CLI catalog’s current recommended model; explicit names remain pinned. The model is resolved before dispatch and recorded in runtime identity. Missing CLI/model discovery stops clearly without an API fallback. Clear an old model name in Writer settings to return to automatic selection. API keys and Model URL fields are unavailable for Grok.
+
+Run the offline regression with `node --import tsx --test src/llm/grok.test.ts`. These fixture tests do not establish live account access or model quality; a live connection check requires Grok login and available usage.

@@ -343,7 +343,7 @@ test("model resolver supports all named and generic model providers", () => {
   assert.equal(resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "ollama" }).apiKey, "ollama");
   assert.equal(resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "openai-compatible" }).model, "example-model");
   assert.throws(() => resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "zai" }), /ZAI_API_KEY/);
-  assert.throws(() => resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "grok" }), /XAI_API_KEY/);
+  assert.equal(resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "grok" }).command, "grok");
   const grokCli = resolveModelRuntime({
     ...config,
     provider: "grok",
@@ -363,7 +363,7 @@ test("model resolver supports all named and generic model providers", () => {
     providers: { ...config.providers, grok: { command: "grok", model: "grok-4.5" } },
   }, {});
   assert.equal(grokCliExplicit.timeoutMs, 120_000);
-  // HTTP path still requires a key when command is absent.
+  // Even legacy Grok config without a command must use the CLI.
 
   assert.throws(() => resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "gemini" }), /GEMINI_API_KEY/);
   const local = resolveModelRuntime({ ...config, provider: 'opencode', providers: { opencode: { model: 'ollama/qwen2.5:7b' } } }, {});

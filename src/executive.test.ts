@@ -78,14 +78,16 @@ test('executive forms isolate workers, preserve secrets and route the saved writ
     assert.equal(JSON.parse(readFileSync(join(root, 'config/avatar.json'), 'utf8')).voicebox.profile, 'My authorized voice');
     const chosen = JSON.parse(readFileSync(join(root, 'desks.json'), 'utf8'));
     assert.deepEqual(chosen.editorial, occupied); assert.equal(chosen['editorial-2'].twoPersonRule, true);
-    const fields = { publication: 'Executive Brief', audience: 'strategy leaders', name: 'Jordan Lee', tone: 'Clear', topics: 'evidence\nmarket research', areas: '', feeds: 'https://news.example.org/feed', publicApis: 'off', model: 'grok', modelName: '', modelUrl: '', apiKey: 'fixture-private-key' };
+    const fields = { publication: 'Executive Brief', audience: 'strategy leaders', name: 'Jordan Lee', tone: 'Clear', topics: 'evidence\nmarket research', areas: '', feeds: 'https://news.example.org/feed', publicApis: 'off', model: 'grok', modelName: '', modelUrl: '', apiKey: '' };
     await assert.rejects(action('publication', fields, viewer), /Forbidden/);
     await action('publication', fields);
     assert.equal(JSON.parse(readFileSync(join(root, 'config/publisher.json'), 'utf8')).publication, 'Executive Brief');
     assert.match(readFileSync(join(root, '.env'), 'utf8'), /VIDEO_PATH="C:\\Users\\Example\\Videos"/);
-    assert.match(readFileSync(join(root, '.env'), 'utf8'), /fixture-private-key/);
+    assert.doesNotMatch(readFileSync(join(root, '.env'), 'utf8'), /XAI_API_KEY/);
+    await assert.rejects(action('writer', { model: 'grok', apiKey: 'fixture-private-key' }), /CLI login/);
     const state = await (await fetch(base + '/v1/journey?workspace=' + slug, { headers: { authorization: 'Bearer ' + owner } })).json();
-    await assert.rejects(action('publication', { ...fields, model: 'gemini', modelUrl: state.model.url, apiKey: 'fixture-gemini-key' }), /previous provider/);
+    assert.equal(state.model.url, '');
+    await assert.rejects(action('publication', { ...fields, modelUrl: 'https://api.x.ai/v1' }), /CLI writers/);
     const oldCover = JSON.parse(readFileSync(join(root, 'config/editions/daily-roundup.json'), 'utf8')).coverFile;
     const oldCoverBytes = readFileSync(join(root, oldCover));
     const envBefore = readFileSync(join(root, '.env'), 'utf8') + 'AI_CONTENT_MODEL_PROVIDER="grok"\nAI_CONTENT_MODEL_NAME="existing-runtime-model"\nAI_CONTENT_MODEL_BASE_URL="https://api.x.ai/v1"\n';
@@ -113,7 +115,7 @@ test('executive forms isolate workers, preserve secrets and route the saved writ
     const labels = JSON.parse(readFileSync(join(root, 'config/sources.json'), 'utf8')).editorial.areas;
     for (const label of [...labels.focusAreas, ...labels.verticals]) assert.equal(vocabularyLabelProblem(label), null, label);
     assert.equal(labels.verticals.at(-1), 'other'); assert.equal(labels.focusAreas.at(-1), 'other');
-    assert.equal(state.model.keySaved, true); assert.doesNotMatch(JSON.stringify(state), /fixture-private-key|tokenHash/);
+    assert.equal(state.model.keySaved, false); assert.doesNotMatch(JSON.stringify(state), /fixture-private-key|tokenHash/);
     await assert.rejects(action('channel', { platform: 'youtube', enabled: true, values: { HARNESS_TOKEN: 'anything' } }), /Unknown channel/);
     await assert.rejects(action('publication', { ...fields, modelUrl: 'file:///private', publication: 'Invalid' }), /Model URL/);
     assert.equal(JSON.parse(readFileSync(join(root, 'config/publisher.json'), 'utf8')).publication, 'Refined title');
@@ -140,7 +142,7 @@ test('executive forms isolate workers, preserve secrets and route the saved writ
     assert.equal(JSON.parse(readFileSync(join(root,'config/model.json'),'utf8')).provider, 'codex');
     assert.equal(readFileSync(join(root,'config/sources.json'),'utf8'), sourcesBeforeWriter);
     assert.doesNotMatch(readFileSync(join(root,'.env'),'utf8'), /AI_CONTENT_MODEL_(PROVIDER|NAME|BASE_URL)=/);
-    assert.match(readFileSync(join(root,'.env'),'utf8'), /fixture-private-key/);
+    assert.doesNotMatch(readFileSync(join(root,'.env'),'utf8'), /fixture-private-key/);
     assert.equal(existsSync(join(root, 'state/model-calls.jsonl')), false);
     assert.equal(existsSync(join(root, 'state/tokens/google.json')), false);
     await assert.rejects(action('media', { mode: 'hybrid', avatarProvider: 'hedra', voiceProvider: 'kokoro' }), /as part of Pro/);

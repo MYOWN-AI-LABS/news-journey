@@ -89,3 +89,9 @@ Narration, newsletter text and source visual concepts develop independently from
 Prepared editions can assign explicit local research and writing roles while keeping the selected primary for unspecified roles. Draft repairs use the writer; source and prose review use the critic. These tasks share one saved allowance and exact source/settings identity. Local execution requires current model, context and memory checks; no unqualified local critic or implicit hosted fallback is selected. Source extraction preserves paragraph boundaries, and exact sentence alignment helps the reviewer locate claims without granting factual approval. Full model quality and hosted deployment still require their separate acceptance checks.
 
 Direct script and producer paths both obtain prepared source context. Saved video/edition scope controls implicit resume; a video-only job cannot become a newsletter by omitting its original command options. Single-source topics keep their kind and one real reviewed evidence packet across all scenes. Only the completed writer's factual gates may issue the script receipt. Producers and visuals verify its current hashes and protocol; do not mint a receipt from structural validation or accept legacy media as reviewed evidence.
+
+## Grok writer defaults
+
+Grok uses the signed-in Grok Build CLI, including fresh workspaces. Leave its model name blank to select the CLI catalog’s current recommended model; explicit names remain pinned. The model is resolved before dispatch and recorded in runtime identity. Missing CLI/model discovery stops clearly without an API fallback. Clear an old model name in Writer settings to return to automatic selection. API keys and Model URL fields are unavailable for Grok.
+
+Run the offline regression with `node --import tsx --test src/llm/grok.test.ts`. These fixture tests do not establish live account access or model quality; a live connection check requires Grok login and available usage.

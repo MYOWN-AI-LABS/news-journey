@@ -11,7 +11,7 @@ import { atomicJson, contained } from "../workspaces.js";
 import { releaseLock, waitForReleaseLock } from "../release-lock.js";
 import { codexText, codexNativeSchema, configuredCodexModel } from "./codex.js";
 import { opencodeText, validateOpenCodeModel } from "./opencode.js";
-import { grokText } from "./grok.js";
+import { grokText, configuredGrokModel } from "./grok.js";
 import { bedrockText, type BedrockSettings } from './bedrock.js';
 import { hostedRescueAllowance, readRescueBudget, rescueLimit } from "./rescue-state.js";
 import { isLocalRuntime } from "./qualification-state.js";
@@ -44,8 +44,8 @@ export interface ModelConfig {
     codex?: { command?: string; model?: string };
     opencode?: { command?: string; model?: string };
     zai?: HttpProviderConfig;
-    /** HTTP uses baseUrl+model+XAI_API_KEY. Set command to use the logged-in Grok CLI instead (no API key). */
-    grok?: (HttpProviderConfig & { command?: string }) | { command: string; model?: string; baseUrl?: string; reasoningEffort?: HttpProviderConfig["reasoningEffort"]; contextTokens?: number };
+    /** Grok always uses the account-authenticated CLI. baseUrl is tolerated only as legacy saved config. */
+    grok?: { command?: string; model?: string; baseUrl?: string };
     gemini?: HttpProviderConfig;
     /** Google Antigravity's signed-in `agy` CLI (Gemini models); no API key. */
     antigravity?: { command?: string; model?: string; reasoningEffort?: HttpProviderConfig["reasoningEffort"] };
@@ -187,30 +187,17 @@ export function resolveModelRuntime(config: ModelConfig, env: NodeJS.ProcessEnv 
   }
   if (provider === "grok") {
     const grokCfg = config.providers.grok;
-    const command = typeof grokCfg?.command === "string" && grokCfg.command.trim() ? grokCfg.command.trim() : undefined;
-    if (command) {
-      const model = (env.AI_CONTENT_MODEL_NAME || grokCfg?.model || "").trim() || undefined;
-      // Grok Build CLI is slower than Claude/Codex on long factual-review calls.
-      // Treat the generic 300s package default as unset for CLI and raise to 900s; honor any other explicit value or env override.
-      const cliTimeoutMs = env.AI_CONTENT_MODEL_TIMEOUT_SECONDS !== undefined
-        ? timeoutMs
-        : (config.timeoutSeconds === undefined || config.timeoutSeconds === 300)
-          ? 900_000
-          : timeoutMs;
-      return {
-        provider,
-        label: model ? `Grok CLI ${model}` : "Grok CLI",
-        command,
-        model,
-        timeoutMs: cliTimeoutMs,
-      };
-    }
+    const command = grokCfg?.command?.trim() || "grok";
+    if (env.AI_CONTENT_MODEL_BASE_URL) throw new Error("Grok uses its CLI login, not a Model URL. Clear the endpoint override; no API fallback was used.");
+    const model = configuredGrokModel(env.AI_CONTENT_MODEL_NAME || grokCfg?.model, command);
+    const cliTimeoutMs = env.AI_CONTENT_MODEL_TIMEOUT_SECONDS !== undefined
+      ? timeoutMs
+      : (config.timeoutSeconds === undefined || config.timeoutSeconds === 300) ? 900_000 : timeoutMs;
+    return { provider, label: `Grok CLI ${model}`, command, model, timeoutMs: cliTimeoutMs };
   }
 
   const providerConfig = provider === "zai"
     ? config.providers.zai
-    : provider === "grok"
-      ? config.providers.grok
       : provider === "gemini"
         ? config.providers.gemini
     : provider === "ollama"
@@ -218,8 +205,6 @@ export function resolveModelRuntime(config: ModelConfig, env: NodeJS.ProcessEnv 
       : config.providers.openaiCompatible;
   const defaultBaseUrl = provider === "zai"
     ? "https://api.z.ai/api/paas/v4"
-    : provider === "grok"
-      ? "https://api.x.ai/v1"
       : provider === "gemini"
         ? "https://generativelanguage.googleapis.com/v1beta/openai"
     : provider === "ollama"
@@ -234,17 +219,13 @@ export function resolveModelRuntime(config: ModelConfig, env: NodeJS.ProcessEnv 
   if (contextTokens !== undefined && (provider !== "ollama" || !Number.isInteger(contextTokens) || contextTokens < 2048 || contextTokens > 262144)) throw new Error("contextTokens applies to Ollama only and must be a whole number from 2048 to 262144");
   const apiKey = env.AI_CONTENT_MODEL_API_KEY
     || (provider === "zai" ? env.ZAI_API_KEY : undefined)
-    || (provider === "grok" ? env.XAI_API_KEY : undefined)
     || (provider === "gemini" ? env.GEMINI_API_KEY : undefined)
     || (provider === "ollama" ? "ollama" : env.OPENAI_COMPATIBLE_API_KEY);
   if (provider === "zai" && !apiKey) throw new Error("ZAI_API_KEY or AI_CONTENT_MODEL_API_KEY is required for the Z.AI provider");
-  if (provider === "grok" && !apiKey) throw new Error("XAI_API_KEY or AI_CONTENT_MODEL_API_KEY is required for the Grok provider");
   if (provider === "gemini" && !apiKey) throw new Error("GEMINI_API_KEY or AI_CONTENT_MODEL_API_KEY is required for the Gemini provider");
 
   const label = provider === "zai"
     ? `Z.AI ${model}`
-    : provider === "grok"
-      ? `Grok ${model}`
       : provider === "gemini"
         ? `Gemini ${model}`
         : provider === "ollama"

@@ -13,8 +13,6 @@
       "model": "glm-5.1"
     },
     "grok": {
-      "baseUrl": "https://api.x.ai/v1",
-      "model": "grok-4.5",
       "command": "grok"
     },
     "gemini": {
