@@ -1,20 +1,65 @@
-# Content Harness plugin for the Free edition
+# News Journey plugins for Claude Code and Codex
 
-This package includes the Claude Code/Codex plugin, the `content-harness` skill, four commands and a local MCP server. Use it from the extracted harness directory.
+Use the Free MIT AI Content Engine Harness from your coding agent. The plugin reads your publication settings and sources, prepares drafts with your selected writer, and reports the exact job or preview for your review. It cannot approve, publish or send. Publishing remains an owner action in the Journey; Pro services remain unavailable.
 
-Run `node start.mjs` once to install dependencies and create a workspace. Choose the writer and narration in the browser. Then, from this directory, run one of:
+## Prepare your local workspace
+
+Install Node.js 22.13 or newer, clone the public repository, and run the launcher:
+
+```sh
+git clone https://github.com/MYOWN-AI-LABS/news-journey.git
+cd news-journey
+node start.mjs
+```
+
+Complete setup in the browser and note your workspace ID. Keep its credentials, selected writer and voice on your computer. Installation does not qualify a model or generate an edition.
+
+## Install from the GitHub marketplace
+
+In a second terminal, open your `news-journey` checkout and set these variables before launching the agent. These examples use macOS/Linux shell syntax; replace `my-publication` with the existing workspace ID:
+
+```sh
+export CONTENT_HARNESS_ROOT="$PWD"
+export HARNESS_WORKSPACE="my-publication"
+```
+
+Claude Code:
+
+```sh
+claude plugin marketplace add MYOWN-AI-LABS/news-journey
+claude plugin install content-harness@content-harness
+claude
+```
+
+Codex CLI:
+
+```sh
+codex plugin marketplace add MYOWN-AI-LABS/news-journey
+codex plugin add content-harness@content-harness
+codex
+```
+
+Complete the host's own login and trust prompts. In a new session, ask: **“Call harness_status and report my workspace ID.”** Confirm it matches the workspace you selected. A successful installation alone does not prove that connection.
+
+The checkout path is required because marketplace clients cache the plugin separately from the complete harness. `HARNESS_WORKSPACE` defaults to `default` only if that workspace already exists. `HARNESS_IDENTITY_FILE` is optional for operators who moved their local identity file; never paste its contents into chat.
+
+## Use the launcher instead
+
+For a connection bound to one workspace, including Codex desktop use without terminal environment variables:
 
 ```sh
 node connect.mjs claude --workspace my-publication
 node connect.mjs codex --workspace my-publication
 ```
 
-Replace `my-publication` with your workspace ID. The launcher creates a private, member-bound plugin connection. Complete the application's login/trust prompts, then ask it to call `harness_status`. Add `--configure-only` to configure without launching, `--verify` for a real protocol-client check, `--status` to inspect connection evidence, or `--restore` to revoke the connection and restore unchanged harness entries.
+The launcher copies the plugin into private workspace state and binds its MCP command to that workspace. For Codex, open a new app session after installation. `--configure-only` configures without launching, `--verify` checks the protocol, `--status` reads connection evidence, and `--restore` revokes the connection and removes only unchanged harness-owned entries.
 
-The repository plugin entry also supports local self-binding. It finds the harness through `CONTENT_HARNESS_ROOT`, or the checkout containing the plugin, and selects `HARNESS_WORKSPACE` (default `default`). It needs that existing workspace and its local owner identity; it does not ship credentials. A copied plugin outside the harness needs the explicit harness root. Repository-marketplace installation is not yet verified end to end for this Free package.
+## What is included
 
-The agent receives `/content-harness:setup`, `/content-harness:draft`, `/content-harness:status` and `/content-harness:review`. Free tools read setup and sources, prepare a draft with the selected writer, inspect exact jobs/packages and prepare individual LinkedIn drafts. The agent cannot approve, publish or send; publishing stays a person's action in the Journey. Pro tools may appear in the shared tool catalog, but Pro services and premium packs are unavailable; do not describe them as active.
+- A shared `content-harness` skill and four Claude commands: `/content-harness:setup`, `draft`, `status` and `review`.
+- Local MCP tools for setup, sources, draft preparation, exact job/package status and individual LinkedIn drafts.
+- Existing writer and narration choices; no credentials, cloud service, model weights or paid plan bundled.
 
-On the September 14 extracted Free candidate, the plugin entry completed real stdio status calls, repeated binding and revocation checks using the harness's protocol test client. That proves the shipped server path, not every native application's integration or model quality.
+The repository is the distribution marketplace. A listing in Anthropic's community catalog or OpenAI's central directory is a separate review process; these installation commands do not depend on either listing.
 
-See [agent, writer and GPU setup](../../docs/connect-and-voice.md) for Ollama, OpenCode, Hermes, OpenClaw, Grok API, Grok Build and Grok Bot. Original source is [MIT](../../LICENSE).
+See [agent and voice setup](../../docs/connect-and-voice.md). Licensed under [MIT](../../LICENSE).

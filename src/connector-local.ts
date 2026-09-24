@@ -55,9 +55,12 @@ async function configure(root: string, agent: string, token: string, validate: (
     if (host.kind === 'plugin') {
       const marketplace = contained(root, 'state/connectors/native', name), plugin = join(marketplace, 'plugins', 'content-harness');
       mkdirSync(plugin, { recursive: true, mode: 0o700 }); cpSync(join(CODE_ROOT, 'plugins/content-harness'), plugin, { recursive: true });
-      atomicJson(join(plugin, '.mcp.json'), { mcpServers: { [name]: { command: process.execPath, args: cliArgs(c) } } });
+      const mcpServers = { [name]: { command: process.execPath, args: cliArgs(c) } };
+      atomicJson(join(plugin, '.mcp.json'), { mcpServers });
       c.plugin = plugin;
       if (agent === 'codex') {
+        const manifest = join(plugin, '.codex-plugin/plugin.json');
+        atomicJson(manifest, { ...read<Record<string, unknown>>(manifest, {}), mcpServers });
         c.marketplace = name;
         atomicJson(join(marketplace, '.agents/plugins/marketplace.json'), { name, interface: { displayName: 'Content Harness' }, plugins: [{ name: 'content-harness', source: { source: 'local', path: './plugins/content-harness' }, policy: { installation: 'AVAILABLE', authentication: 'ON_USE' }, category: 'Productivity' }] });
       }

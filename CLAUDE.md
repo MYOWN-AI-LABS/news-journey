@@ -1,5 +1,9 @@
 # Free harness contributor instructions
 
+## Plugin distribution
+
+The public marketplace is `MYOWN-AI-LABS/news-journey`; install instructions live in `plugins/content-harness/README.md`. Codex's inline MCP manifest explicitly forwards `CONTENT_HARNESS_ROOT`, `HARNESS_WORKSPACE` and optional `HARNESS_IDENTITY_FILE`: native MCP children otherwise lose the checkout/workspace settings. Preserve those fields and the skill's valid YAML frontmatter. The per-workspace launcher replaces the copied Codex manifest's MCP entry with the same absolute, workspace/connection/generation-bound command written to `.mcp.json`; never leave the unbound marketplace template active alongside it. No credentials belong in either manifest. Verify native marketplace installation and actual tool use separately from protocol checks and content quality. GitHub distribution does not imply an Anthropic/OpenAI directory listing.
+
 Runtime memory is implemented under `src/memory/`; read [the operator guide](docs/publication-memory.md). Local storage is scoped SQLite; PostgreSQL is an injected adapter requiring separate hosted integration. Never use URL/entity overlap, draft files or profile/title discovery as proof of published event identity. Keep complete source revisions/conditions, immutable working context, bounded recalled lessons and the original parent budget. Corrections remain proposed until explicit review, expire, and cannot rewrite tools or publication policy. Memory deletion covers database records only; artifacts and backups have separate retention controls.
 
 This is the Free MIT distribution. Read README.md.

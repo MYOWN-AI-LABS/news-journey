@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync, existsSync } from 'node:fs';
-import { basename, dirname, join, resolve } from 'node:path';
+import { basename, delimiter, dirname, join, resolve } from 'node:path';
 import { homedir, tmpdir } from 'node:os';
 import { once } from 'node:events';
 import { createServer, request as httpRequest } from 'node:http';
@@ -18,6 +18,7 @@ import { createRemoteApp, HarnessOAuth, remoteOrigin } from './connector-remote.
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { releaseProfile } from './release-profile.js';
+import { portableCommand } from './platform.js';
 import { conversationState, realtimeSession } from './connector-voice.js';
 
 const sha = (s: string) => createHash('sha256').update(s).digest('hex');
@@ -302,4 +303,32 @@ test('the repository plugin binds itself on first launch and serves a real harne
     assert.equal(loadConnection(f.root, first.id).proof?.client, 'Plugin fixture');
     await disconnectConnection(f.root, 'claude', owner); assert.throws(() => loadConnection(f.root, first.id), /Unauthorized/);
   } finally { f.cleanup(); }
+});
+
+test('Codex marketplace forwards workspace settings and the launcher binds its copied manifest', async () => {
+  const f = fixture(), bin = mkdtempSync(join(tmpdir(), 'harness-plugin-cli-')), priorPath = process.env.PATH;
+  try {
+    const template = read<any>(join(CODE_ROOT, 'plugins/content-harness/.codex-plugin/plugin.json'), {});
+    assert.deepEqual(template.mcpServers['content-harness'].env_vars, ['CONTENT_HARNESS_ROOT', 'HARNESS_WORKSPACE', 'HARNESS_IDENTITY_FILE']);
+    // Native installation is covered separately; this fixture checks the generated binding without changing a user's Codex settings.
+    writeFileSync(join(bin, 'noop.cjs'), 'process.exit(0);\n');
+    writeFileSync(join(bin, 'codex.cmd'), '@node "%dp0%\\noop.cjs" %*\r\n');
+    assert.equal(portableCommand('codex', [], 'win32', bin).command, process.execPath);
+    if (process.platform !== 'win32') writeFileSync(join(bin, 'codex'), '#!/bin/sh\nexit 0\n', { mode: 0o700 });
+    process.env.PATH = bin + delimiter + (priorPath || '');
+    const c = await configureConnection(f.root, 'codex', owner);
+    const manifest = read<any>(join(c.plugin!, '.codex-plugin/plugin.json'), {});
+    const mcp = read<any>(join(c.plugin!, '.mcp.json'), {});
+    assert.deepEqual(manifest.mcpServers, mcp.mcpServers);
+    assert.equal(manifest.skills, template.skills);
+    assert.equal(Object.keys(manifest.mcpServers).length, 1);
+    const server: any = Object.values(manifest.mcpServers)[0];
+    assert.equal(server.command, process.execPath);
+    assert.deepEqual(server.args, [join(CODE_ROOT, 'connect.mjs'), 'codex', '--workspace', f.workspace, '--connection', c.id, '--generation', c.generation, '--serve']);
+    assert.doesNotMatch(JSON.stringify(manifest), new RegExp(owner));
+    assert.equal((await verifyConnection(f.root, c)).tool, 'harness_status');
+  } finally {
+    if (priorPath === undefined) delete process.env.PATH; else process.env.PATH = priorPath;
+    f.cleanup(); rmSync(bin, { recursive: true, force: true });
+  }
 });

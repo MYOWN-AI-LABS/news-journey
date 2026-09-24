@@ -1,6 +1,6 @@
 {
   "name": "content-harness",
-  "version": "0.2.0",
+  "version": "0.2.1+codex.20260924152120",
   "description": "Free MIT: prepare sourced drafts, inspect local review status and publish to the channels you connect. Pro services are planned.",
   "author": {
     "name": "MyOwnAI Labs"
@@ -17,7 +17,24 @@
     ],
     "defaultPrompt": "Read my Content Harness workspace status and tell me what needs my review."
   },
-  "mcpServers": "./.codex-plugin/mcp.json",
+  "mcpServers": {
+    "content-harness": {
+      "command": "node",
+      "args": [
+        "bin/serve.mjs"
+      ],
+      "cwd": ".",
+      "env_vars": [
+        "CONTENT_HARNESS_ROOT",
+        "HARNESS_WORKSPACE",
+        "HARNESS_IDENTITY_FILE"
+      ],
+      "env": {
+        "CONTENT_HARNESS_AGENT": "codex"
+      }
+    }
+  },
   "homepage": "https://github.com/MYOWN-AI-LABS/news-journey",
-  "repository": "https://github.com/MYOWN-AI-LABS/news-journey"
+  "repository": "https://github.com/MYOWN-AI-LABS/news-journey",
+  "skills": "./skills/"
 }

@@ -37,6 +37,8 @@ Sixteen stages, in order: four stages in one workspace · describe the result yo
 Install [Node.js 22.13 or newer](https://nodejs.org) with npm. Then, in a new directory:
 
 ```sh
+git clone https://github.com/MYOWN-AI-LABS/news-journey.git
+cd news-journey
 node start.mjs
 ```
 
@@ -47,6 +49,8 @@ That installs the declared dependencies and opens your workspace in the browser 
 3. **Create my preview.** In a few minutes you have a newsletter and a narrated video to review, side by side.
 
 Nothing is posted until you choose to publish. Reload the page and it reopens the same result.
+
+**Use your coding agent:** [Install the Claude Code or Codex plugin](plugins/content-harness/README.md) from the public GitHub marketplace. The plugins operate your local workspace and keep publishing under your control.
 
 ## How an edition is built
 
