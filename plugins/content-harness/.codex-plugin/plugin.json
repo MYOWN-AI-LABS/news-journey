@@ -6,7 +6,7 @@
     "name": "MyOwnAI Labs"
   },
   "interface": {
-    "displayName": "Content Harness",
+    "displayName": "News Journey",
     "shortDescription": "Prepare sourced publications for local human review.",
     "longDescription": "Read the workspace setup and sources, prepare a sourced newsletter and video draft, inspect exact jobs and packages, and prepare individual LinkedIn drafts for local review. This Free MIT evaluation cannot approve, publish or send, and Pro services are unavailable.",
     "developerName": "MyOwnAI Labs",
@@ -34,7 +34,7 @@
       }
     }
   },
+  "skills": "./skills/",
   "homepage": "https://github.com/MYOWN-AI-LABS/news-journey",
-  "repository": "https://github.com/MYOWN-AI-LABS/news-journey",
-  "skills": "./skills/"
+  "repository": "https://github.com/MYOWN-AI-LABS/news-journey"
 }
