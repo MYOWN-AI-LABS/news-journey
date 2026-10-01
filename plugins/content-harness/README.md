@@ -60,6 +60,10 @@ The launcher copies the plugin into private workspace state and binds its MCP co
 - Local MCP tools for setup, sources, draft preparation, exact job/package status and individual LinkedIn drafts.
 - Existing writer and narration choices; no credentials, cloud service, model weights or paid plan bundled.
 
+## What this plugin runs and sends
+
+This plugin starts a local MCP server (node bin/serve.mjs) inside your own News Journey checkout. It reads and writes files only in that checkout and its workspace. It sends nothing to MyOwnAI Labs. Network use comes from the harness features you choose: fetching your sources, calling the writer you selected (for example Claude or Codex on your own account), and publishing only to the channels you connect and approve in the local browser.
+
 The repository is the distribution marketplace. A listing in Anthropic's community catalog or OpenAI's central directory is a separate review process; these installation commands do not depend on either listing.
 
 See [agent and voice setup](../../docs/connect-and-voice.md). Licensed under [MIT](../../LICENSE).
