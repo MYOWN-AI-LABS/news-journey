@@ -66,6 +66,6 @@ This plugin starts a local MCP server (node bin/serve.mjs) inside your own News 
 
 The repository is the distribution marketplace. A listing in Anthropic's community catalog or OpenAI's central directory is a separate review process; these installation commands do not depend on either listing.
 
-Privacy: [myownailabs.com/privacy](https://myownailabs.com/privacy).
+Privacy: [myownailabs.com/privacy.html](https://myownailabs.com/privacy.html).
 
 See [agent and voice setup](../../docs/connect-and-voice.md). Licensed under [MIT](../../LICENSE).
