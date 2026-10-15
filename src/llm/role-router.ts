@@ -6,7 +6,7 @@ import { resolve } from 'node:path';
 import { atomicJson, contained, safeId, CODE_ROOT } from '../workspaces.js';
 import { DATA_ROOT } from '../util.js';
 import { releaseLock, waitForReleaseLock } from '../release-lock.js';
-import { modelJson, modelVisionJson, resolveModelRuntime, type ModelConfig, type ModelRuntime, type ModelInvocationHooks, type ModelAttempt } from './model.js';
+import { modelJson, modelVisionJson, resolveModelRuntime, withModelCallContext, type ModelConfig, type ModelRuntime, type ModelInvocationHooks, type ModelAttempt } from './model.js';
 import { isLocalRuntime } from './qualification-state.js';
 import { hasMeasuredModelIdentity, modelIdentityKey, type ModelIdentity } from './model-identity.js';
 import { readLocalModelIdentity, writerCanReadImages } from './local-models.js';
@@ -132,6 +132,8 @@ export interface RoleTaskReceipt<T = unknown> {
   evaluationOnly?: true; evaluationReceiptHash?: string;
 }
 export interface LocalRoleTask<T> {
+  /** Optional task limits can only narrow the original parent allowance. */
+  deadline?: number; maxPhysicalCalls?: number;
   root: string; hostRoot?: string; parentId: string; parentIdentity: string; taskId: string; topicId: string;
   briefHash: string; evidenceHash: string; contractHash: string; role: EditorialRole; capability: RoleCapability;
   /** Only this task's topic data, never a prior conversation or another topic's prose. */
@@ -205,6 +207,7 @@ export async function runLocalRoleTask<T>(task: LocalRoleTask<T>, adapters: Role
   safeId(task.parentId); safeId(task.taskId); safeId(task.topicId); checkLimits(task.policy.limits);
   for (const value of [task.parentIdentity, task.briefHash, task.evidenceHash, task.contractHash]) if (!digest(value)) throw new Error('Local task needs exact parent, brief, evidence and contract identities');
   if (!task.policy.enabled || task.policy.version !== 1) throw new Error('Local editorial roles are not enabled');
+  if (task.deadline !== undefined && !Number.isFinite(task.deadline) || task.maxPhysicalCalls !== undefined && (!Number.isSafeInteger(task.maxPhysicalCalls) || task.maxPhysicalCalls < 1)) throw new Error('Invalid bounded local task limits');
   const packetLimit = task.maxPromptBytes ?? 131072;
   if (!Number.isSafeInteger(packetLimit) || packetLimit < 1 || packetLimit > 131072) throw new Error('Local task packet limit must remain within 128 KiB');
   const images = task.images ? [...task.images] : [];
@@ -224,18 +227,19 @@ export async function runLocalRoleTask<T>(task: LocalRoleTask<T>, adapters: Role
   const releaseBudget = waitForReleaseLock(root, 'local-role-budget');
   let initial: ParentBudget;
   try { initial = budgetRead(parentPath, parentIdentity, task.policy.limits, now()); atomicJson(parentPath, initial); } finally { releaseBudget(); }
+  const deadline = Math.min(initial.deadline, task.deadline ?? initial.deadline);
   return serial(resolve(hostRoot), async () => {
     const unlock = releaseLock(hostRoot, 'local-role-host');
     try {
-      if (now() >= initial.deadline) throw new Error('Local role parent reached its total time ceiling');
+      if (now() >= deadline) throw new Error('Local role parent reached its total time ceiling');
       // A calibration exception is restricted to code-owned synthetic prompts and an
       // explicit critic-check parent. No caller boolean can bypass production admission.
       const calibration = isGeneralCriticCalibrationTask(task);
       const evaluation = privateLocalEvaluation(root, task.parentId, task.primary);
       if (evaluation && (Object.keys(task.policy.roles ?? {}).length || task.policy.candidates?.length)) throw new Error('Private local evaluation permits only its pinned primary model; role overrides and alternative candidates are disabled');
-      const selected = await resolveLocalRoleInternal(root, task.primary, task.policy, task.role, task.capability, task.contractHash, adapters, task.env ?? process.env, initial.deadline, calibration || !!evaluation);
+      const selected = await resolveLocalRoleInternal(root, task.primary, task.policy, task.role, task.capability, task.contractHash, adapters, task.env ?? process.env, deadline, calibration || !!evaluation);
       if (images.length && !await (adapters.canReadImages ?? writerCanReadImages)(selected.runtime)) throw new Error('The selected local model does not advertise image review; no image model was called');
-      const contextOptions = () => ({ timeoutMs: initial.deadline - now(), ...(images.length ? { images } : {}) });
+      const contextOptions = () => ({ timeoutMs: deadline - now(), ...(images.length ? { images } : {}) });
       const initialContext = admitLocalContext(task.prompt, selected.identity, packetLimit, contextOptions());
       const identity = roleHash({ contextAdmissionVersion: LOCAL_CONTEXT_ADMISSION_VERSION, parentIdentity, brief: task.briefHash, evidence: task.evidenceHash, contract: task.contractHash, topic: task.topicId, role: task.role, capability: task.capability, model: modelIdentityKey(selected.identity), prompt: task.prompt, ...(images.length ? { imageHashes } : {}), settings: selected.config, qualified: selected.qualified, ...(evaluation ? { evaluationReceiptHash: evaluation.hash } : {}) });
       const saved = read<RoleTaskReceipt<T> | null>(receiptPath, null);
@@ -247,10 +251,12 @@ export async function runLocalRoleTask<T>(task: LocalRoleTask<T>, adapters: Role
       save();
       let entered = false;
       try {
-        if (now() >= initial.deadline) throw new Error('Local role parent reached its total time ceiling during metadata checks');
-        await adapters.enter?.(selected.runtime, initial.deadline);
+        if (now() >= deadline) throw new Error('Local role parent reached its total time ceiling during metadata checks');
+        await adapters.enter?.(selected.runtime, deadline);
         entered = true;
         const hooks: ModelInvocationHooks = { ...(selected.runtime.provider === 'ollama' ? { outputTokenLimit: 4096 } : {}), beforeAttempt: (attempt, physicalPrompt) => {
+          if (task.maxPhysicalCalls !== undefined && receipt.physicalAttempts >= task.maxPhysicalCalls) throw new Error('Local task exhausted its physical attempt allowance');
+          if (now() >= deadline) throw new Error('Local task reached its bounded deadline');
           if (evaluation && privateLocalEvaluation(root, task.parentId, task.primary)?.hash !== evaluation.hash) throw new Error('Private evaluation settings changed before inference');
           if (attempt.rescue || attempt.provider !== selected.runtime.provider || attempt.model !== selected.runtime.model || attempt.baseUrl !== selected.runtime.baseUrl) throw new Error('Local role transport attempted a different runtime');
           if (calibration && !hasGeneralCriticOutputAudit(attempt)) throw new Error('Critic calibration transport must record the exact requested output schema and mode');
@@ -266,20 +272,20 @@ export async function runLocalRoleTask<T>(task: LocalRoleTask<T>, adapters: Role
           reserveParentModelAttempt({ root, parentId: task.parentId, parentIdentity: task.parentIdentity, limits: task.policy.limits, now }, task.taskId, attempt);
           receipt.physicalAttempts++; save();
         } };
-        const request = { prompt: task.prompt, ...(images.length ? { images: [...images] } : {}), config: selected.config, deadline: initial.deadline, hooks };
-        const value = adapters.invoke ? await adapters.invoke<T>(request, task.validate)
-          : images.length ? await modelVisionJson<T>(task.prompt, images, task.validate, selected.config, {}, initial.deadline, hooks)
-          : await modelJson<T>(task.prompt, task.validate, selected.config, {}, [], true, initial.deadline, hooks);
+        const request = { prompt: task.prompt, ...(images.length ? { images: [...images] } : {}), config: selected.config, deadline: deadline, hooks };
+        const value = await withModelCallContext({ packageId: task.parentId }, async () => adapters.invoke ? await adapters.invoke<T>(request, task.validate)
+          : images.length ? await modelVisionJson<T>(task.prompt, images, task.validate, selected.config, {}, deadline, hooks)
+          : await modelJson<T>(task.prompt, task.validate, selected.config, {}, [], true, deadline, hooks));
         images.forEach((path, i) => { if (imageHash(path) !== imageHashes[i]) throw new Error('Local vision image changed during its model review'); });
         const problem = task.validate(value); if (problem) throw new Error(problem);
-        if (now() >= initial.deadline) throw new Error('Local role result arrived after its parent time ceiling');
+        if (now() >= deadline) throw new Error('Local role result arrived after its parent time ceiling');
         if (!receipt.physicalAttempts) throw new Error('Local role transport returned without reserving an actual attempt');
-        if (entered) { entered = false; await adapters.leave?.(selected.runtime, initial.deadline); }
+        if (entered) { entered = false; await adapters.leave?.(selected.runtime, deadline); }
         receipt.value = value; receipt.valueHash = roleHash(value); receipt.status = 'complete'; receipt.completedAt = now(); save();
         return { value, receipt, reused: false };
       } catch (error) {
         let failure = error as Error;
-        if (entered) { entered = false; try { await adapters.leave?.(selected.runtime, initial.deadline); } catch (cleanup) { failure = new Error(`${failure.message}; local model cleanup also failed: ${(cleanup as Error).message}`); } }
+        if (entered) { entered = false; try { await adapters.leave?.(selected.runtime, deadline); } catch (cleanup) { failure = new Error(`${failure.message}; local model cleanup also failed: ${(cleanup as Error).message}`); } }
         receipt.status = 'failed'; receipt.error = failure.message; receipt.completedAt = now(); save(); throw failure;
       }
     } finally { unlock(); }

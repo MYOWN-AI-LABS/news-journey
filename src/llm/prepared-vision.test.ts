@@ -76,6 +76,28 @@ function fixture(maxPhysicalCalls = 4) {
   return { root, image, bytes, parent, options: { root, parent, primary, policy: null, env: {}, briefHash: roleHash('source briefing') }, close: () => rmSync(root, { recursive: true, force: true }) };
 }
 
+test('image safety uses the selected vision route once, with a 60-second cap inside the original parent', async () => {
+  const f = fixture(); let now = 1_000;
+  f.parent.now = () => now;
+  const task = { ...metadata, taskId: 'image-safety-1-' + 'f'.repeat(64) };
+  try {
+    const call = createPreparedVisionDispatch(f.options, { primary: async (request) => {
+      assert.equal(request.config.providers.openaiCompatible!.model, 'chosen-vision');
+      assert.equal(request.deadline, 61_000);
+      request.hooks.beforeAttempt!(attempt);
+      assert.throws(() => request.hooks.beforeAttempt!({ ...attempt, attempt: 2 }), /one physical model attempt/);
+      return { passed: true } as any;
+    } });
+    await call('Synthetic safety check', [f.image], valid, task);
+    assert.equal(beginParentWork(f.parent).physicalAttempts, 1);
+    const late = createPreparedVisionDispatch(f.options, { primary: async request => {
+      request.hooks.beforeAttempt!(attempt); now = request.deadline + 1; return { passed: true } as any;
+    } });
+    await assert.rejects(late('Late synthetic safety check', [f.image], valid, task), /bounded deadline/);
+    assert.equal(beginParentWork(f.parent).physicalAttempts, 2);
+  } finally { f.close(); }
+});
+
 test('actual production vision transport charges both schema attempts to one parent and sends exact selected image bytes', async () => {
   const f = fixture(), originalFetch = globalThis.fetch, requests: any[] = [];
   try {

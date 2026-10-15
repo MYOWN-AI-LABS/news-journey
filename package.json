@@ -1,6 +1,6 @@
 {
   "name": "news-journey",
-  "version": "0.3.0-beta.6",
+  "version": "0.3.0-beta.7",
   "private": true,
   "type": "module",
   "description": "Review-first content automation harness for sourced newsletters, short video, and explicit multi-channel distribution.",
