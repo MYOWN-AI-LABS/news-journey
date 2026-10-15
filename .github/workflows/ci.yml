@@ -21,6 +21,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Install Playwright browser for image-fit tests
+        run: npx playwright install --with-deps chromium-headless-shell
       - run: npm test
       - run: npm run test:unit
       - run: npm run typecheck

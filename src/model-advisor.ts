@@ -51,7 +51,7 @@ export const runAdvisorTool: AdvisorRunner = async (command, args, timeoutMs) =>
     child.stdout.on('data', data => receive(data)); child.stderr.on('data', data => receive(data, true));
     child.on('error', fail);
     child.on('close', code => { if (settled) return; settled = true; clearTimeout(timer); stop(); code === 0 ? resolve(stdout) : reject(new Error(`Local advisor exited ${code}: ${stderr.slice(-400)}`)); });
-  }); } finally { rmSync(dir, { recursive: true, force: true }); }
+  }); } finally { rmSync(dir, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 }); }
 };
 
 /** Use the reviewed project tool; a same-named arbitrary package on PATH is not provenance. */

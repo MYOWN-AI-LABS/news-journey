@@ -30,8 +30,10 @@ function fakeGrok(scriptBody: string): string {
   const dir = mkdtempSync(join(tmpdir(), 'harness-grok-cli-'));
   fixtureDirs.push(dir);
   if (process.platform === 'win32') {
+    // Windows runs the Node entry of a standard npm-style shim; the configured CLI never goes through cmd.exe.
+    writeFileSync(join(dir, 'grok.js'), scriptBody);
     const cmd = join(dir, 'grok.cmd');
-    writeFileSync(cmd, `@echo off\r\n${scriptBody}\r\n`);
+    writeFileSync(cmd, `@echo off\r\n"${process.execPath}" "%dp0%/grok.js" %*\r\n`);
     return cmd;
   }
   const bin = join(dir, 'grok');
@@ -44,7 +46,7 @@ function terminal(text: string, extra: Record<string, unknown> = {}) {
 }
 function outputCommand(value: unknown): string {
   const raw = JSON.stringify(value);
-  return fakeGrok(process.platform === 'win32' ? `echo ${raw}` : `#!/usr/bin/env node\nprocess.stdout.write(${JSON.stringify(raw)});\n`);
+  return fakeGrok(`#!/usr/bin/env node\nprocess.stdout.write(${JSON.stringify(raw)});\n`);
 }
 function runtime(command: string): ModelRuntime { return { provider: 'grok', label: 'Grok CLI', command, timeoutMs: 10_000 }; }
 async function rejectedReceipt(run: () => Promise<unknown>, expected: RegExp): Promise<{ error: GrokFailure; receipt: any }> {
