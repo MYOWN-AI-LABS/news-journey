@@ -1,4 +1,4 @@
-import { modelJson, modelVisionJson, resolveModelRuntime, type ModelConfig, type ModelInvocationHooks } from './model.js';
+import { modelJson, modelVisionJson, resolveModelRuntime, withModelCallContext, type ModelConfig, type ModelInvocationHooks } from './model.js';
 import { readFileSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { isLocalRuntime } from './qualification-state.js';
@@ -14,6 +14,16 @@ const capabilities: Record<Exclude<PreparedTaskRole, 'media-review'>, RoleCapabi
   research: 'topic-research', 'evidence-select': 'source-evidence-selection', 'evidence-review': 'source-evidence-review',
   'newsletter-draft': 'bounded-prose', 'source-review': 'factual-critique', 'source-repair': 'bounded-prose', script: 'bounded-prose',
 };
+/** Use code-owned task IDs/roles, never prompt text or a topic ID as a package identity. */
+export function preparedCallStage(task: PreparedModelTask): string {
+  const [prefix] = task.taskId.split(':');
+  if (prefix === 'visual' || task.role === 'media-review') return task.role === 'media-review' ? 'media-review' : 'visual';
+  if (task.taskId === 'script-qc' || task.taskId.endsWith(':script-qc')
+    || /(?:^|:)daily-editorial-script-review-/.test(task.taskId)) return 'script-qc';
+  if (task.role === 'newsletter-draft' || /(?:^|:)daily-editorial-newsletter-/.test(task.taskId)) return 'newsletter';
+  if (prefix === 'script' && task.role === 'source-review') return 'script-qc';
+  return ['script', 'newsletter', 'visual'].includes(prefix!) ? prefix! : task.role;
+}
 export interface PreparedDispatchOptions {
   root: string; parent: ParentWorkScope; primary: ModelConfig; policy: RoleRoutingConfig | null;
   briefHash: string; env?: NodeJS.ProcessEnv;
@@ -38,6 +48,7 @@ export function createPreparedRoleDispatch(options: PreparedDispatchOptions, ada
   const localAdapters = adapters.local ?? productionRoleAdapters(options.root);
   return async <T>(prompt: string, validate: (value: T) => string | null, descriptor?: PreparedModelTask): Promise<T> => {
     assertPreparedModelTask(descriptor);
+    return withModelCallContext({ packageId: options.parent.parentId, stage: preparedCallStage(descriptor) }, async () => {
     if (descriptor.role === 'media-review') throw new Error('Media alignment requires the actual-image vision dispatch');
     const outputContract = jsonOutputContract(validate);
     const role = roles[descriptor.role];
@@ -69,6 +80,7 @@ export function createPreparedRoleDispatch(options: PreparedDispatchOptions, ada
     if ((options.parent.now ?? Date.now)() >= parent.deadline) throw new Error('Prepared model result arrived after its original parent deadline');
     const problem = validate(value); if (problem) throw new Error(problem);
     return value;
+    });
   };
 }
 
@@ -89,6 +101,9 @@ export function createPreparedVisionDispatch(options: PreparedDispatchOptions, a
   return async <T>(prompt: string, images: string[], validate: (value: T) => string | null, descriptor?: PreparedModelTask, bounds?: { maxPromptBytes: number }): Promise<T> => {
     images = [...images]; // Caller mutations cannot change a retry's count or ordering.
     assertPreparedModelTask(descriptor);
+    const safetyScreen = /^image-safety-\d+(?:-[a-f0-9]{64})?$/.test(descriptor.taskId);
+    const safetyDeadline = safetyScreen ? (options.parent.now ?? Date.now)() + 60_000 : undefined;
+    return withModelCallContext({ packageId: options.parent.parentId, stage: descriptor.role === 'media-review' ? 'media-review' : 'visual' }, async () => {
     if (!['source-review', 'media-review'].includes(descriptor.role)) throw new Error('Prepared vision requires an explicit source-review or media-review task');
     if (bounds && (Object.keys(bounds).join(',') !== 'maxPromptBytes' || !Number.isSafeInteger(bounds.maxPromptBytes) || bounds.maxPromptBytes < 1 || bounds.maxPromptBytes > 131072 || descriptor.taskId !== 'final-media-review' || descriptor.role !== 'media-review')) throw new Error('Extended vision packet is only available to the bounded approved-script media review');
     const maxPromptBytes = bounds?.maxPromptBytes ?? 24000;
@@ -114,6 +129,7 @@ export function createPreparedVisionDispatch(options: PreparedDispatchOptions, a
         evidenceHash: roleHash({ descriptor, imageHashes }),
         contractHash: roleHash({ protocol: descriptor.protocolHash, capability: descriptor.capability, ...(outputContract ? { outputContractHash: outputContract.hash } : {}) }),
         role: 'critic', capability: 'factual-critique', prompt, images, maxPromptBytes, validate, primary,
+        ...(safetyScreen ? { deadline: safetyDeadline, maxPhysicalCalls: 1 } : {}),
         policy: { version: 1, enabled: true, limits: options.parent.limits }, env }, adapters.local ?? productionRoleAdapters(options.root));
       return result.value;
     }
@@ -121,6 +137,7 @@ export function createPreparedVisionDispatch(options: PreparedDispatchOptions, a
     if (clock() >= parent.deadline) throw new Error('Prepared vision reached its original parent deadline');
     const base = parentModelHooks(options.parent, taskId); let attempts = 0;
     const hooks: ModelInvocationHooks = { beforeAttempt: attempt => {
+      if (safetyScreen && attempts >= 1) throw new Error('Image safety screen allows one physical model attempt');
       if (attempt.rescue || attempt.provider !== runtime.provider || attempt.model !== runtime.model || attempt.baseUrl !== runtime.baseUrl || attempt.region !== runtime.region) throw new Error('Prepared vision attempted an unselected provider or model');
       // The physical request includes the decoder contract and any correction feedback.
       // Checking only the original caller prompt lets a retry exceed the selected context.
@@ -131,10 +148,12 @@ export function createPreparedVisionDispatch(options: PreparedDispatchOptions, a
       images.forEach((path, i) => { if (imageHash(path) !== imageHashes[i]) throw new Error('Prepared vision image changed before its model attempt'); });
       base.beforeAttempt?.(attempt); attempts++;
     } };
-    const value = adapters.primary ? await adapters.primary({ prompt, images: [...images], imageHashes: [...imageHashes], config: primary, env, deadline: parent.deadline, hooks }, validate)
-      : await modelVisionJson(prompt, images, validate, primary, env, parent.deadline, hooks);
+    const deadline = Math.min(parent.deadline, safetyDeadline ?? parent.deadline);
+    const value = adapters.primary ? await adapters.primary({ prompt, images: [...images], imageHashes: [...imageHashes], config: primary, env, deadline, hooks }, validate)
+      : await modelVisionJson(prompt, images, validate, primary, env, deadline, hooks);
     if (!attempts) throw new Error('Prepared vision returned without reserving an actual attempt');
-    if (clock() >= parent.deadline) throw new Error('Prepared vision result arrived after its original parent deadline');
+    if (clock() >= deadline) throw new Error(`Prepared vision result arrived after its ${safetyScreen ? 'bounded' : 'original parent'} deadline`);
     const problem = validate(value); if (problem) throw new Error(problem); return value;
+    });
   };
 }

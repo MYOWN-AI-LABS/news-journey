@@ -1,4 +1,5 @@
 import { registerManagedChild } from '../managed-process.js';
+import { AsyncLocalStorage } from 'node:async_hooks';
 import { watchStage } from '../watchdog-progress.js';
 import { spawn } from "node:child_process";
 import { randomUUID, createHash } from "node:crypto";
@@ -19,10 +20,17 @@ import { assertLocalOllamaAvailable, writerCanReadImages } from "./local-models.
 import JSON5 from 'json5';
 import { jsonOutputContract, type JsonOutputContract } from './json-output-contract.js';
 
+export interface ModelCallContext { packageId?: string; editionId?: string; stage?: string }
+const callContext = new AsyncLocalStorage<ModelCallContext>();
+/** Caller-owned identity follows physical retries, rescue and concurrent tasks without changing prompts. */
+export function withModelCallContext<T>(context: ModelCallContext, action: () => T): T {
+  return callContext.run({ ...callContext.getStore(), ...context }, action);
+}
+
 /** Keep measured provider usage separate from unknown incremental subscription expense. No prompts or answers. */
 function recordCall(runtime: ModelRuntime, started: number, usage: unknown, reportedCost?: number, status?: "timeout"): void {
   mkdirSync(STATE_DIR,{recursive:true});
-  appendFileSync(contained(STATE_DIR,"model-calls.jsonl"),JSON.stringify({at:new Date().toISOString(),provider:runtime.provider,model:runtime.model??"configured CLI model",...(runtime.region ? {region:runtime.region} : {}),durationMs:Date.now()-started,usage:usage??null,reportedCostUsd:reportedCost??null,incrementalChargeUsd:null,...(status?{status}:{})})+"\n");
+  appendFileSync(contained(STATE_DIR,"model-calls.jsonl"),JSON.stringify({at:new Date().toISOString(),...callContext.getStore(),provider:runtime.provider,model:runtime.model??"configured CLI model",...(runtime.region ? {region:runtime.region} : {}),durationMs:Date.now()-started,usage:usage??null,reportedCostUsd:reportedCost??null,incrementalChargeUsd:null,...(status?{status}:{})})+"\n");
 }
 
 export type ModelProvider = "claude" | "codex" | "opencode" | "zai" | "grok" | "gemini" | "antigravity" | "ollama" | "openai-compatible" | "bedrock";
@@ -163,12 +171,15 @@ export function resolveModelRuntime(config: ModelConfig, env: NodeJS.ProcessEnv 
   if (provider === "codex") return { provider, label: "Codex CLI", command: config.providers.codex?.command || "codex", model: configuredCodexModel(env.AI_CONTENT_MODEL_NAME || config.providers.codex?.model), timeoutMs };
   if (provider === "claude") {
     // Like Codex, pin the subscription CLI's saved default so receipts bind an exact model; an explicit pin still wins.
+    // The script stage on the current default model ran 300 s and was cut in a tester run; treat the generic 300 s
+    // package default as unset for the CLI and raise to 900 s like Grok and Antigravity. Any other explicit value or env override wins.
+    const cliTimeoutMs = env.AI_CONTENT_MODEL_TIMEOUT_SECONDS !== undefined ? timeoutMs : (config.timeoutSeconds === undefined || config.timeoutSeconds === 300) ? 900_000 : timeoutMs;
     return {
       provider,
       label: "Claude CLI",
       command: config.providers.claude?.command || "claude",
       model: configuredClaudeModel(env.AI_CONTENT_MODEL_NAME || config.providers.claude?.model, env),
-      timeoutMs,
+      timeoutMs: cliTimeoutMs,
     };
   }
   if (provider === "antigravity") {

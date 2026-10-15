@@ -248,8 +248,8 @@ async function poll(){const s=await (await fetch('/state.json')).json();
  if(!s.editions.length){rails.innerHTML='<div class="card"><h2>No editions configured</h2><div class="sub">Add a file under config/editions/ to see it here.</div></div>';}
  rails.innerHTML=s.editions.map((ed,i)=>{const cur=ed.steps.findIndex(st=>!st.ok);
   const okN=ed.steps.filter(x=>x.ok).length;const pct=okN/ed.steps.length*100;
-  return '<div class="card"><h2>'+esc(ed.label)+'</h2><div class="sub"><span>'+esc(ed.key)+'</span><span class="pill">'+esc(ed.status)+'</span><span class="pill">'+okN+'/'+ed.steps.length+'</span></div><div class="steps"><div class="prog" style="height:'+pct+'%"></div>'
-   +ed.steps.map((st,k)=>'<div class="step '+(st.ok?'ok':(k===cur?'cur':''))+'"><span class="dot"></span><span class="n">'+st.n+'</span><span class="name">'+esc(st.name)+'</span><span class="d">'+esc(st.detail)+'</span></div>').join('')+'</div></div>';
+  return '<div class="card"><h2>'+esc(ed.label)+'</h2><div class="sub"><span>'+esc(ed.key)+'</span><span class="pill">'+esc(ed.status)+'</span><span class="pill">'+Number(okN)+'/'+Number(ed.steps.length)+'</span></div><div class="steps"><div class="prog" style="height:'+(Number(pct)||0)+'%"></div>'
+   +ed.steps.map((st,k)=>'<div class="step '+(st.ok?'ok':(k===cur?'cur':''))+'"><span class="dot"></span><span class="n">'+esc(st.n)+'</span><span class="name">'+esc(st.name)+'</span><span class="d">'+esc(st.detail)+'</span></div>').join('')+'</div></div>';
  }).join('');
  const lines=Object.entries(s.logs).flatMap(([n,l])=>l.slice(-3).map(x=>({n,x})));const latest=lines.map(o=>o.x).filter(x=>x.startsWith('[20')).sort().slice(-1)[0];
  if(latest&&latest!==lastLine){lastLine=latest;document.getElementById('tickline').textContent=latest.slice(latest.indexOf(']')+1).trim()}}

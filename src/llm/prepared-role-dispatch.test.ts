@@ -158,3 +158,16 @@ test('the selected local primary can run the current script factual validator wi
     assert.equal(f.events.at(-1), 'leave:writer:9b');
   } finally { f.close(); }
 });
+
+test('cost stages follow explicit prepared task metadata, including script judgments and visual work', async () => {
+  const { preparedCallStage } = await import('./prepared-role-dispatch.js');
+  for (const [taskId, role, expected] of [
+    ['script:script-complete', 'script', 'script'], ['script:script-qc', 'source-review', 'script-qc'],
+    ['newsletter:daily-editorial-script-review-1', 'source-review', 'script-qc'],
+    ['script:daily-editorial-newsletter-write-1', 'newsletter-draft', 'newsletter'],
+    ['visual:plan', 'script', 'visual'], ['final-media-review', 'media-review', 'media-review'],
+    ['capture', 'evidence-select', 'evidence-select'],
+  ] as const) {
+    assert.equal(preparedCallStage({ ...metadata('script', 'script-draft'), taskId, role }), expected);
+  }
+});

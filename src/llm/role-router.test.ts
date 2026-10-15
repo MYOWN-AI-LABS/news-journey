@@ -58,6 +58,24 @@ test('explicit local roles preserve the primary configuration and ignore stale m
   } finally { f.close(); }
 });
 
+test('local task limits narrow deadline and attempts without changing or refilling the parent', async () => {
+  const f = fixture(); let now = 1000;
+  const scope = { root: f.root, parentId: f.task.parentId, parentIdentity: f.task.parentIdentity, limits: policy.limits, now: () => now };
+  try {
+    const initial = beginParentWork(scope);
+    const adapters = { ...f.adapters, now: () => now, invoke: async <T>(request: any) => {
+      assert.equal(request.deadline, 61_000);
+      const attempt = { provider: 'ollama', model: 'writer:7b', baseUrl: 'http://127.0.0.1:11434/v1', attempt: 1, rescue: false, promptBytes: 100 };
+      request.hooks.beforeAttempt(attempt);
+      assert.throws(() => request.hooks.beforeAttempt(attempt), /physical attempt allowance/);
+      now = 61_001; return { ids: [1] } as T;
+    } };
+    await assert.rejects(runLocalRoleTask({ ...f.task, deadline: 61_000, maxPhysicalCalls: 1 }, adapters), /time ceiling/);
+    const after = beginParentWork(scope);
+    assert.equal(after.deadline, initial.deadline); assert.equal(after.physicalAttempts, 1);
+  } finally { f.close(); }
+});
+
 test('parent ledger preserves requested decoder metadata without changing old attempts or renewing allowances', () => {
   const f = fixture(); try {
     let now = 1000;

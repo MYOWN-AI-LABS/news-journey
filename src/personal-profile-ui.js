@@ -4,6 +4,8 @@
   if (!section) return;
   const panel = document.createElement('details');
   panel.id = 'personalProfilePanel';
+  // N12: this template is a static literal with no interpolation. Never add ${...} here; render
+  // user or server values with textContent / value (as render() below does).
   panel.innerHTML = `<summary>About you &amp; remembered corrections · optional, Free and Pro</summary>
     <p>A little context can make your agents more useful. Skip this and create your preview whenever you are ready.</p>
     <p class="micro-help">Saved for this publication and visible to its owner and administrators. Your current brief always determines topics and places. Do not enter passwords or confidential personal information.</p>

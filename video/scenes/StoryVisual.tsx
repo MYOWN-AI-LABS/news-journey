@@ -3,6 +3,7 @@ import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import type { RenderProps } from "../../src/types";
 import { SCHEMATIC_CSS } from "../../src/pipeline/story-schematic";
 import { DIAGRAM_CSS, ROUGH_FILTER_DEFS, withMotionPackets } from "../../src/pipeline/diagram-style";
+import { sanitizeSvg } from "../../src/pipeline/sanitize-svg";
 import { visualBeat } from "../../src/pipeline/visual-timing";
 import { StoryVisualArt } from "./StoryVisualArt";
 import { resolveTheme, type VideoTheme } from "../theme";
@@ -27,7 +28,7 @@ export const StoryVisual: React.FC<{ seg: RenderProps["segments"][number]; accen
           style={{["--accent" as string]:accent,["--accentRgb" as string]:rgb,["--tm-clock" as string]:`-${frame / fps}s`,width:"100%",height:"100%",display:"grid",alignItems:"center",boxSizing:"border-box",background:"#151c26",borderRadius:20,padding:20}}>
           <style>{SCHEMATIC_CSS + DIAGRAM_CSS + ".tm-story-svg{width:100%;height:100%;display:block}.tm-stage>div:last-child{height:100%;min-height:0}"}</style>
           <div style={{position:"absolute",width:0,height:0}} dangerouslySetInnerHTML={{__html:ROUGH_FILTER_DEFS}}/>
-          <div dangerouslySetInnerHTML={{__html:withMotionPackets(seg.diagram?.svg ?? "")}}/>
+          <div dangerouslySetInnerHTML={{__html:sanitizeSvg(withMotionPackets(seg.diagram?.svg ?? ""))}}/>
         </div>}
     </div>
     <div data-story-status="" style={{position:"absolute",left:64,right:64,top:1335,height:220,fontSize:46,lineHeight:1.12,color:theme.muted}}>{seg.motion?.status}</div>

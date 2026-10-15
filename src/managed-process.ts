@@ -2,6 +2,13 @@ import { spawn, type ChildProcess } from 'node:child_process';
 
 /** Finite operation limits remain active even when the optional Journey watchdog is off. */
 export const MEDIA_PROCESS_LIMITS = { narration: 20 * 60_000, render: 30 * 60_000, transform: 5 * 60_000, frame: 60_000 } as const;
+/** Process cancellation is not a content/asset verdict (also recognises saved legacy errors). */
+export function isProcessInterruption(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  const processError = error as { signal?: string; exitCode?: number; code?: string } | null;
+  return ['SIGTERM', 'SIGINT', 'SIGKILL'].includes(processError?.signal ?? '') || [130, 137, 143].includes(processError?.exitCode ?? 0) || /Worker received SIG(?:TERM|INT|KILL)|subprocess exit (?:SIG(?:TERM|INT|KILL)|130|137|143)\b|Worker is shutting down|Worker interrupted|owned (?:subprocess tree was stopped|worker stopped)|MEDIA_PROCESS_TIMEOUT/i.test(message)
+    || (error as { code?: string } | null)?.code === 'MEDIA_PROCESS_TIMEOUT';
+}
 const TERMINATION_GRACE_MS = 2_000;
 const COMPLETION_GRACE_MS = 1_000;
 type Registration = { child: ChildProcess; detached: boolean; terminationGraceMs?: number; onTerminate?: (reason: Error) => void };
@@ -156,7 +163,11 @@ export function runManagedProcess(command: string, args: string[], options: Mana
       if (failure || error) reject(Object.assign(failure ?? error!, { stdout, stderr })); else resolve({ stdout, stderr, code });
     };
     child.once('error', error => void finish(error));
-    child.once('close', (code, signal) => void finish(code !== null && (code === 0 || options.rejectNonZero === false) ? undefined : new Error(`${options.operation} subprocess exit ${code ?? signal}${stderr.trim() ? `: ${stderr.trim().slice(-1000)}` : ''}`), code ?? 0));
+    child.once('close', (code, signal) => {
+      const failed = code === null || code !== 0 && options.rejectNonZero !== false;
+      if (failed) console.error(`${options.operation} subprocess exit ${code ?? signal}${stderr.trim() ? `: ${stderr.trim().slice(-1000)}` : ''}`);
+      void finish(failed ? Object.assign(new Error(`${options.operation} stopped unexpectedly. Your completed work is saved.`), { exitCode: code, signal }) : undefined, code ?? 0);
+    });
     // Handle abort racing the listener registration without ever accepting its output.
     if (options.signal?.aborted) abort();
   });

@@ -343,6 +343,7 @@ test("model resolver supports all named and generic model providers", () => {
   assert.equal(resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "ollama" }).apiKey, "ollama");
   assert.equal(resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "openai-compatible" }).model, "example-model");
   assert.throws(() => resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "zai" }), /ZAI_API_KEY/);
+  // Even legacy Grok config without a command must use the CLI.
   assert.equal(resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "grok" }).command, "grok");
   const grokCli = resolveModelRuntime({
     ...config,
@@ -363,7 +364,11 @@ test("model resolver supports all named and generic model providers", () => {
     providers: { ...config.providers, grok: { command: "grok", model: "grok-4.5" } },
   }, {});
   assert.equal(grokCliExplicit.timeoutMs, 120_000);
-  // Even legacy Grok config without a command must use the CLI.
+  // Claude CLI: the generic 300 s package default is raised to 900 s like Grok; an explicit value or the env override wins.
+  assert.equal(resolveModelRuntime({ ...config, provider: "claude", timeoutSeconds: 300 }, {}).timeoutMs, 900_000);
+  assert.equal(resolveModelRuntime({ ...config, provider: "claude", timeoutSeconds: 120 }, {}).timeoutMs, 120_000);
+  assert.equal(resolveModelRuntime({ ...config, provider: "claude", timeoutSeconds: 300 }, { AI_CONTENT_MODEL_TIMEOUT_SECONDS: "200" }).timeoutMs, 200_000);
+  // HTTP path still requires a key when command is absent.
 
   assert.throws(() => resolveModelRuntime(config, { AI_CONTENT_MODEL_PROVIDER: "gemini" }), /GEMINI_API_KEY/);
   const local = resolveModelRuntime({ ...config, provider: 'opencode', providers: { opencode: { model: 'ollama/qwen2.5:7b' } } }, {});
@@ -1034,5 +1039,41 @@ test('a hosted provider that does not answer in time is retried once with the sa
     globalThis.fetch = (async (_url: any, init: any) => { physical++; return hang(init); }) as typeof fetch;
     await assert.rejects(modelJson('Pin claims', undefined, settings, { OPENAI_COMPATIBLE_API_KEY: 'fixture' }, [], true), /did not answer within/);
     assert.equal(physical, 2, 'two silences, then the failure is reported');
+  } finally { globalThis.fetch = original; }
+});
+
+test('caller cost attribution survives corrections and concurrent stages without leaking to unknown calls', async () => {
+  const { withModelCallContext } = await import('./model.js');
+  const original = globalThis.fetch;
+  const path = join(testRoot, 'state/model-calls.jsonl');
+  const before = existsSync(path) ? readFileSync(path, 'utf8').trim().split('\n').length : 0;
+  let a = 0;
+  globalThis.fetch = async (_url, init) => {
+    const prompt = JSON.parse(String(init?.body)).messages[0].content;
+    const invalid = prompt.includes('edition-a') && ++a === 1;
+    await Promise.resolve();
+    return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ ok: !invalid }) } }], usage: { prompt_tokens: 2, completion_tokens: 1 } }));
+  };
+  const settings: ModelConfig = { provider: 'openai-compatible', providers: { openaiCompatible: { baseUrl: 'https://fixture.example/v1', model: 'fixture' } } };
+  const call = (prompt: string) => modelJson(prompt, (value: { ok: boolean }) => value.ok ? null : 'need ok', settings, {});
+  const { createPreparedRoleDispatch } = await import('./prepared-role-dispatch.js');
+  const { preparedModelTask } = await import('../pipeline/writing-task.js');
+  const prepared = createPreparedRoleDispatch({ root: testRoot, primary: settings, env: {}, policy: null, briefHash: 'a'.repeat(64),
+    parent: { root: testRoot, parentId: 'edition-b', parentIdentity: 'b'.repeat(64), limits: { totalSeconds: 60, maxPhysicalCalls: 4 } } });
+  try {
+    await Promise.all([
+      withModelCallContext({ packageId: 'edition-a', editionId: 'daily-roundup', stage: 'script' }, () => call('edition-a')),
+      prepared('edition-b', (value: { ok: boolean }) => value.ok ? null : 'need ok', preparedModelTask({
+        role: 'script', capability: 'script-draft', taskId: 'visual:plan', topicIds: ['topic-1'], protocol: 1, evidence: [] })),
+    ]);
+    await withModelCallContext({ packageId: 'edition-a' }, () => withModelCallContext({ stage: 'script-qc' }, () => call('judge')));
+    await call('unknown');
+    const rows = readFileSync(path, 'utf8').trim().split('\n').slice(before).map(line => JSON.parse(line));
+    assert.equal(rows.length, 5);
+    assert.equal(rows.filter(row => row.packageId === 'edition-a' && row.editionId === 'daily-roundup' && row.stage === 'script').length, 2);
+    assert.equal(rows.filter(row => row.packageId === 'edition-b' && row.stage === 'visual').length, 1);
+    assert.equal(rows.at(-2).stage, 'script-qc'); assert.equal(rows.at(-2).packageId, 'edition-a');
+    assert.ok(!('packageId' in rows.at(-1)) && !('stage' in rows.at(-1)) && !('editionId' in rows.at(-1)));
+    assert.ok(rows.every(row => row.reportedCostUsd === null));
   } finally { globalThis.fetch = original; }
 });
