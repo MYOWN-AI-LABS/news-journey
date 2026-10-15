@@ -882,7 +882,7 @@ const fs=require('node:fs'),args=process.argv.slice(2);let prompt='';process.std
  fs.writeFileSync(args[args.indexOf('--output-last-message')+1],JSON.stringify(answer));console.log(JSON.stringify({type:'turn.completed',usage:{}}));
 });`);
   chmodSync(cli, 0o700);
-  writeFileSync(join(dir, 'schema-codex.cmd'), `@echo off\r\n"${process.execPath}" "${cli}" %*\r\n`);
+  writeFileSync(join(dir, 'schema-codex.cmd'), `@echo off\r\n"${process.execPath}" "%dp0%/schema-codex.js" %*\r\n`);
   const settings: ModelConfig = { provider: 'codex', timeoutSeconds: 5, rescue: { enabled: false }, providers: { codex: { command: process.platform === 'win32' ? join(dir, 'schema-codex.cmd') : cli, model: 'schema-fixture' } } };
   const attempts: import('./model.js').ModelAttempt[] = [];
   const { createHash } = await import('node:crypto');
@@ -913,7 +913,7 @@ test('Codex optional-property contracts retain honest prompt-schema mode without
   writeFileSync(cli, `#!/usr/bin/env node
 const fs=require('node:fs'),args=process.argv.slice(2);let prompt='';process.stdin.on('data',d=>prompt+=d);process.stdin.on('end',()=>{
 fs.writeFileSync(${JSON.stringify(audit)},JSON.stringify({args,prompt}));fs.writeFileSync(args[args.indexOf('--output-last-message')+1],'{"kind":"diagram"}');console.log(JSON.stringify({type:'turn.completed',usage:{}}));});`);
-  chmodSync(cli, 0o700); writeFileSync(join(dir, 'optional-codex.cmd'), `@echo off\r\n"${process.execPath}" "${cli}" %*\r\n`);
+  chmodSync(cli, 0o700); writeFileSync(join(dir, 'optional-codex.cmd'), `@echo off\r\n"${process.execPath}" "%dp0%/optional-codex.js" %*\r\n`);
   const settings: ModelConfig = { provider: 'codex', timeoutSeconds: 5, rescue: { enabled: false }, providers: { codex: { command: process.platform === 'win32' ? join(dir, 'optional-codex.cmd') : cli, model: 'optional-schema-fixture' } } };
   const attempts: import('./model.js').ModelAttempt[] = [];
   try {
@@ -942,7 +942,7 @@ const fs=require('node:fs'),args=process.argv.slice(2);let prompt='';process.std
  fs.writeFileSync(args[args.indexOf('--output-last-message')+1],answer);console.log(JSON.stringify({type:'turn.completed',usage:{output_tokens:20}}));
 });`);
   chmodSync(cli, 0o700);
-  writeFileSync(join(dir, 'native-codex.cmd'), `@echo off\r\n"${process.execPath}" "${cli}" %*\r\n`);
+  writeFileSync(join(dir, 'native-codex.cmd'), `@echo off\r\n"${process.execPath}" "%dp0%/native-codex.js" %*\r\n`);
   const settings: ModelConfig = { provider: 'codex', timeoutSeconds: 5, rescue: { enabled: false }, providers: { codex: { command: process.platform === 'win32' ? join(dir, 'native-codex.cmd') : cli, model: 'native-schema-fixture' } } };
   const validate = withJsonOutputContract<typeof valid>(value => value.verdict === 'supported' && value.reviewedStoryIds?.join() === 'story-1' && value.findings?.length === 0 ? null : 'Incomplete reviewed story ownership', schema);
   const attempts: import('./model.js').ModelAttempt[] = [];

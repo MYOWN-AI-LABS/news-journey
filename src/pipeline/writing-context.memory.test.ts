@@ -34,11 +34,12 @@ test('saved package resume retains reviewed and uncertain event packets, expires
       import { mock } from 'node:test';
       import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
       import { join } from 'node:path';
+      import { pathToFileURL } from 'node:url';
       import http from 'node:http'; import https from 'node:https';
       import { syncBuiltinESMExports } from 'node:module';
       const root = process.cwd(), workspace = join(root, 'workspaces', process.env.HARNESS_WORKSPACE);
       let now = Date.now(); Date.now = () => now;
-      const source = new URL('./src/', 'file://' + root + '/');
+      const source = new URL('./src/', pathToFileURL(root + '/'));
       const noNetwork = () => { throw new Error('Real network is forbidden in the memory fixture'); };
       globalThis.fetch = noNetwork; http.request = noNetwork; http.get = noNetwork; https.request = noNetwork; https.get = noNetwork; syncBuiltinESMExports();
       const rich = JSON.parse(readFileSync(join(root, 'examples/fixtures/newsletter-rich-sports-evidence.json'), 'utf8'));

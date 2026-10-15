@@ -1,6 +1,6 @@
 import { execFile, spawnSync } from "node:child_process";
 import { existsSync, realpathSync, readFileSync } from "node:fs";
-import { delimiter, dirname, join } from "node:path";
+import { delimiter, dirname, join, win32 } from "node:path";
 import { fileURLToPath } from "node:url";
 
 /** The starter can install uv privately without changing PATH or requiring a terminal restart. */
@@ -34,6 +34,13 @@ export function portableCommand(
       }
     }
     throw new Error(`Cannot locate the ${command} executable. Reinstall ${command === "claude" ? "Claude Code or select an HTTP model in CONTENT.md" : "Node.js LTS"}.`);
+  }
+  if (targetPlatform === "win32" && /\.(?:cmd|bat)$/i.test(command) && win32.isAbsolute(command)) {
+    // A configured absolute shim path gets the same treatment as a PATH shim: run its Node entry directly.
+    const dir = dirname(command);
+    const entry = existsSync(command) ? readFileSync(command, "utf8").match(/"%dp0%[\\/]([^"\r\n%]+?\.(?:c|m)?js)"/i)?.[1] : undefined;
+    if (entry) { const file = join(dir, ...entry.split(/[\\/]/)); if (existsSync(file)) return { command: process.execPath, args: [realpathSync(file), ...args] }; }
+    throw new Error(`Cannot safely launch ${command}. Configure the native executable or a standard npm shim.`);
   }
   if (targetPlatform === "win32") {
     for (const dir of searchPath.split(";")) {

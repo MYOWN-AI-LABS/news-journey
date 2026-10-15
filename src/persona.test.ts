@@ -58,8 +58,8 @@ test("agent sharing preserves unrelated rules and scopes removal; all writes sta
       const result = sharePersonalProfileToAgents(root, block, ['claude', 'codex']);
       const first = readFileSync(path, 'utf8');
       assert.equal(first.slice(0, old.length), old, 'all existing prefix bytes stay unchanged');
-      assert.equal(statSync(path).mode & 0o777, 0o640, 'existing permissions stay unchanged');
-      assert.equal(statSync(codex).mode & 0o777, 0o600, 'new instruction file is private');
+      if (process.platform !== 'win32') assert.equal(statSync(path).mode & 0o777, 0o640, 'existing permissions stay unchanged');
+      if (process.platform !== 'win32') assert.equal(statSync(codex).mode & 0o777, 0o600, 'new instruction file is private');
       assert.equal(result.written.length, 2); assert.equal(personalProfileTargets(root).find(x => x.id === 'claude').linkedHere, true);
       assert.equal(personalProfileTargets(other).find(x => x.id === 'claude').anotherWorkspace, true);
       sharePersonalProfileToAgents(root, block, ['claude', 'codex']);

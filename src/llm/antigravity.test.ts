@@ -11,12 +11,11 @@ after(() => { for (const dir of fixtureDirs) rmSync(dir, { recursive: true, forc
 /** A stand-in `agy` that records its arguments and prints the given terminal JSON (or misbehaves on request). */
 function fakeAgy(script: string): string {
   const dir = mkdtempSync(join(tmpdir(), 'harness-agy-')); fixtureDirs.push(dir);
-  if (process.platform === 'win32') { const cmd = join(dir, 'agy.cmd'); writeFileSync(cmd, `@echo off\r\n${script}\r\n`); return cmd; }
+  // Windows runs the Node entry of a standard npm-style shim; the configured CLI never goes through cmd.exe.
+  if (process.platform === 'win32') { writeFileSync(join(dir, 'agy.js'), script); const cmd = join(dir, 'agy.cmd'); writeFileSync(cmd, `@echo off\r\n"${process.execPath}" "%dp0%/agy.js" %*\r\n`); return cmd; }
   const bin = join(dir, 'agy'); writeFileSync(bin, script); chmodSync(bin, 0o755); return bin;
 }
-const printing = (value: unknown, extra = '') => fakeAgy(process.platform === 'win32'
-  ? `echo ${JSON.stringify(value)}`
-  : `#!/usr/bin/env node\n${extra}\nprocess.stdout.write(${JSON.stringify(JSON.stringify(value))});\n`);
+const printing = (value: unknown, extra = '') => fakeAgy(`#!/usr/bin/env node\n${extra}\nprocess.stdout.write(${JSON.stringify(JSON.stringify(value))});\n`);
 const runtime = (command: string, extra: Partial<ModelRuntime> = {}): ModelRuntime => ({ provider: 'antigravity', label: 'Antigravity CLI fixture', command, model: 'gemini-3.6-flash-low', timeoutMs: 10_000, ...extra });
 
 describe('Antigravity CLI writer', () => {
@@ -65,7 +64,7 @@ describe('Antigravity CLI writer', () => {
   });
 
   it('stops a CLI that never answers at the deadline', async () => {
-    const cli = fakeAgy(process.platform === 'win32' ? 'timeout /t 30 >nul' : '#!/usr/bin/env node\nsetTimeout(() => {}, 30000);\n');
+    const cli = fakeAgy('#!/usr/bin/env node\nsetTimeout(() => {}, 30000);\n');
     await assert.rejects(antigravityText('Write.', runtime(cli, { timeoutMs: 800 })), /timed out after 0\.8s/);
   });
 });

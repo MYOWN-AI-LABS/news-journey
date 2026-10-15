@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const codeRoot = fileURLToPath(new URL('../../', import.meta.url));
 const now = Date.UTC(2026, 8, 14, 15);
@@ -40,7 +40,7 @@ function fixture() {
   const run = (args: string[], options: { viewer?: boolean; at?: number; fail?: RegExp } = {}) => {
     const env: NodeJS.ProcessEnv = {};
     for (const key of ['PATH', 'SystemRoot', 'WINDIR']) if (process.env[key]) env[key] = process.env[key];
-    const result = spawnSync(process.execPath, ['--import', guard, '--import', 'tsx', 'src/cli.ts', 'memory', ...args], {
+    const result = spawnSync(process.execPath, ['--import', pathToFileURL(guard).href, '--import', 'tsx', 'src/cli.ts', 'memory', ...args], {
       cwd: codeRoot, encoding: 'utf8', timeout: 20000, maxBuffer: 256 * 1024,
       env: { ...env, HOME: root, TMPDIR: join(root, 'tmp'), TMP: join(root, 'tmp'), TEMP: join(root, 'tmp'),
         HARNESS_WORKSPACE: slug, HARNESS_TOKEN: options.viewer ? viewerToken : ownerToken,

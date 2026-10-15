@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { delimiter, join } from "node:path";
+import { basename, delimiter, dirname, join } from "node:path";
 import { opencodeText } from "./opencode.js";
 import { portableCommand } from "../platform.js";
 
@@ -146,7 +146,7 @@ test("OpenCode sends bounded real image attachments to the same verified local m
     assert.deepEqual(a.config.permission, { '*': 'deny' }); assert.deepEqual(a.config.agent.writer.tools, { '*': false });
     assert.deepEqual(a.attachments.map((x: any) => x.hex), bytes.map(value => value.toString('hex')));
     a.attachments.forEach((x: any, i: number) => {
-      assert.ok(x.path.startsWith(a.cwd + '/image-')); assert.equal(a.args.includes(originals[i]), false);
+      assert.equal(dirname(x.path), a.cwd); assert.ok(basename(x.path).startsWith('image-')); assert.equal(a.args.includes(originals[i]), false);
       if (process.platform !== 'win32') assert.equal(x.mode, 0o600);
       assert.equal(existsSync(x.path), false); assert.deepEqual(readFileSync(originals[i]), bytes[i]);
     });

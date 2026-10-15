@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { PostResult, VideoMeta } from '../types.js';
 import { assertAcceptedPlatformMemory, assertNewsletterSubmissionReceipt, newsletterSubmissionBinding, recordAcceptedPlatformMemory } from './publication.js';
@@ -56,7 +56,7 @@ test('even approved unchanged newsletter bytes must name the exact source packag
   const code = fileURLToPath(new URL('../../', import.meta.url));
   mkdirSync(join(code, 'workspaces'), { recursive: true });
   const workspace = mkdtempSync(join(code, 'workspaces/test-newsletter-memory-'));
-  const slug = workspace.split('/').at(-1)!, token = 'b'.repeat(64);
+  const slug = basename(workspace), token = 'b'.repeat(64);
   try {
     writeFileSync(join(workspace, 'workspace.json'), JSON.stringify({ id: slug }));
     writeFileSync(join(workspace, 'members.json'), JSON.stringify([{ id: 'fixture-owner', role: 'owner', tokenHash: sha(token) }]));
